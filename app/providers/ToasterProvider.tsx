@@ -1,6 +1,6 @@
 'use client';
 
-import { Toaster } from 'react-hot'toast;
+import { Toaster } from 'react-hot-toast';
 
 import React from 'react'
 
