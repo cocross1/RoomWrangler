@@ -63,40 +63,33 @@ const LoginModal = () => {
       }, [loginModal, registerModal])
 
     const bodyContent = (
-        <div className="flex flex-col gap-4">
-            <Heading title="Welcome back to Room Wrangler!"
-            subtitle="Login With Davidson Credentials"/>
-        <Input 
-        id="email"
-        label="Email"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-        />
-        <Input 
-        id="password"
-        type="password"
-        label="Password"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-        />
-        </div>
-    )
-    const footerContent = (
-        <div className="flex flex-col gap-4 mt-3">
-            <hr />
-            <Button outline
-            label="Log In with Google" 
-            icon={FcGoogle}
-            onClick={()=>signIn('google')}
+        <div className=" flex flex-col gap-4">
+            <div className="flex justify-center">
+            <Heading  title="Welcome to Room Wrangler!"
             />
+            </div>
+                    <div className="flex flex-col gap-4 mt-3">
+<div className="text-lg px-6 py-3 rounded-lg">
+<Button outline
+label="Log In with Google" 
+icon={FcGoogle}
+onClick={ () => {
+    const result = signIn('google', { redirect: false });
+
+    loginModal.isOpen = false;
+    toast.success('Logged in!');
+       // or your preferred callback URL
+   
+  }}
+/>
+</div>
+</div>
         </div>
     )
+
   return (
     <Modal
+    
     disabled={isLoading}
     isOpen={loginModal.isOpen}
     title="Log In"
@@ -104,7 +97,7 @@ const LoginModal = () => {
     onClose={loginModal.onClose}
     onSubmit={handleSubmit(onSubmit)}
     body={bodyContent}
-    footer={footerContent}/>
+    />
   )
 }
 

@@ -94,9 +94,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
                                   onClick={loginModal.onOpen}
                                   label="Login" />
                           
-                                  <MenuItem
-                                      onClick={registerModal.onOpen}
-                                      label="Sign Up" />
                     </>
                 )}
             </div>
