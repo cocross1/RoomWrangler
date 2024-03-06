@@ -18,6 +18,7 @@ import Input from '../inputs/Input';
 import { toast } from 'react-hot-toast';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
+import Button from '../Button';
 const LoginModal = () => {
     const router = useRouter();
     const registerModal = useRegisterModal();
@@ -51,10 +52,15 @@ const LoginModal = () => {
             }
             if(callback?.error){
                 toast.error(callback.error);
-                
+
             }
         })
     }
+
+    const onToggle = useCallback(() => {
+        loginModal.onClose();
+        registerModal.onOpen();
+      }, [loginModal, registerModal])
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -79,6 +85,16 @@ const LoginModal = () => {
         />
         </div>
     )
+    const footerContent = (
+        <div className="flex flex-col gap-4 mt-3">
+            <hr />
+            <Button outline
+            label="Log In with Google" 
+            icon={FcGoogle}
+            onClick={()=>signIn('google')}
+            />
+        </div>
+    )
   return (
     <Modal
     disabled={isLoading}
@@ -87,7 +103,8 @@ const LoginModal = () => {
     actionLabel="Continue"
     onClose={loginModal.onClose}
     onSubmit={handleSubmit(onSubmit)}
-    body={bodyContent}/>
+    body={bodyContent}
+    footer={footerContent}/>
   )
 }
 
