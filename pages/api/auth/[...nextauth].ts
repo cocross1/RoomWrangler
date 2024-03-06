@@ -21,12 +21,10 @@ export const authOptions: AuthOptions = {
                 password: {label: 'password', type: 'password'},
             },
             async authorize(credentials) {
-                if(credentials?.email || !credentials?.password) {
-                    throw new Error('Invalid credentials');
+                if(!credentials?.email || !credentials?.password) {
+                    throw new Error('Invalid credentials 1');
                 }
-                if (!credentials.email.endsWith("@davidson.edu")) {
-                    throw new Error('Use your Davidson email!');
-                }
+
                 const user = await prisma.user.findUnique({
                     where: {
                         email: credentials.email
@@ -36,13 +34,13 @@ export const authOptions: AuthOptions = {
                 //with google and duo authentication
                 //integration
                 if (!user || !user?.hashedPassword) {
-                    throw new Error('Invalid credentials');
+                    throw new Error('Invalid credentials 2');
                 }
                 const isCorrectPassword = await bcrypt.compare(
                     credentials.password, user.hashedPassword
                 );
                 if(!isCorrectPassword) {
-                    throw new Error('Invalid credentials');
+                    throw new Error('Invalid credentials 3');
                 }
                 return user;
             }

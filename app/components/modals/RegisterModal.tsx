@@ -37,7 +37,7 @@ const RegisterModal = () => {
         axios.post('/api/register', data).then(()=>{
             registerModal.onClose();
         }).catch((error) => {
-            toast.error('Incorrect Email!');
+            toast.error('Use your Davidson Email!');
         }).finally(()=>{
             setIsLoading(false);
         })

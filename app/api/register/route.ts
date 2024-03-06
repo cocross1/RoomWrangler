@@ -7,13 +7,16 @@ export async function POST(
 ) {
     const body = await request.json();
     const {
-        email, name, password
+        email, password
     } = body;
+    if (!email.endsWith("@davidson.edu")) {
+        throw new Error('Use your Davidson email!');
+    }
+
     const hashedPassword = await bcrypt.hash(password, 12);
     const user = await prisma.user.create({
         data: {
             email,
-            name,
             hashedPassword
         }
     });
