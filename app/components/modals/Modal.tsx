@@ -105,7 +105,7 @@ const Modal: React.FC<ModalProps> = ({
                     justify-center
                     relative
                     border-b-[1px]">
-                        <button onClick= {handleClose} className="
+                        {/* <button onClick= {handleClose} className="
                         p-1
                         border-0
                         hover:opacity-70
@@ -113,7 +113,7 @@ const Modal: React.FC<ModalProps> = ({
                         absolute
                         left-9">
                             <IoMdClose size={18}/>
-                        </button>
+                        </button> */}
                         <div className="text-lg font-semibold">
                           {title}
                         </div>
@@ -124,19 +124,7 @@ const Modal: React.FC<ModalProps> = ({
                     </div>
                     {/* FOOTER */}
                     <div className="flex flex-col gap-2 p-6">
-                      <div className="flex flex-row items-center gap-4 w-full">
-                        {secondaryAction && secondaryActionLabel && (
-                          <Button
-                          outline
-                          disabled={disabled} 
-                          label={secondaryActionLabel}
-                          onClick={handleSecondaryAction}/>
-                        )}
-                        <Button 
-                        disabled={disabled} 
-                        label={actionLabel}
-                        onClick={handleSubmit}/>
-                      </div>
+                      {footer}
                     </div>
                 </div>
             </div>

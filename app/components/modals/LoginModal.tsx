@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import { signIn } from 'next-auth/react';
-import {AiFillGithub} from 'react-icons/ai';
+import { signIn, useSession, SessionProvider } from 'next-auth/react';
 import { FcGoogle } from 'react-icons/fc';
 import { useCallback, useState } from 'react';
 import {
@@ -14,15 +13,25 @@ import {
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
-import Input from '../inputs/Input';
 import { toast } from 'react-hot-toast';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
-const LoginModal = () => {
+import Button from '../Button';
+import { SafeUser } from '@/app/types';
+
+
+
+interface LoginModalProps{
+    currentUser?: SafeUser | null;
+  }
+
+const LoginModal: React.FC<LoginModalProps>= ({currentUser}) => {
+
+
     const router = useRouter();
-    const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
+    
     const{
         register,
         handleSubmit,
@@ -36,58 +45,49 @@ const LoginModal = () => {
         }
     })
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        setIsLoading(true);
 
-        signIn('credentials', {
-            ...data,
-            redirect: false,
-        }).then((callback) => {
-            setIsLoading(false);
-            if(callback ?. ok){
-                toast.success('Logged in');
-                router.refresh();
-                loginModal.onClose();
-            }
-            if(callback?.error){
-                toast.error(callback.error);
-                
-            }
-        })
-    }
+    useEffect(() => {
+        if (loginModal.isOpen && currentUser!==null) {
+            loginModal.onClose();
+        }
+        
+    }, [loginModal, currentUser]);
 
+
+    
     const bodyContent = (
-        <div className="flex flex-col gap-4">
-            <Heading title="Welcome back to Room Wrangler!"
-            subtitle="Login With Davidson Credentials"/>
-        <Input 
-        id="email"
-        label="Email"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-        />
-        <Input 
-        id="password"
-        type="password"
-        label="Password"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-        />
+        <div className=" flex flex-col gap-4">
+            <div className="flex justify-center">
+            <Heading  title="Welcome to Room Wrangler!"
+            />
+            </div>
+                    <div className="flex flex-col gap-4 mt-3">
+<div className="text-lg px-6 py-3 rounded-lg">
+<Button outline
+label="Log In with Google" 
+icon={FcGoogle}
+onClick={ () => {
+    const result = signIn('google', { redirect: false });
+       // or your preferred callback URL
+   
+  }}
+/>
+</div>
+</div>
         </div>
     )
+
   return (
     <Modal
+    
     disabled={isLoading}
     isOpen={loginModal.isOpen}
     title="Log In"
     actionLabel="Continue"
     onClose={loginModal.onClose}
-    onSubmit={handleSubmit(onSubmit)}
-    body={bodyContent}/>
+    onSubmit={()=>{}}
+    body={bodyContent}
+    />
   )
 }
 
