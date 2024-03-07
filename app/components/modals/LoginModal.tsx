@@ -62,7 +62,7 @@ const LoginModal: React.FC<LoginModalProps>= ({currentUser}) => {
             />
             </div>
                     <div className="flex flex-col gap-4 mt-3">
-<div className="text-lg px-6 py-3 rounded-lg">
+<div className="text-lg px-6 py-3 rounded-lg ">
 <Button outline
 label="Log In with Google" 
 icon={FcGoogle}

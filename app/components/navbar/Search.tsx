@@ -5,6 +5,7 @@ import { BiSearch } from 'react-icons/bi';
 const Search = () => {
   return (
     <div className="
+    bg-gray-100
     border[1px]
     w-full
     md:w-auto

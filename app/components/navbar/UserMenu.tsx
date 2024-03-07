@@ -41,6 +41,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             </div>
             <div onClick={toggleOpen}
             className="
+            bg-gray-100
             p-4
             md:py-1
             md:px-2
