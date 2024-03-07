@@ -79,11 +79,10 @@ onClick={ () => {
 
   return (
     <Modal
-    
+    allowClose={false}
     disabled={isLoading}
     isOpen={loginModal.isOpen}
     title="Log In"
-    actionLabel="Continue"
     onClose={loginModal.onClose}
     onSubmit={()=>{}}
     body={bodyContent}

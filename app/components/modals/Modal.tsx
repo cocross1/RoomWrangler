@@ -5,19 +5,20 @@ import Button from "../Button";
 
 interface ModalProps{
     isOpen?: boolean;
+    allowClose:boolean;
     onClose: () => void;
     onSubmit: () => void;
     title?: string;
     body?: React.ReactElement;
     footer?: React.ReactElement;
-    actionLabel: string;
+    actionLabel?: string;
     disabled?: boolean;
     secondaryAction?: ()=> void;
     secondaryActionLabel?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
-    isOpen,onClose,onSubmit,title,body,footer,actionLabel,disabled, secondaryAction, secondaryActionLabel
+    isOpen,onClose,allowClose,onSubmit,title,body,footer,actionLabel,disabled, secondaryAction, secondaryActionLabel
 }) => {
     const[showModal, setShowModal] = useState(isOpen);
   useEffect(()=>{
@@ -107,7 +108,7 @@ const Modal: React.FC<ModalProps> = ({
                     justify-center
                     relative
                     border-b-[1px]">
-                        {/* <button onClick= {handleClose} className="
+                     {allowClose &&  (<button onClick= {handleClose} className="
                         p-1
                         border-0
                         hover:opacity-70
@@ -115,7 +116,7 @@ const Modal: React.FC<ModalProps> = ({
                         absolute
                         left-9">
                             <IoMdClose size={18}/>
-                        </button> */}
+                        </button>)}
                         <div className="text-lg font-semibold">
                           {title}
                         </div>
@@ -124,6 +125,13 @@ const Modal: React.FC<ModalProps> = ({
                     <div className="relative p-6 flex-auto">
                       {body}
                     </div>
+                    {actionLabel && (
+                      <Button 
+                      disabled={disabled} 
+                      label={actionLabel} 
+                      onClick={handleSubmit}
+                    />
+                    )}
                     {/* FOOTER */}
                     <div className="flex flex-col gap-2 p-6">
                       {footer}

@@ -50,11 +50,13 @@ model Account {
 model Room {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   number      String
+  category    String[]
   floor       Int
   imageSrc    String?
   whiteboards Int?
   projector   String?
-  chairs      Int?
+  capacity      Int?
+  computers   Int?
   buildingId  String  @unique @db.ObjectId
 
   building     Building      @relation(references: [id], fields: [buildingId], onDelete: Cascade)

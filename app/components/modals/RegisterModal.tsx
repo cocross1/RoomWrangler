@@ -112,6 +112,7 @@ const RegisterModal = () => {
     )
   return (
     <Modal
+    allowClose={false}
     disabled={isLoading}
     isOpen={registerModal.isOpen}
     title="Register"
