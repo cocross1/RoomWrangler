@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Nunito } from "next/font/google";
-import { SessionProvider } from 'next-auth/react';
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
@@ -32,7 +31,7 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-        <LoginModal />
+        <LoginModal currentUser={currentUser}/>
         <RegisterModal  />
         <Navbar currentUser={currentUser} />
         </ClientOnly>

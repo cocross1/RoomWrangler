@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, useSession, SessionProvider } from 'next-auth/react';
 import { FcGoogle } from 'react-icons/fc';
 import { useCallback, useState } from 'react';
 import {
@@ -17,15 +17,21 @@ import { toast } from 'react-hot-toast';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
 import Button from '../Button';
+import { SafeUser } from '@/app/types';
 
-const LoginModal = () => {
 
 
-    
+interface LoginModalProps{
+    currentUser?: SafeUser | null;
+  }
+
+const LoginModal: React.FC<LoginModalProps>= ({currentUser}) => {
+
+
     const router = useRouter();
-    const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
+    
     const{
         register,
         handleSubmit,
@@ -39,31 +45,16 @@ const LoginModal = () => {
         }
     })
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        setIsLoading(true);
 
-        signIn('credentials', {
-            ...data,
-            redirect: false,
-        }).then((callback) => {
-            setIsLoading(false);
-            if(callback ?. ok){
-                toast.success('Logged in');
-                router.refresh();
-                loginModal.onClose();
-            }
-            if(callback?.error){
-                toast.error(callback.error);
+    useEffect(() => {
+        if (loginModal.isOpen && currentUser!==null) {
+            loginModal.onClose();
+        }
+        
+    }, [loginModal, currentUser]);
 
-            }
-        })
-    }
 
-    const onToggle = useCallback(() => {
-        loginModal.onClose();
-        registerModal.onOpen();
-      }, [loginModal, registerModal])
-
+    
     const bodyContent = (
         <div className=" flex flex-col gap-4">
             <div className="flex justify-center">
@@ -77,9 +68,6 @@ label="Log In with Google"
 icon={FcGoogle}
 onClick={ () => {
     const result = signIn('google', { redirect: false });
-
-    loginModal.isOpen = false;
-    toast.success('Logged in!');
        // or your preferred callback URL
    
   }}
@@ -97,7 +85,7 @@ onClick={ () => {
     title="Log In"
     actionLabel="Continue"
     onClose={loginModal.onClose}
-    onSubmit={handleSubmit(onSubmit)}
+    onSubmit={()=>{}}
     body={bodyContent}
     />
   )
