@@ -34,7 +34,7 @@ const RentModal = () => {
             number:'',
             floor: 0,
             imageSrc:'',
-            category:[''],
+            category: [],
             location: null,
             capacity: 1,
             whiteboards: 0,
@@ -44,14 +44,42 @@ const RentModal = () => {
         }
     });
 
-    const category=watch('category');
+    let category=watch('category');
+    
     const setCustomValue = (id: string, value: any) =>{
-
+        
+        if(id==='category'){
+            console.log(value);
+        // Correctly use watch to get the current state of category
+        const currentCategories = watch('category'); // Ensure this is an array
+        
+        const isSelected = currentCategories.includes(value);
+        console.log('here');
+        
+        if (isSelected) {
+            // If already selected, remove it from the array
+            console.log("Removing category: " + value);
+            setValue('category', currentCategories.filter((category: String[]) => category !== value), {
+                shouldDirty: true,
+                shouldTouch: true,
+                shouldValidate: true,
+            });
+        } else {
+            // If not selected, add it to the array
+            console.log("Adding category: " + value);
+            setValue('category', [...currentCategories, value], {
+                shouldDirty: true,
+                shouldTouch: true,
+                shouldValidate: true,
+            });
+        }
+            
+        }else{
         setValue(id, value, {
             shouldDirty: true,
             shouldTouch: true,
             shouldValidate: true,
-        })
+        })}
     }
 
     const onBack = () =>{
@@ -94,7 +122,7 @@ const RentModal = () => {
                     <div key={item.label} className="col-span-1">
                         <CategoryInput 
                         onClick={(category)=> setCustomValue('category', category)}
-                        selected={category=== item.label}
+                        selected={Array.isArray(category) ? category.includes(item.label) : false}
                         label={item.label}
                         icon={item.icon}/>
                     </div>
