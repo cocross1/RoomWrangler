@@ -22,7 +22,7 @@ export async function POST(
     whiteboards,
     computers,
     projector,
-    buildingId
+    buildingName
    } = body;
 
   Object.keys(body).forEach((value: any) => {
@@ -31,7 +31,17 @@ export async function POST(
     }
   });
 
-  const building = await prisma.room.create({
+    // Upsert building based on buildingName
+    const building = await prisma.building.upsert({
+        where: { buildingName: buildingName },
+        update: {}, // No update operation required in this context
+        create: {
+          buildingName: buildingName,
+        }
+      });
+    
+
+  const room = await prisma.room.create({
     data: {
         floor,
         imageSrc,
@@ -40,7 +50,7 @@ export async function POST(
         whiteboards,
         computers,
         projector,
-        buildingId
+        buildingId:building.id
     }
   });
 
