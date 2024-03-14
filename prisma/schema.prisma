@@ -49,7 +49,6 @@ model Account {
 
 model Room {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  number      String
   category    String[]
   floor       Int
   imageSrc    String?

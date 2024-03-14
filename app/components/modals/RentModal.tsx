@@ -6,10 +6,13 @@ import useRentModal from '@/app/hooks/useRentModal';
 import Heading from '../Heading';
 import {categories, buildings} from '../navbar/Categories';
 import CategoryInput from '../inputs/CategoryInput';
-import { FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import BuildingSelect from '../inputs/BuildingSelect';
 import Counter from '../inputs/Counter';
 import ImageUpload from '../inputs/ImageUpload';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 enum STEPS {
     CATEGORY = 0,
@@ -20,9 +23,9 @@ enum STEPS {
 
 const RentModal = () => {
     const rentModal = useRentModal();
-
+    const router = useRouter();
     const [step, setStep] = useState(STEPS.CATEGORY);
-
+    const [isLoading, setIsLoading] = useState(false);
     const{
         register,
         handleSubmit,
@@ -34,11 +37,9 @@ const RentModal = () => {
         reset
     }=useForm<FieldValues>({
         defaultValues:{
-            number:'',
             floor: 0,
             imageSrc:'',
             category: [],
-            location: null,
             capacity: 1,
             whiteboards: 0,
             computers:0,
@@ -98,6 +99,30 @@ const RentModal = () => {
     const onNext=() => {
         setStep((value)=>value+1);
     };
+
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+      if (step !== STEPS.IMAGES) {
+        return onNext();
+      }
+      
+      setIsLoading(true);
+  
+      axios.post('/api/listings', data)
+      .then(() => {
+        toast.success('Listing created!');
+        router.refresh();
+        reset();
+        setStep(STEPS.CATEGORY)
+        rentModal.onClose();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Something went wrong.');
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
+    }
 
     const actionLabel= useMemo(()=>{
         if(step === STEPS.IMAGES){
@@ -232,7 +257,7 @@ const RentModal = () => {
     <Modal
         isOpen = {rentModal.isOpen}
         onClose={rentModal.onClose}
-        onSubmit={onNext}
+        onSubmit={handleSubmit(onSubmit)}
         actionLabel={actionLabel}
         secondaryActionLabel={secondaryActionLabel}
         secondaryAction={step === STEPS.CATEGORY ? undefined: onBack}

@@ -46,6 +46,26 @@ export const authOptions: AuthOptions = {
             }
         })
     ],
+    callbacks: {
+        async signIn({ user, email }) {
+            let userEmail = "";
+      
+            // Ensure userEmail is a string before calling endsWith
+            if (typeof email === 'string') {
+              userEmail = email;
+            } else if (typeof user.email === 'string') {
+              userEmail = user.email;
+            }
+
+            const allowedDomain = "@davidson.edu";
+            
+            if (userEmail && !userEmail.endsWith(allowedDomain)) {
+              // Handle rejection here
+              return false; // Prevents the sign-in
+            }
+      
+            return true; // Proceed with the sign-in
+      }},
     pages: {
         signIn: '/',
     },
