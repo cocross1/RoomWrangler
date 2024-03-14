@@ -4,9 +4,12 @@ import React, { useMemo, useState } from 'react'
 import Modal from "./Modal"
 import useRentModal from '@/app/hooks/useRentModal';
 import Heading from '../Heading';
-import {categories} from '../navbar/Categories';
+import {categories, buildings} from '../navbar/Categories';
 import CategoryInput from '../inputs/CategoryInput';
 import { FieldValues, useForm } from 'react-hook-form';
+import BuildingSelect from '../inputs/BuildingSelect';
+import Counter from '../inputs/Counter';
+import ImageUpload from '../inputs/ImageUpload';
 
 enum STEPS {
     CATEGORY = 0,
@@ -40,12 +43,18 @@ const RentModal = () => {
             whiteboards: 0,
             computers:0,
             projector:0,
-            buildingId: ''
+            buildingId: '',
         }
     });
 
     let category=watch('category');
-    
+    let building = watch('buildingId');
+    let floor = watch('floor');
+    let capacity = watch('capacity');
+    let whiteboards = watch('whiteboards');
+    let computers = watch('computers');
+    let projector = watch('projector'); 
+    let imageSrc= watch('imageSrc');
     const setCustomValue = (id: string, value: any) =>{
         
         if(id==='category'){
@@ -97,12 +106,13 @@ const RentModal = () => {
         return 'Next';
     },[step])
 
-    const secondaryActionLabel = useMemo(() =>{
-        if(step === STEPS.CATEGORY){
-            return undefined;
+    const secondaryActionLabel = useMemo(() => {
+        if (step === STEPS.CATEGORY) {
+          return undefined
         }
-        return 'Back';
-    },[step]);
+    
+        return 'Back'
+      }, [step]);
 
     let bodyContent = (
         <div className="flex flex-col gap-8">
@@ -130,11 +140,99 @@ const RentModal = () => {
             </div>
         </div>
     )
+
+    if (step === STEPS.BUILDING) {
+        bodyContent = (
+          <div className="flex flex-col gap-8">
+            <Heading
+              title="What building is the room in?"
+              subtitle="Choose a building"
+            />
+             <div className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            gap-3
+            max-h-[50vh]
+            overflow-y-auto">
+                {buildings.map((item) => (
+                    <div key={item.label} className="col-span-1">
+                        <CategoryInput 
+                        onClick={(building)=> setCustomValue('buildingId', building)}
+                        selected={building === item.label}
+                        label={item.label}
+                        icon={item.icon}/>
+                    </div>
+                ))}
+            </div>
+          </div>
+        );
+      }
+      if(step === STEPS.INFO){
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+              <Heading
+                title="Enter Room Info"
+              />
+              <Counter 
+                onChange={(value) => setCustomValue('floor', value)}
+                value={floor}
+                title="Floor" 
+                subtitle="What floor is the room on?"
+              />
+              <hr />
+              <Counter 
+                onChange={(value) => setCustomValue('capacity', value)}
+                value={capacity}
+                title="Capacity" 
+                subtitle="What is the capacity of the room?"
+              />
+              <hr />
+              <Counter 
+                onChange={(value) => setCustomValue('whiteboards', value)}
+                value={whiteboards}
+                title="Whiteboards" 
+                subtitle="How many whiteboards does the room have?"
+              />
+            <Counter 
+                onChange={(value) => setCustomValue('computers', value)}
+                value={computers}
+                title="Computers" 
+                subtitle="How many computers does the room have?"
+              />
+
+            <Counter 
+                onChange={(value) => setCustomValue('projector', value)}
+                value={projector}
+                title="Projectors" 
+                subtitle="How many projects does the room have?"
+              />
+            </div>
+          )
+
+
+      }
+
+      if(step === STEPS.IMAGES){
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+              <Heading
+                title="Add a photo of your place"
+                subtitle="Show guests what your place looks like!"
+              />
+              <ImageUpload
+                onChange={(value) => setCustomValue('imageSrc', value)}
+                value={imageSrc}
+              />
+            </div>
+          )
+            
+      }
   return (
     <Modal
         isOpen = {rentModal.isOpen}
         onClose={rentModal.onClose}
-        onSubmit={rentModal.onClose}
+        onSubmit={onNext}
         actionLabel={actionLabel}
         secondaryActionLabel={secondaryActionLabel}
         secondaryAction={step === STEPS.CATEGORY ? undefined: onBack}
@@ -142,6 +240,7 @@ const RentModal = () => {
         allowClose={true}
         body={bodyContent}
     />
+
   );
 }
 

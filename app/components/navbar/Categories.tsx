@@ -26,7 +26,10 @@ export const categories = [
         label: 'Computers',
         icon: FaComputer,
         description: 'Rooms with computers'
-    },
+    }
+]
+
+export const buildings = [
     {
         label: 'Wall',
         icon: FaMicroscope,
