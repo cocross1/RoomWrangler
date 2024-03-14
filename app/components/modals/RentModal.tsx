@@ -44,12 +44,12 @@ const RentModal = () => {
             whiteboards: 0,
             computers:0,
             projector:0,
-            buildingId: '',
+            buildingName: '',
         }
     });
 
     let category=watch('category');
-    let building = watch('buildingId');
+    let building = watch('buildingName');
     let floor = watch('floor');
     let capacity = watch('capacity');
     let whiteboards = watch('whiteboards');
@@ -183,7 +183,7 @@ const RentModal = () => {
                 {buildings.map((item) => (
                     <div key={item.label} className="col-span-1">
                         <CategoryInput 
-                        onClick={(building)=> setCustomValue('buildingId', building)}
+                        onClick={(building)=> setCustomValue('buildingName', building)}
                         selected={building === item.label}
                         label={item.label}
                         icon={item.icon}/>
