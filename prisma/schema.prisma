@@ -56,7 +56,7 @@ model Room {
   projector   Int?
   capacity      Int?
   computers   Int?
-  buildingId  String  @unique @db.ObjectId
+  buildingId  String @db.ObjectId
 
   building     Building      @relation(references: [id], fields: [buildingId], onDelete: Cascade)
   reservations Reservation[]
