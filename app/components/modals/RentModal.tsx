@@ -205,14 +205,12 @@ const RentModal = () => {
                 title="Floor" 
                 subtitle="What floor is the room on?"
               />
-              <hr />
               <Counter 
                 onChange={(value) => setCustomValue('capacity', value)}
                 value={capacity}
                 title="Capacity" 
                 subtitle="What is the capacity of the room?"
               />
-              <hr />
               <Counter 
                 onChange={(value) => setCustomValue('whiteboards', value)}
                 value={whiteboards}
