@@ -15,6 +15,7 @@ export async function POST(
 
   const body = await request.json();
   const { 
+    name,
     floor,
     imageSrc,
     category,
@@ -43,6 +44,7 @@ export async function POST(
 
   const room = await prisma.room.create({
     data: {
+        name,
         floor,
         imageSrc,
         category,

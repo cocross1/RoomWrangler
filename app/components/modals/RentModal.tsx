@@ -13,6 +13,7 @@ import ImageUpload from '../inputs/ImageUpload';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Input from '../inputs/Input';
 
 enum STEPS {
     CATEGORY = 0,
@@ -107,9 +108,9 @@ const RentModal = () => {
       
       setIsLoading(true);
   
-      axios.post('/api/listings', data)
+      axios.post('/api/rooms', data)
       .then(() => {
-        toast.success('Listing created!');
+        toast.success('Room created!');
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY)
@@ -198,6 +199,13 @@ const RentModal = () => {
             <div className="flex flex-col gap-8">
               <Heading
                 title="Enter Room Info"
+              />
+              <Input
+                id="name"
+                label="Name (ex: Building 001)"
+                disabled={isLoading}
+                register={register}
+                errors={errors}
               />
               <Counter 
                 onChange={(value) => setCustomValue('floor', value)}

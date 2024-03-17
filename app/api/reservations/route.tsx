@@ -15,7 +15,6 @@ export async function POST(
 
   const body = await request.json();
   const { 
-    
     roomId,
     startTime,
     endTime,
@@ -29,29 +28,19 @@ export async function POST(
       NextResponse.error();
     }
   });
-
-    // Upsert building based on buildingName
-    const building = await prisma.building.upsert({
-        where: { buildingName: buildingName },
-        update: {}, // No update operation required in this context
-        create: {
-          buildingName: buildingName,
-        }
-      });
     
 
-  const room = await prisma.room.create({
+  const reservation = await prisma.reservation.create({
     data: {
-        floor,
-        imageSrc,
-        category,
-        capacity,
-        whiteboards,
-        computers,
-        projector,
-        buildingId:building.id
+        userId:currentUser.id,
+        roomId,
+        startTime,
+        endTime,
+        name,
+        createdAt,
+        type,
     }
   });
 
-  return NextResponse.json(building);
+  return NextResponse.json(reservation);
 }
