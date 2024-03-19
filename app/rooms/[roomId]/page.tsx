@@ -25,7 +25,6 @@ const RoomPage = async ({params}: {params: IParams}) => {
             <ClientOnly>
                 <RoomClient room={room} currentUser={currentUser}/>
             </ClientOnly>
-            {room.name}
         </div>
     );
 }
