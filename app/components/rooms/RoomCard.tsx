@@ -83,7 +83,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         </div>
         <div className="flex flex-row items-center gap-1">
             {/* i added this part. currently directs you to a 404 error page on clicking the reserve button */}
-          <Button label="Reserve" onClick={reserveModal.onOpen} />
+         Placeholder
         </div>
         {onAction && actionLabel && (
             <Button disabled={disabled} small label={actionLabel} onClick={handleCancel}/>
