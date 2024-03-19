@@ -30,7 +30,7 @@ const RoomClient: React.FC<RoomClientProps> = ({
                     <div className="flex flex-col gap-6">
                         <RoomHead title={room.name} imageSrc={room.imageSrc} id={room.id} currentUser={currentUser}/>
                         <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
-                            <RoomInfo categories={categoryList} projectors={room.projector} whiteboards={room.whiteboards} capacity={room.capacity} floor={room.floor} building={room.buildingId}/>
+                            <RoomInfo projectors={room.projector} whiteboards={room.whiteboards} capacity={room.capacity} floor={room.floor} building={room.buildingId}/>
                         </div>
                     </div>
                 </div>
