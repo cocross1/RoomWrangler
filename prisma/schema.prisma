@@ -52,7 +52,7 @@ model Room {
   name        String
   category    String[]
   floor       Int
-  imageSrc    String?
+  imageSrc    String
   whiteboards Int?
   projector   Int?
   capacity    Int?

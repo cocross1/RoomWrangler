@@ -38,6 +38,7 @@ const RentModal = () => {
         reset
     }=useForm<FieldValues>({
         defaultValues:{
+            name: '',
             floor: 0,
             imageSrc:'',
             category: [],
@@ -49,6 +50,7 @@ const RentModal = () => {
         }
     });
 
+    let name = watch('name');
     let category=watch('category');
     let building = watch('buildingName');
     let floor = watch('floor');
@@ -206,6 +208,7 @@ const RentModal = () => {
                 disabled={isLoading}
                 register={register}
                 errors={errors}
+                required={true}
               />
               <Counter 
                 onChange={(value) => setCustomValue('floor', value)}
