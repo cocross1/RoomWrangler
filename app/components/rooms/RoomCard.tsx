@@ -62,29 +62,29 @@ const RoomCard: React.FC<RoomCardProps> = ({
   return (
     <div
       onClick={() => router.push(`/rooms/${data.id}`)}
-      className="col-span-1 cursor-pointer group"
+      className="flex flex-col gap-2 w-full overflow-hidden rounded-xl cursor-pointer hover:scale-105 transition-transform duration-200"
     >
-      <div className="flex flex-col gap-2 w-full">
-        <div className="aspect-square w-full relative overflow-hidden rounded-xl">
+      <div className="w-full h-full">
+        <div className="w-full relative overflow-hidden rounded-xl">
           {/* we left imageSrc as an optional attribute – need to specify a backup image URL here, if we do want to always render images */}
           <Image
-            fill
+            layout="responsive"
+            width={500}
+            height={500}
             alt="Room"
             src={data.imageSrc}
-            className="object-cover h-full w-full group-hover:scale-110 transition"
+            className="object-cover group-hover:scale-110 transition"
           />
           <div className="absolute top-3 right-3">
             <HeartButton roomId={data.id} currentUser={currentUser} />
           </div>
         </div>
-        <div className="font-semibold text-lg">{data.name}</div>
-        <div className="font-light text-neutral-500">
-          {reservationWindow || data.category}
-        </div>
-        <div className="flex flex-row items-center gap-1">
+        <div className="font-semibold text-lg text-center">{data.name}</div>
+
+        {/* <div className="flex flex-row items-center gap-1"> */}
             {/* i added this part. currently directs you to a 404 error page on clicking the reserve button */}
-         Placeholder
-        </div>
+         {/* Placeholder */}
+        {/* </div> */}
         {onAction && actionLabel && (
             <Button disabled={disabled} small label={actionLabel} onClick={handleCancel}/>
         )}

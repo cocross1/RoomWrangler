@@ -20,14 +20,19 @@ export default async function Home() {
   return (
     <ClientOnly>
       <Container>
-        <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          <div>
+        <div className="mt-40 
+        grid grid-cols-1 
+        sm:grid-cols-2 
+        md:grid-cols-3 
+        lg:grid-cols-4 
+        gap-4">
+
             {rooms.map((room: any) => {
               return (
                 <RoomCard currentUser={currentUser} key={room.id} data={room}/>
               )
             })}
-          </div>
+
         </div>
       </Container>
     </ClientOnly>
