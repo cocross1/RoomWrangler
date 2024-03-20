@@ -36,7 +36,7 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser }) => {
   const loginModal = useLoginModal();
   const reserveModal = useReserveModal();
   const onReserve = useCallback(() => {
-    reserveModal.onOpen();
+    reserveModal.onOpen(room.id);
   }, [reserveModal]);
 
   const [isLoading, setIsLoading] = useState(false);

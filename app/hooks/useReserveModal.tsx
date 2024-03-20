@@ -2,13 +2,16 @@ import { create } from 'zustand';
 
 interface ReserveModalStore{
     isOpen: boolean;
-    onOpen: () => void;
+    onOpen: (roomId: string) => void;
     onClose: () => void;
+    roomId: string
 }
 
 const useReserveModal = create<ReserveModalStore>((set) => ({
     isOpen: false,
-    onOpen: () => set({isOpen: true}),
+    roomId: '',
+    onOpen: (roomID) => set({isOpen: true,
+    roomId: roomID}),
     onClose: () => {set({ isOpen: false})},
 }));
 
