@@ -70,7 +70,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
           <Image
             fill
             alt="Room"
-            src={data.imageSrc || ""}
+            src={data.imageSrc}
             className="object-cover h-full w-full group-hover:scale-110 transition"
           />
           <div className="absolute top-3 right-3">

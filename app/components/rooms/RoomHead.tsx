@@ -9,7 +9,7 @@ import HeartButton from "../HeartButton";
 
 interface RoomHeadProps {
     title: string;
-    imageSrc: string | null;
+    imageSrc: string;
     id: string;
     currentUser?: SafeUser | null;
 }
