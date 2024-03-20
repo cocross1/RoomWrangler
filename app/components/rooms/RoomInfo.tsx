@@ -3,7 +3,7 @@
 import { SafeUser } from "@/app/types";
 
 interface RoomInfoProps {
-  user: SafeUser;
+  // user: SafeUser;
   whiteboards: number | null;
   projectors: number | null;
   capacity: number | null;
@@ -14,7 +14,7 @@ interface RoomInfoProps {
 }
 
 const RoomInfo: React.FC<RoomInfoProps> = ({
-  user,
+  // user,
   whiteboards,
   projectors,
   capacity,
