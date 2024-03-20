@@ -39,7 +39,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
     <div className="relative">
         <div className="flex flex-row items-center gap-3">
         <div onClick={onReserve} className ="
-            hidden
             md:block
             text-sm
             font-semibold
@@ -48,11 +47,11 @@ const UserMenu: React.FC<UserMenuProps> = ({
             rounded-full
             hover: bg-neutral-100
             transition
-            cursor-pointer">
-                Reserve a Room
+            cursor-pointer
+            text-center">
+                Reserve Room
             </div>
             <div onClick={onRent} className ="
-            hidden
             md:block
             text-sm
             font-semibold
@@ -61,8 +60,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
             rounded-full
             hover: bg-neutral-100
             transition
-            cursor-pointer">
-                Upload a Room
+            cursor-pointer
+            text-center">
+                Upload Room
             </div>
             <div onClick={toggleOpen}
             className="

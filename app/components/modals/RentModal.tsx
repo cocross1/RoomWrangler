@@ -105,9 +105,15 @@ const RentModal = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
       if (step !== STEPS.IMAGES) {
+
         return onNext();
       }
       
+      if(imageSrc === ''){
+        toast.error("Please upload an image!")
+        return () => {};
+      }
+
       setIsLoading(true);
   
       axios.post('/api/rooms', data)
