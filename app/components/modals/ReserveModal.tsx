@@ -64,7 +64,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
      data.endTime = formatISO(parseISO(data.endTime), { representation: 'complete' });
 
     axios
-      .post("/api/reservations", reservationData)
+      .post("/api/reservations", data)
       .then(() => {
         toast.success("Reservation created!");
         router.refresh();
