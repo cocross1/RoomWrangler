@@ -30,6 +30,7 @@ interface ReserveModalProps {
 
 const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   const reserveModal = useReserveModal();
+  const roomId = reserveModal.roomId;
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -44,6 +45,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       startTime: "",
       endTime: "",
       name: "",
+      type: "",
     },
   });
 
@@ -93,10 +95,11 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-    console.log("data ", data);
+    console.log('dst type of', typeof data.startTime);
+    const reservationData = {...data, userId: currentUser?.id, roomId: reserveModal.roomId};
 
     axios
-      .post("/api/reservations", data)
+      .post("/api/reservations", reservationData)
       .then(() => {
         toast.success("Reservation created!");
         router.refresh();
@@ -136,6 +139,13 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       <Input
         id="name"
         label="Name (Optional)"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+      />
+      <Input
+        id="type"
+        label="Type (Optional)"
         disabled={isLoading}
         register={register}
         errors={errors}

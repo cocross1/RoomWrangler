@@ -64,13 +64,13 @@ model Room {
 }
 
 model Reservation {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String   @db.ObjectId
-  roomId    String   @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String    @db.ObjectId
+  roomId    String    @db.ObjectId
   startTime DateTime
   endTime   DateTime
-  createdAt DateTime @default(now())
-  type      String
+  createdAt DateTime? @default(now())
+  type      String?
   name      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
