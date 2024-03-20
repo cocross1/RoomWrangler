@@ -17,12 +17,7 @@ import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
 import { Room } from "@prisma/client";
 
-// enum STEPS {
-//     CATEGORY = 0,
-//     BUILDING = 1,
-//     INFO = 2,
-//     IMAGES = 3,
-// }
+
 
 interface ReserveModalProps {
   currentUser?: SafeUser | null;
