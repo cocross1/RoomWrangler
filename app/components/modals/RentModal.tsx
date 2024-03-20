@@ -71,7 +71,6 @@ const RentModal = () => {
         
         if (isSelected) {
             // If already selected, remove it from the array
-            console.log("Removing category: " + value);
             setValue('category', currentCategories.filter((category: String[]) => category !== value), {
                 shouldDirty: true,
                 shouldTouch: true,
@@ -79,7 +78,6 @@ const RentModal = () => {
             });
         } else {
             // If not selected, add it to the array
-            console.log("Adding category: " + value);
             setValue('category', [...currentCategories, value], {
                 shouldDirty: true,
                 shouldTouch: true,

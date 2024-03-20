@@ -94,7 +94,7 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser }) => {
                 whiteboards={room.whiteboards}
                 capacity={room.capacity}
                 floor={room.floor}
-                buildingId={room.buildingId}
+             //   buildingId={room.buildingId}
               />
             </div>
             <Button label="Reserve" onClick={onReserve} />

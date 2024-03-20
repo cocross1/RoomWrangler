@@ -18,13 +18,7 @@ interface InputProps{
 const Input: React.FC<InputProps> = ({id,label,type='text',disabled,formatPrice,register,required,errors}) => {
   return (
     <div className="w-full relative">
-        {formatPrice && (
-            <BiDollar
-            size={24}
-            className="text-neutral-700
-            top-5
-            left-2" />
-        )}
+
         <input id={id} 
         disabled={disabled}
         {... register(id, { required })}
@@ -41,7 +35,6 @@ const Input: React.FC<InputProps> = ({id,label,type='text',disabled,formatPrice,
         transition 
         disabled:opacity-70 
         disabled:cursor-not-allowed 
-        ${formatPrice ? 'pl-9' : 'pl-4'} 
         ${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
         ${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}`}
         />

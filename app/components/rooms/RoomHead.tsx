@@ -25,8 +25,8 @@ const RoomHead: React.FC<RoomHeadProps> = ({
 
     return (
         <div className="mt-20">
-            <Heading title={title} subtitle="Reserve now"/>
-            <div className="w-full h-[60vh] overflow-hidden rounded-xl relative">
+            <Heading title={title}  subtitle="Reserve now"/>
+            <div className="w-full h-[60vh] overflow-hidden rounded-xl relative ">
                 <Image alt="An image of the room." src={imageSrc} fill className="object-cover w-full"/>
                 <div className="absolute top-5 right-5">
                     <HeartButton roomId={id} currentUser={currentUser}/>

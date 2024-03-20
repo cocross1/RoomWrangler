@@ -70,7 +70,7 @@ model Reservation {
   startTime DateTime
   endTime   DateTime
   createdAt DateTime @default(now())
-  type      String
+  type      String?
   name      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)

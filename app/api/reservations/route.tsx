@@ -23,6 +23,9 @@ export async function POST(
     type,
    } = body;
 
+   
+   console.log("Formatted startTime:", body.startTime);
+   console.log("Formatted endTime:", body.endTime);
   Object.keys(body).forEach((value: any) => {
     if (!body[value]) {
       NextResponse.error();

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import { parseISO, formatISO } from 'date-fns';
 import Modal from "./Modal";
 import useReserveModal from "@/app/hooks/useReserveModal";
 import Heading from "../Heading";
@@ -17,12 +18,6 @@ import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
 import { Room } from "@prisma/client";
 
-// enum STEPS {
-//     CATEGORY = 0,
-//     BUILDING = 1,
-//     INFO = 2,
-//     IMAGES = 3,
-// }
 
 interface ReserveModalProps {
   currentUser?: SafeUser | null;
@@ -30,6 +25,7 @@ interface ReserveModalProps {
 
 const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   const reserveModal = useReserveModal();
+  const roomId = reserveModal.roomId;
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -43,57 +39,29 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
     defaultValues: {
       startTime: "",
       endTime: "",
-      name: "",
+      userId: currentUser?.id,
+      roomId: roomId,
+      name: currentUser?.name,
     },
   });
+  //const startTime = watch('startTime');
+  const endTime = watch('endTime');
+  const watchRoomId = watch('roomId');
+  if(roomId != watchRoomId){
+    setValue('roomId', roomId, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    })
+  }
 
-  // let category=watch('category');
-  // let building = watch('buildingName');
-  // let floor = watch('floor');
-  // let capacity = watch('capacity');
-  // let whiteboards = watch('whiteboards');
-  // let computers = watch('computers');
-  // let projector = watch('projector');
-  // let imageSrc= watch('imageSrc');
-  // const setCustomValue = (id: string, value: any) =>{
 
-  //     if(id==='category'){
-  //         console.log(value);
-  //     // Correctly use watch to get the current state of category
-  //     const currentCategories = watch('category'); // Ensure this is an array
-
-  //     const isSelected = currentCategories.includes(value);
-  //     console.log('here');
-
-  //     if (isSelected) {
-  //         // If already selected, remove it from the array
-  //         console.log("Removing category: " + value);
-  //         setValue('category', currentCategories.filter((category: String[]) => category !== value), {
-  //             shouldDirty: true,
-  //             shouldTouch: true,
-  //             shouldValidate: true,
-  //         });
-  //     } else {
-  //         // If not selected, add it to the array
-  //         console.log("Adding category: " + value);
-  //         setValue('category', [...currentCategories, value], {
-  //             shouldDirty: true,
-  //             shouldTouch: true,
-  //             shouldValidate: true,
-  //         });
-  //     }
-
-  //     }else{
-  //     setValue(id, value, {
-  //         shouldDirty: true,
-  //         shouldTouch: true,
-  //         shouldValidate: true,
-  //     })}
-  // }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setIsLoading(true);
-    console.log("data ", data);
+
+     setIsLoading(true);
+     data.startTime = formatISO(parseISO(data.startTime), { representation: 'complete' });
+     data.endTime = formatISO(parseISO(data.endTime), { representation: 'complete' });
 
     axios
       .post("/api/reservations", data)
@@ -110,8 +78,10 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       .finally(() => {
         setIsLoading(false);
       });
-  };
 
+  }
+
+ 
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading title="Enter details about your reservation." />
@@ -133,13 +103,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         errors={errors}
         required
       />
-      <Input
-        id="name"
-        label="Name (Optional)"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-      />
+
     </div>
   );
 
@@ -147,7 +111,8 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
     <Modal
       isOpen={reserveModal.isOpen}
       onClose={reserveModal.onClose}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={
+        handleSubmit(onSubmit)}
       actionLabel="Reserve"
       title="Reserve This Room"
       allowClose={true}
