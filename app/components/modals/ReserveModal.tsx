@@ -25,11 +25,10 @@ import { Room } from "@prisma/client";
 // }
 
 interface ReserveModalProps {
-  room: Room;
   currentUser?: SafeUser | null;
 }
 
-const ReserveModal: React.FC<ReserveModalProps> = ({ room, currentUser }) => {
+const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   const reserveModal = useReserveModal();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
