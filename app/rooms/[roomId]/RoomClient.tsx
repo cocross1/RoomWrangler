@@ -1,7 +1,7 @@
 "use client";
 
 import { SafeUser } from "@/app/types";
-import { Reservation, Room } from "@prisma/client";
+import { Reservation, Room, Building } from "@prisma/client";
 import { useCallback, useMemo, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -25,11 +25,12 @@ const initialReservationWindow = {
 interface RoomClientProps {
   reservations?: Reservation[];
   room: Room;
+  building?: Building;
   currentUser?: SafeUser | null;
   // reservation? = Reservation[];
 }
 
-const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser }) => {
+const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) => {
   // need to update this since we're allowing multiple categories...
   // tried to modify to use .includes but it's complaining. or it was (?)
   const router = useRouter();
@@ -94,7 +95,7 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser }) => {
                 whiteboards={room.whiteboards}
                 capacity={room.capacity}
                 floor={room.floor}
-                buildingId={room.buildingId}
+                building={building}
               />
             </div>
             <Button label="Reserve" onClick={onReserve} />
