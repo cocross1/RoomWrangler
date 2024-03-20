@@ -69,11 +69,7 @@ model Reservation {
   roomId    String    @db.ObjectId
   startTime DateTime
   endTime   DateTime
-<<<<<<< HEAD
   createdAt DateTime @default(now())
-=======
-  createdAt DateTime? @default(now())
->>>>>>> f4bf78b97f075f5ee6db5406f76188db05dfe04f
   type      String?
   name      String?
 
