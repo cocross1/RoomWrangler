@@ -28,12 +28,11 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
     const onRent= useCallback(() => {
         rentModal.onOpen();
-    },[rentModal])
+    },[rentModal]);
   return (
     <div className="relative">
         <div className="flex flex-row items-center gap-3">
             <div onClick={onRent} className ="
-            hidden
             md:block
             text-sm
             font-semibold
@@ -42,8 +41,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
             rounded-full
             hover: bg-neutral-100
             transition
-            cursor-pointer">
-                Create a Reservation
+            cursor-pointer
+            text-center">
+                Upload Room
             </div>
             <div onClick={toggleOpen}
             className="

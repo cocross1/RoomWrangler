@@ -1,9 +1,40 @@
+import getCurrentUser from "./actions/getCurrentUser";
+import getRooms from "./actions/getRooms";
+import ClientOnly from "./components/ClientOnly";
+import Container from "./components/Container";
+import EmptyState from "./components/EmptyState";
+import RoomCard from "./components/rooms/RoomCard";
 
 
-export default function Home() {
+export default async function Home() {
+  const rooms = await getRooms();
+  const currentUser = await getCurrentUser();
+
+  if (rooms.length === 0) {
+    return (
+      <ClientOnly>
+        <EmptyState showReset/>
+      </ClientOnly>
+    )
+  }
   return (
-    <div className='text-blue-500 text-2xl'>
-     Room Wrangler
-    </div>
+    <ClientOnly>
+      <Container>
+        <div className="mt-40 
+        grid grid-cols-1 
+        sm:grid-cols-2 
+        md:grid-cols-3 
+        lg:grid-cols-4 
+        gap-4">
+
+            {rooms.map((room: any) => {
+              return (
+                <RoomCard currentUser={currentUser} key={room.id} data={room}/>
+              )
+            })}
+
+        </div>
+      </Container>
+    </ClientOnly>
   );
 }

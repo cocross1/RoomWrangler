@@ -13,6 +13,7 @@ import ImageUpload from '../inputs/ImageUpload';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Input from '../inputs/Input';
 
 enum STEPS {
     CATEGORY = 0,
@@ -37,6 +38,7 @@ const RentModal = () => {
         reset
     }=useForm<FieldValues>({
         defaultValues:{
+            name: '',
             floor: 0,
             imageSrc:'',
             category: [],
@@ -48,6 +50,7 @@ const RentModal = () => {
         }
     });
 
+    let name = watch('name');
     let category=watch('category');
     let building = watch('buildingName');
     let floor = watch('floor');
@@ -68,7 +71,6 @@ const RentModal = () => {
         
         if (isSelected) {
             // If already selected, remove it from the array
-            console.log("Removing category: " + value);
             setValue('category', currentCategories.filter((category: String[]) => category !== value), {
                 shouldDirty: true,
                 shouldTouch: true,
@@ -76,7 +78,6 @@ const RentModal = () => {
             });
         } else {
             // If not selected, add it to the array
-            console.log("Adding category: " + value);
             setValue('category', [...currentCategories, value], {
                 shouldDirty: true,
                 shouldTouch: true,
@@ -102,14 +103,20 @@ const RentModal = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
       if (step !== STEPS.IMAGES) {
+
         return onNext();
       }
       
+      if(imageSrc === ''){
+        toast.error("Please upload an image!")
+        return () => {};
+      }
+
       setIsLoading(true);
   
-      axios.post('/api/listings', data)
+      axios.post('/api/rooms', data)
       .then(() => {
-        toast.success('Listing created!');
+        toast.success('Room created!');
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY)
@@ -199,20 +206,26 @@ const RentModal = () => {
               <Heading
                 title="Enter Room Info"
               />
+              <Input
+                id="name"
+                label="Name (ex: Building 001)"
+                disabled={isLoading}
+                register={register}
+                errors={errors}
+                required={true}
+              />
               <Counter 
                 onChange={(value) => setCustomValue('floor', value)}
                 value={floor}
                 title="Floor" 
                 subtitle="What floor is the room on?"
               />
-              <hr />
               <Counter 
                 onChange={(value) => setCustomValue('capacity', value)}
                 value={capacity}
                 title="Capacity" 
                 subtitle="What is the capacity of the room?"
               />
-              <hr />
               <Counter 
                 onChange={(value) => setCustomValue('whiteboards', value)}
                 value={whiteboards}

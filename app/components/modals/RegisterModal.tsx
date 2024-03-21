@@ -47,7 +47,7 @@ const RegisterModal = () => {
         axios.post('/api/register', data).then(()=>{
             toast.success('Registered!');
             registerModal.onClose();
-            registerModal.onClose();
+            registerModal.onClose(); // is this sp to be here?
         }).catch((error) => {
             toast.error(error);
         }).finally(()=>{
