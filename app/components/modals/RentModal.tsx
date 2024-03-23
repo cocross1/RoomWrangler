@@ -38,26 +38,26 @@ const RentModal = () => {
         reset
     }=useForm<FieldValues>({
         defaultValues:{
-            name: '',
+            building: '',
+            number: '',
             floor: 0,
             imageSrc:'',
             category: [],
             capacity: 1,
             whiteboards: 0,
             computers:0,
-            projector:0,
-            buildingName: '',
+            projectors:0,
         }
     });
 
-    let name = watch('name');
+    let building = watch('building');
+    let number = watch('number');
     let category=watch('category');
-    let building = watch('buildingName');
     let floor = watch('floor');
     let capacity = watch('capacity');
     let whiteboards = watch('whiteboards');
     let computers = watch('computers');
-    let projector = watch('projector'); 
+    let projectors = watch('projectors'); 
     let imageSrc= watch('imageSrc');
     const setCustomValue = (id: string, value: any) =>{
         
@@ -113,6 +113,9 @@ const RentModal = () => {
       }
 
       setIsLoading(true);
+
+      const buildingAndNumber = `${data.building} ${data.number}`;
+      data.buildingAndNumber = buildingAndNumber;
   
       axios.post('/api/rooms', data)
       .then(() => {
@@ -190,7 +193,7 @@ const RentModal = () => {
                 {buildings.map((item) => (
                     <div key={item.label} className="col-span-1">
                         <CategoryInput 
-                        onClick={(building)=> setCustomValue('buildingName', building)}
+                        onClick={(building)=> setCustomValue('building', building)}
                         selected={building === item.label}
                         label={item.label}
                         icon={item.icon}/>
@@ -207,8 +210,8 @@ const RentModal = () => {
                 title="Enter Room Info"
               />
               <Input
-                id="name"
-                label="Name (ex: Building 001)"
+                id="number"
+                label="Room Number"
                 disabled={isLoading}
                 register={register}
                 errors={errors}
@@ -240,10 +243,10 @@ const RentModal = () => {
               />
 
             <Counter 
-                onChange={(value) => setCustomValue('projector', value)}
-                value={projector}
+                onChange={(value) => setCustomValue('projectors', value)}
+                value={projectors}
                 title="Projectors" 
-                subtitle="How many projects does the room have?"
+                subtitle="How many projectors does the room have?"
               />
             </div>
           )
@@ -255,7 +258,7 @@ const RentModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
               <Heading
-                title="Add a photo of your place"
+                title="Add a photo of the room."
                 subtitle="Show guests what your place looks like!"
               />
               <ImageUpload

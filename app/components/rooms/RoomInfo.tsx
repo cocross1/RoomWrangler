@@ -23,37 +23,20 @@ const RoomInfo: React.FC<RoomInfoProps> = ({
   building,
 }) => {
 
-    let floorText;
-    if (floor == 0) {
-        floorText = 'Basement';
-    }
-     else if (floor == 1) {
-        floorText = '1st Floor'
-    }
-    else if (floor == 2) {
-        floorText = '2nd Floor';
-    }
-    else if (floor == 3) {
-        floorText = '3rd Floor';
-    }
-    else {
-        floorText = floor;
-    }
-
   return (
-  <div className="col-span-4 flex flex-col gap-8">
-    <div className="flex flex-col gap-2">
+    <div className="col-span-4 flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
         <div className="text-xl font-semibold flex flex-row items-center gap-2">
-            <div>Building</div>
-            <div>{floorText}</div>
+          <div>Room Features</div>
         </div>
         <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
-            <div>{whiteboards} whiteboards</div>
-            <div>{projectors} projectors</div>
-            <div>{capacity} capacity</div>
+          <div>Floor: {floor}</div>
+          <div>Whiteboards: {whiteboards}</div>
+          <div>Projectors: {projectors}</div>
+          <div>Capacity: {capacity}</div>
         </div>
+      </div>
     </div>
-  </div>
   );
 };
 
