@@ -70,7 +70,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
           <Image
             layout="responsive"
             width={500}
-            height={500}
+            height={200}
             alt="Room"
             src={data.imageSrc}
             className="object-cover group-hover:scale-110 transition"

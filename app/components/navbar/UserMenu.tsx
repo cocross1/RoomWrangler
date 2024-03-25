@@ -32,6 +32,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
   return (
     <div className="relative">
         <div className="flex flex-row items-center gap-3">
+            {currentUser && (<div className="text-center text-sm">
+                Welcome, {currentUser.name}!
+            </div>)}
             <div onClick={onRent} className ="
             md:block
             text-sm
