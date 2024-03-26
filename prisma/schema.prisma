@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// add ability to support different permissions
 model User {
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
   name           String?
@@ -48,30 +49,31 @@ model Account {
 }
 
 model Room {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  category    String[]
-  floor       Int
-  imageSrc    String
-  whiteboards Int?
-  projector   Int?
-  capacity    Int?
-  computers   Int?
-  buildingId  String   @db.ObjectId
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  buildingId        String @db.ObjectId
+  number            String
+  // prisma doesn't support compound 
+  buildingAndNumber String @unique
+  floor             Int
+  imageSrc          String
+  whiteboards       Int?
+  projectors        Int?
+  capacity          Int?
+  computers         Int?
 
-  building     Building      @relation(references: [id], fields: [buildingId], onDelete: Cascade)
   reservations Reservation[]
+  building     Building      @relation(fields: [buildingId], references: [id], onDelete: Cascade)
 }
 
 model Reservation {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String    @db.ObjectId
-  roomId    String    @db.ObjectId
-  startTime DateTime
-  endTime   DateTime
-  createdAt DateTime @default(now())
-  type      String?
-  name      String?
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  roomId      String   @db.ObjectId
+  startTime   DateTime
+  endTime     DateTime
+  createdAt   DateTime @default(now())
+  type        String
+  displayName String
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
@@ -80,5 +82,5 @@ model Reservation {
 model Building {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   buildingName String @unique
-  rooms        Room[]
+  Room         Room[]
 }

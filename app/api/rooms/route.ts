@@ -13,17 +13,19 @@ export async function POST(
     return NextResponse.error();
   }
 
+  // left category here but it's not actually getting pushed to the database since it's no longer in the schema
   const body = await request.json();
   const { 
-    name,
+    buildingName,
+    number,
+    buildingAndNumber,
     floor,
     imageSrc,
     category,
     capacity,
     whiteboards,
     computers,
-    projector,
-    buildingName
+    projectors,
    } = body;
 
   Object.keys(body).forEach((value: any) => {
@@ -32,27 +34,29 @@ export async function POST(
     }
   });
 
-    // Upsert building based on buildingName
-    const building = await prisma.building.upsert({
-        where: { buildingName: buildingName },
-        update: {}, // No update operation required in this context
-        create: {
-          buildingName: buildingName,
-        }
-      });
+  // Upsert building based on buildingName
+  const building = await prisma.building.upsert({
+    where: { buildingName: buildingName },
+    update: {}, // No update operation required in this context
+    create: {
+      buildingName: buildingName,
+    }
+  });
+
+  const buildingId = building.id;
     
 
   const room = await prisma.room.create({
     data: {
-        name,
+        buildingId,
+        number,
+        buildingAndNumber,
         floor,
         imageSrc,
-        category,
         capacity,
         whiteboards,
         computers,
-        projector,
-        buildingId:building.id
+        projectors,
     }
   });
 

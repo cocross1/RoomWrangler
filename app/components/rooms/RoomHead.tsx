@@ -21,11 +21,10 @@ const RoomHead: React.FC<RoomHeadProps> = ({
 
     // this is very broken i know but it is kinda sorta the rough steps of what we want
     // ... for now
-    // an extra room name appears below the Reserve button haven't been able to figure out where it's coming from yet
-
+    
     return (
         <div className="mt-20">
-            <Heading title={title}  subtitle="Reserve now"/>
+            <Heading title={title}/>
             <div className="w-full h-[60vh] overflow-hidden rounded-xl relative ">
                 <Image alt="An image of the room." src={imageSrc} fill className="object-cover w-full"/>
                 <div className="absolute top-5 right-5">

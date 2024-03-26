@@ -31,11 +31,13 @@ interface RoomClientProps {
 }
 
 const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) => {
+  const buildingAndNumber = `${room.building} ${room.number}`;
   // need to update this since we're allowing multiple categories...
   // tried to modify to use .includes but it's complaining. or it was (?)
   const router = useRouter();
   const loginModal = useLoginModal();
   const reserveModal = useReserveModal();
+
   const onReserve = useCallback(() => {
     reserveModal.onOpen(room.id);
   }, [reserveModal]);
@@ -84,14 +86,14 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) 
         <div className="max-w-screen-lg mx-auto">
           <div className="flex flex-col gap-6">
             <RoomHead
-              title={room.name}
+              title={buildingAndNumber}
               imageSrc={room.imageSrc}
               id={room.id}
               currentUser={currentUser}
             />
             <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
               <RoomInfo
-                projectors={room.projector}
+                projectors={room.projectors}
                 whiteboards={room.whiteboards}
                 capacity={room.capacity}
                 floor={room.floor}

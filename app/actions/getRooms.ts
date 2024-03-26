@@ -3,9 +3,14 @@ import prisma from "@/app/libs/prismadb";
 export default async function getRooms() {
     try {
         const rooms = await prisma.room.findMany({
-            orderBy: {
-                name: 'desc'
-            }
+            orderBy: [
+                {
+                    buildingAndNumber: 'asc',
+                },
+                {
+                    number: 'asc',
+                }
+        ],
         });
         return rooms;
         // note!! Don't directly pass data from a server component to a client component (ex. RoomCard), 
