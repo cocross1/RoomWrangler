@@ -33,12 +33,22 @@ export async function POST(
       NextResponse.error();
     }
   });
+
+  // Upsert building based on buildingName
+  const building = await prisma.building.upsert({
+    where: { buildingName: buildingName },
+    update: {}, // No update operation required in this context
+    create: {
+      buildingName: buildingName,
+    }
+  });
     
 
   const room = await prisma.room.create({
     data: {
         building,
         number,
+        buildingName,
         buildingAndNumber,
         floor,
         imageSrc,
@@ -49,5 +59,5 @@ export async function POST(
     }
   });
 
-  return NextResponse.json(room);
+  return NextResponse.json(building);
 }

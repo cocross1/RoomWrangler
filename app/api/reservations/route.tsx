@@ -18,7 +18,7 @@ export async function POST(
     roomId,
     startTime,
     endTime,
-    name,
+    displayName,
     createdAt,
     type,
    } = body;
@@ -39,7 +39,7 @@ export async function POST(
         roomId,
         startTime,
         endTime,
-        name,
+        displayName,
         createdAt,
         type,
     }
