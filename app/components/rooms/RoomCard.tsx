@@ -75,11 +75,11 @@ const RoomCard: React.FC<RoomCardProps> = ({
             src={data.imageSrc}
             className="object-cover group-hover:scale-110 transition"
           />
-          <div className="absolute top-3 right-3">
+          {/* <div className="absolute top-3 right-3">
             <HeartButton roomId={data.id} currentUser={currentUser} />
-          </div>
+          </div> */}
         </div>
-        <div className="font-semibold text-lg text-center">{data.building} {data.number}</div>
+        <div className="font-semibold text-lg text-center">{data.buildingAndNumber}</div>
 
         {/* <div className="flex flex-row items-center gap-1"> */}
             {/* i added this part. currently directs you to a 404 error page on clicking the reserve button */}

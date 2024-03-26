@@ -31,7 +31,7 @@ interface RoomClientProps {
 }
 
 const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) => {
-  const buildingAndNumber = `${room.building} ${room.number}`;
+  const buildingAndNumber = `${room.buildingAndNumber} ${room.number}`;
   // need to update this since we're allowing multiple categories...
   // tried to modify to use .includes but it's complaining. or it was (?)
   const router = useRouter();
