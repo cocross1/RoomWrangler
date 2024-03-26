@@ -51,7 +51,6 @@ model Account {
 model Room {
   id                String @id @default(auto()) @map("_id") @db.ObjectId
   buildingId        String @db.ObjectId
-  building          String
   number            String
   // prisma doesn't support compound 
   buildingAndNumber String @unique

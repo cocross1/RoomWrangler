@@ -16,7 +16,7 @@ export async function POST(
   // left category here but it's not actually getting pushed to the database since it's no longer in the schema
   const body = await request.json();
   const { 
-    building,
+    buildingName,
     number,
     buildingAndNumber,
     floor,
@@ -42,13 +42,14 @@ export async function POST(
       buildingName: buildingName,
     }
   });
+
+  const buildingId = building.id;
     
 
   const room = await prisma.room.create({
     data: {
-        building,
+        buildingId,
         number,
-        buildingName,
         buildingAndNumber,
         floor,
         imageSrc,
