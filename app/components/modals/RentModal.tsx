@@ -38,7 +38,7 @@ const RentModal = () => {
         reset
     }=useForm<FieldValues>({
         defaultValues:{
-            building: '',
+            buildingName: '',
             number: '',
             floor: 0,
             imageSrc:'',
