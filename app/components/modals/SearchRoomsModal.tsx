@@ -57,10 +57,10 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
  
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading title="Enter details about your reservation." />
+      <Heading title="When do you want to reserve a room?" />
       <Input
         id="startTime"
-        label="Start Time"
+        label="Reservation Start Time"
         type="datetime-local"
         disabled={isLoading}
         register={register}
@@ -69,7 +69,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
       />
       <Input
         id="endTime"
-        label="End Time"
+        label="Reservation End Time"
         type="datetime-local"
         disabled={isLoading}
         register={register}
@@ -82,16 +82,16 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
   return (
     <Modal
-      isOpen={reserveModal.isOpen}
-      onClose={reserveModal.onClose}
+      isOpen={searchRoomsModal.isOpen}
+      onClose={searchRoomsModal.onClose}
       onSubmit={
         handleSubmit(onSubmit)}
-      actionLabel="Reserve"
-      title="Reserve This Room"
+      actionLabel="Search"
+      title="Search For Available Rooms"
       allowClose={true}
       body={bodyContent}
     />
   );
 };
 
-export default ReserveModal;
+export default SearchRoomsModal;

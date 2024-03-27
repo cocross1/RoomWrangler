@@ -1,14 +1,23 @@
+import { useCallback } from "react";
 import getCurrentUser from "./actions/getCurrentUser";
 import getRooms from "./actions/getRooms";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import RoomCard from "./components/rooms/RoomCard";
+import useSearchRoomsModal from "./hooks/useSearchRoomsModal";
 
 
 export default async function Home() {
   const rooms = await getRooms();
   const currentUser = await getCurrentUser();
+
+  const searchRoomsModal = useSearchRoomsModal();
+  const onSearchRooms = useCallback(() => {
+    searchRoomsModal.onOpen();
+  }, [searchRoomsModal]);
+
+  
 
   if (rooms.length === 0) {
     return (

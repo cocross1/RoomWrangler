@@ -66,7 +66,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
     >
       <div className="w-full h-full">
         <div className="w-full relative overflow-hidden rounded-xl">
-          {/* we left imageSrc as an optional attribute – need to specify a backup image URL here, if we do want to always render images */}
           <Image
             layout="responsive"
             width={500}
@@ -80,11 +79,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
           </div> */}
         </div>
         <div className="font-semibold text-lg text-center">{data.buildingAndNumber}</div>
-
-        {/* <div className="flex flex-row items-center gap-1"> */}
-            {/* i added this part. currently directs you to a 404 error page on clicking the reserve button */}
-         {/* Placeholder */}
-        {/* </div> */}
         {onAction && actionLabel && (
             <Button disabled={disabled} small label={actionLabel} onClick={handleCancel}/>
         )}
