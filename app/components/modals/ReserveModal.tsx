@@ -13,7 +13,7 @@ import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
 import { Room } from "@prisma/client";
@@ -26,7 +26,7 @@ interface ReserveModalProps {
 const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   const reserveModal = useReserveModal();
   const roomId = reserveModal.roomId;
-  const router = useRouter();
+  //const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -39,11 +39,13 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
     defaultValues: {
       startTime: "",
       endTime: "",
+      type:"",
       userId: currentUser?.id,
       roomId: roomId,
-      name: currentUser?.name,
+      displayName: currentUser?.name,
     },
   });
+  let type = watch('type');
   //const startTime = watch('startTime');
   const endTime = watch('endTime');
   const watchRoomId = watch('roomId');
@@ -67,9 +69,9 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       .post("/api/reservations", data)
       .then(() => {
         toast.success("Reservation created!");
-        router.refresh();
         reset();
         reserveModal.onClose();
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
@@ -102,6 +104,14 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         register={register}
         errors={errors}
         required
+      />
+      <Input 
+        id="type"
+        label="Enter Reservation Type"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required={true}
       />
 
     </div>

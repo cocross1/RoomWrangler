@@ -5,6 +5,7 @@ import Button from "@/app/components/Button";
 import ClientOnly from "@/app/components/ClientOnly";
 import EmptyState from "@/app/components/EmptyState";
 import RoomClient from "./RoomClient";
+import getReservationsByRoomId from "@/app/actions/getReservationsByRoomId";
 
 interface IParams {
     roomId?: string;
@@ -14,6 +15,8 @@ interface IParams {
 const RoomPage = async ({params}: {params: IParams}) => {
     const currentUser = await getCurrentUser();
     const room = await getRoomById(params);
+    const reservations = await getReservationsByRoomId({ roomId: room ? room.id : undefined });
+    console.log("here : " + reservations + room)
    // const building = await getBuildingById(params);
     if (!room) {
         return (
@@ -25,7 +28,7 @@ const RoomPage = async ({params}: {params: IParams}) => {
     return (
         <div>
             <ClientOnly>
-                <RoomClient room={room} currentUser={currentUser} />
+                <RoomClient reservations={reservations ? reservations : undefined} room={room} currentUser={currentUser} />
             </ClientOnly>
         </div>
     );

@@ -1,17 +1,22 @@
+import { Reservation, Room } from '@prisma/client';
 import { create } from 'zustand';
+import getRoomById from '../actions/getRoomById';
 
 interface ReserveModalStore{
     isOpen: boolean;
-    onOpen: (roomId: string) => void;
+    onOpen: (roomId: string, reservations:Reservation[]) => void;
     onClose: () => void;
-    roomId: string
+    roomId: string;
+    reservations:Reservation[];
 }
 
 const useReserveModal = create<ReserveModalStore>((set) => ({
     isOpen: false,
     roomId: '',
-    onOpen: (roomID) => set({isOpen: true,
-    roomId: roomID}),
+    reservations:[],
+    onOpen: (roomID, reservations) => set({isOpen: true,
+    roomId: roomID,
+    reservations: reservations}),
     onClose: () => {set({ isOpen: false})},
 }));
 
