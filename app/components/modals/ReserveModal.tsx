@@ -75,7 +75,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Something went wrong.");
+        toast.error("Something went wrong. Reload and double check the schedule to ensure no overlap has occured.");
       })
       .finally(() => {
         setIsLoading(false);
