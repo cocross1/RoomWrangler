@@ -1,10 +1,13 @@
 'use client';
+import useSearchRoomsModal from '@/app/hooks/useSearchRoomsModal';
 import React from 'react';
 import { BiSearch } from 'react-icons/bi';
 
 const Search = () => {
+    const searchRoomsModal = useSearchRoomsModal();
   return (
-    <div className="
+    <div onClick={searchRoomsModal.onOpen}
+    className="
     bg-gray-100
     border[1px]
     w-full
@@ -22,18 +25,7 @@ const Search = () => {
             <div className="text-sm 
             font-semibold 
             px-6">
-                Room
-            </div>
-            <div className="
-            hidden
-            sm:block
-            text-sm
-            font-semibold
-            px-6
-            border-x-[1px]
-            flex-1
-            text-center">
-                Time
+                Search for a Room
             </div>
             <div className="
             text-sm
@@ -44,7 +36,6 @@ const Search = () => {
             flex-row
             items-center
             gap-3">
-                <div className="hidden sm:block">Add People</div>
                 <div
                 className="p-2
                 bg-blue-500
