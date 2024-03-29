@@ -1,57 +1,73 @@
 import prisma from '@/app/libs/prismadb';
 
-// not sure about the type of this object
-// also might need to make it a safe type??
-interface IParams {
-    startTimeRequested: Date;
-    endTimeRequested: Date;
+export interface IReservationParams {
+    startTimeRequested: string;
+    endTimeRequested: string;
+    whiteboards?: number;
+    projectors?: number;
+    computers?: number;
+    capacity?: number;
 }
 
 export default async function getAvailableRooms(
-    params: IParams
+    params: IReservationParams
 ) {
     try {
-        const { startTimeRequested, endTimeRequested } = params;
+        const { startTimeRequested, endTimeRequested, whiteboards, projectors, computers, capacity } = params;
 
-        // find the reservations that conflict
-        const conflictingReservations = await prisma.reservation.findMany({
-            where: {
-                OR: [
-                    {
-                        AND: 
-                        [
-                            { startTime: { lt: endTimeRequested } },
-                            { endTime: { gt: startTimeRequested } }
-                        ]
-                    },
-                    {
-                        AND:
-                        [
-                            { startTime: { gte: startTimeRequested } },
-                            { endTime: { lte: endTimeRequested } }
-                        ]
-                    }
-                ]
-            },
-            select: {
-                roomId: true
+        let query: any = {};
+
+        if (whiteboards) {
+            query.whiteboards = {
+                gte: +whiteboards
             }
-        });
+        }
 
-        // then discard the rooms associated with those reservations
-        const unavailableRoomIds = conflictingReservations.map(reservation => reservation.roomId);
+        if (projectors) {
+            query.projectors = {
+                gte: +projectors
+            }
+        }
 
-        // and return all remaining rooms
-        const availableRooms = await prisma.room.findMany({
-            where: {
-                NOT: {
-                    id: {in: unavailableRoomIds}
+        if (computers) {
+            query.computers = {
+                gte: +computers
+            }
+        }
+
+        if (capacity) {
+            query.capacity = {
+                gte: +capacity
+            }
+        }
+
+        if (startTimeRequested && endTimeRequested) {
+            query.NOT = {
+                reservations: {
+                  some: {
+                    OR: [
+                      {
+                        endTime: { gte: startTimeRequested },
+                        startTime: { lte: startTimeRequested }
+                      },
+                      {
+                        startTime: { lte: endTimeRequested },
+                        endTime: { gte: endTimeRequested }
+                      }
+                    ]
+                  }
                 }
+              }
+        }
+
+        const availableRooms = await prisma.room.findMany({
+            where: query,
+            orderBy: {
+                buildingAndNumber: 'desc'
             }
         });
 
         return availableRooms;
-
 
     }
     catch (error: any) {
