@@ -1,6 +1,5 @@
 import { Reservation, Room } from '@prisma/client';
 import { create } from 'zustand';
-import getRoomById from '../actions/getRoomById';
 
 interface ReserveModalStore{
     isOpen: boolean;
@@ -10,7 +9,8 @@ interface ReserveModalStore{
     reservations:Reservation[];
 }
 
-const useReserveModal = create<ReserveModalStore>((set) => ({
+const useReserveModal = create<ReserveModalStore>((set) => (
+    {
     isOpen: false,
     roomId: '',
     reservations:[],

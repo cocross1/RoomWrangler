@@ -10,6 +10,7 @@ import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import ReserveModal from "./components/modals/ReserveModal";
+import CalendarModal from "./components/modals/CalendarModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <RentModal />
           <ReserveModal currentUser={currentUser} />
+          <CalendarModal/>
         <LoginModal currentUser={currentUser}/>
         <RegisterModal  />
         <Navbar currentUser={currentUser} />
