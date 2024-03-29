@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import getReservationsByRoomId from "@/app/actions/getReservationsByRoomId";
 
 export async function POST(
   request: Request, 
@@ -23,7 +24,24 @@ export async function POST(
     type,
    } = body;
 
-   
+  // Fetch existing reservations for the room
+  const existingReservations = await getReservationsByRoomId(roomId);
+   let hasOverlap = true;
+  // Check for overlapping reservations
+  if(existingReservations){
+  hasOverlap = existingReservations.some((reservation) => {
+    return (
+      (new Date(startTime) < new Date(reservation.endTime)) &&
+      (new Date(endTime) > new Date(reservation.startTime))
+    );
+  });
+  }
+
+  // If overlap exists, return an error response
+  if (hasOverlap) {
+    return NextResponse.error();
+  }
+
    console.log("Formatted startTime:", body.startTime);
    console.log("Formatted endTime:", body.endTime);
   Object.keys(body).forEach((value: any) => {

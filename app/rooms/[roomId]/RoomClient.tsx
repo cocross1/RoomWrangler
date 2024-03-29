@@ -30,8 +30,8 @@ interface RoomClientProps {
   // reservation? = Reservation[];
 }
 
-const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) => {
-  const buildingAndNumber = `${room.buildingAndNumber} ${room.number}`;
+const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations }) => {
+  const buildingAndNumber = `${room.buildingAndNumber}`;
   // need to update this since we're allowing multiple categories...
   // tried to modify to use .includes but it's complaining. or it was (?)
   const router = useRouter();
@@ -39,7 +39,12 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) 
   const reserveModal = useReserveModal();
 
   const onReserve = useCallback(() => {
-    reserveModal.onOpen(room.id);
+    if(reservations){
+      reserveModal.onOpen(room.id, reservations);
+      console.log(reservations);
+    }
+    else
+      toast.error("Error Processing Reservations");
   }, [reserveModal]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -100,7 +105,10 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, building }) 
              //   buildingId={room.buildingId}
               />
             </div>
-            <Button label="Reserve" onClick={onReserve} />
+            <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
+              <Button label="Reserve" onClick={onReserve} />
+              <Button label="View Calendar" onClick={()=>{}}/>
+            </div>
           </div>
         </div>
       </Container>
