@@ -14,6 +14,7 @@ import RoomHead from "@/app/components/rooms/RoomHead";
 import RoomInfo from "@/app/components/rooms/RoomInfo";
 import Button from "@/app/components/Button";
 import useReserveModal from "@/app/hooks/useReserveModal";
+import useCalendarModal from "@/app/hooks/useCalendar";
 
 const initialReservationWindow = {
   startTime: new Date(),
@@ -37,20 +38,30 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
   const router = useRouter();
   const loginModal = useLoginModal();
   const reserveModal = useReserveModal();
-
+  const calendarModal =  useCalendarModal();
   const onReserve = useCallback(() => {
     if(reservations){
       reserveModal.onOpen(room.id, reservations);
       console.log(reservations);
     }
     else
-      toast.error("Error Processing Reservations");
+      toast.error("Error Processing Reservations, Please Refresh");
   }, [reserveModal]);
+
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [reservationWindow, setReservationWindow] = useState(
     initialReservationWindow
   );
+
+  const onCalendar = useCallback(() => {
+    if(reservations && room){
+      calendarModal.onOpen(room.buildingAndNumber, reservations);
+    }
+    else
+      toast.error("Error Processing Reservations, Please Refresh");
+  }, [calendarModal]);
 
   const onCreateReservation = useCallback(() => {
     if (!currentUser) {
@@ -107,8 +118,9 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
             </div>
             <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
               <Button label="Reserve" onClick={onReserve} />
-              <Button label="View Calendar" onClick={()=>{}}/>
+              <Button label="View Calendar" onClick={onCalendar}/>
             </div>
+            
           </div>
         </div>
       </Container>
