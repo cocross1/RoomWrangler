@@ -11,7 +11,7 @@ interface EmptyState {
 
 const EmptyState: React.FC<EmptyState> = ({
     title = "No exact matches",
-    subtitle = "Try changing or removing some of your filters",
+    subtitle = "Try modifying your search criteria.",
     showReset
 }) => {
     const router = useRouter();
@@ -20,7 +20,7 @@ const EmptyState: React.FC<EmptyState> = ({
             <Heading center title={title} subtitle={subtitle}/>
             <div className="w-48 mt-4">
                 {showReset && (
-                    <Button outline label="Remove all filters" onClick={() => router.push('/')}/>
+                    <Button outline label="See All Rooms" onClick={() => router.push('/')}/>
                 )}
             </div>
         </div>
