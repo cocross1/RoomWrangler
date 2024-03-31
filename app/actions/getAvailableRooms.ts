@@ -1,8 +1,8 @@
 import prisma from '@/app/libs/prismadb';
 
 export interface IReservationParams {
-    startTimeRequested: string;
-    endTimeRequested: string;
+    startTime: string;
+    endTime: string;
     whiteboards?: number;
     projectors?: number;
     computers?: number;
@@ -13,7 +13,7 @@ export default async function getAvailableRooms(
     params: IReservationParams
 ) {
     try {
-        const { startTimeRequested, endTimeRequested, whiteboards, projectors, computers, capacity } = params;
+        const { startTime, endTime, whiteboards, projectors, computers, capacity } = params;
 
         let query: any = {};
 
@@ -41,18 +41,19 @@ export default async function getAvailableRooms(
             }
         }
 
-        if (startTimeRequested && endTimeRequested) {
+        // console.log('proj ', projectors);
+        // console.log('sTR ', startTime, ' eTR ', endTime);
+
+        if (startTime && endTime) {
             query.NOT = {
                 reservations: {
                   some: {
-                    OR: [
+                    AND: [
                       {
-                        endTime: { gte: startTimeRequested },
-                        startTime: { lte: startTimeRequested }
+                        startTime: { lt: endTime }
                       },
                       {
-                        startTime: { lte: endTimeRequested },
-                        endTime: { gte: endTimeRequested }
+                        endTime: { gt: startTime }
                       }
                     ]
                   }

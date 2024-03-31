@@ -4,7 +4,6 @@ import qs from 'query-string';
 import React, { useCallback, useMemo, useState } from "react";
 import { parseISO, formatISO } from "date-fns";
 import Modal from "./Modal";
-import useReserveModal from "@/app/hooks/useReserveModal";
 import Heading from "../Heading";
 import { categories, buildings } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
@@ -14,7 +13,7 @@ import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
 import { Room } from "@prisma/client";
@@ -32,8 +31,12 @@ enum STEPS {
 const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   const searchRoomsModal = useSearchRoomsModal();
   const router = useRouter();
+  const params = useSearchParams();
+
   const [step, setStep] = useState(STEPS.TIME);
   const [isLoading, setIsLoading] = useState(false);
+
+
   const {
     register,
     handleSubmit,
@@ -99,44 +102,21 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
     // .finally(() => {
     //   setIsLoading(false);
     // })
-    let currentQuery = {};
-
-    if (params) {
-      currentQuery = qs.parse(params.toString())
-    }
-
-    const updatedQuery: any = {
-      ...currentQuery,
-      locationValue: location?.value,
-      guestCount,
-      roomCount,
-      bathroomCount
-    };
-
-    if (dateRange.startDate) {
-      updatedQuery.startDate = formatISO(dateRange.startDate);
-    }
-
-    if (dateRange.endDate) {
-      updatedQuery.endDate = formatISO(dateRange.endDate);
-    }
 
     const url = qs.stringifyUrl({
       url: '/',
-      query: updatedQuery,
+      query: data,
     }, { skipNull: true });
 
+    console.log("data.startTime ", data.startTime, " data.endTime ", data.endTime);
+    console.log('url ', url);
+
+    reset();
+    setIsLoading(false);
     setStep(STEPS.TIME);
     searchRoomsModal.onClose();
     router.push(url);
-  }, 
-  [
-    step, 
-    searchRoomsModal,  
-    router, 
-    onNext,
-    bathroomCount,
-  ]);
+  };
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.FEATURES) {
