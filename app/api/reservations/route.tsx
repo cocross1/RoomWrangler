@@ -26,19 +26,25 @@ export async function POST(
 
   // Fetch existing reservations for the room
   const existingReservations = await getReservationsByRoomId(roomId);
-   let hasOverlap = true;
+  console.log("Existing resies: ");
+  console.log(existingReservations);
+   let hasOverlap = false;
   // Check for overlapping reservations
   if(existingReservations){
+    
   hasOverlap = existingReservations.some((reservation) => {
     return (
-      (new Date(startTime) < new Date(reservation.endTime)) &&
-      (new Date(endTime) > new Date(reservation.startTime))
+      ((new Date(startTime) < new Date(reservation.endTime)) &&
+      (new Date(endTime) > new Date(reservation.startTime)) &&
+      (roomId == reservation.roomId))||
+      (new Date(startTime) > new Date(endTime))
     );
   });
   }
 
   // If overlap exists, return an error response
   if (hasOverlap) {
+    console.log("It is this error");
     return NextResponse.error();
   }
 
