@@ -1,4 +1,6 @@
 'use client';
+// added upcoming reservations functionality
+
 import React, { useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
@@ -8,6 +10,7 @@ import useLoginModal from '@/app/hooks/useLoginModal';
 import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/app/types';
 import useRentModal from '@/app/hooks/useRentModal';
+import {useRouter} from 'next/navigation'; //new
 
 interface UserMenuProps{
     currentUser?: SafeUser | null
@@ -17,6 +20,7 @@ interface UserMenuProps{
 const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
+    const router = useRouter(); //new
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -85,8 +89,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 {currentUser ? (
                                         <>
                           <MenuItem
-                              onClick={() => {}}
-                              label="Upcoming Reservations" />
+                              onClick={() => router.push("/reservations")} // check to make sure this is right - 6:59:22
+                              label="Upcoming Reservations" /> 
                       
                       <MenuItem
                               onClick={() => {}}
