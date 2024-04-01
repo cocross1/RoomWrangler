@@ -36,14 +36,13 @@ export async function POST(
     return (
       ((new Date(startTime) < new Date(reservation.endTime)) &&
       (new Date(endTime) > new Date(reservation.startTime)) &&
-      (roomId == reservation.roomId))||
-      (new Date(startTime) > new Date(endTime))
+      (roomId == reservation.roomId))
     );
   });
   }
 
   // If overlap exists, return an error response
-  if (hasOverlap) {
+  if (hasOverlap || (new Date(startTime) > new Date(endTime)) || (new Date(startTime) < new Date())) {
     console.log("It is this error");
     return NextResponse.error();
   }
