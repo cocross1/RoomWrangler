@@ -43,17 +43,16 @@ const UserCard: React.FC<UserCardProps> = ({
 }=useForm<FieldValues>({
     defaultValues:{
       id:data.id
+
     }
 });
 
   const [isLoading, setIsLoading] = useState(false);
-
   let value = watch(data.id);
-
+  console.log(value && (!(data.permissions) && value!=="Student" && value !== data.permissions || data.permissions && value !== data.permissions))
 
   const handlePermissionsChange = () =>{
     setIsLoading(true);
-    console.log("HEREE!");
 
     axios
       .post("/api/permissions", {userId: data.id, 
@@ -94,7 +93,7 @@ const UserCard: React.FC<UserCardProps> = ({
       </div>
 
     </div>
-          {(!(data.permissions) && value!=="Student" && value !== data.permissions || data.permissions && value !== data.permissions) 
+          {value && ( !(data.permissions) && value!=="Student" && value !== data.permissions || data.permissions && value !== data.permissions) 
           && 
           (
           
@@ -104,6 +103,8 @@ const UserCard: React.FC<UserCardProps> = ({
           
           
           )}
+
+
           <DropdownBox id={data.id} register={register}  options={roles} startVal={data.permissions? data.permissions : "Student"} />
   </div>
   
