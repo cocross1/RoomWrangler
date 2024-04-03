@@ -89,7 +89,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 {currentUser ? (
                                         <>
                           <MenuItem
-                              onClick={() => router.push("/reservations")} // check to make sure this is right - 6:59:22
+                              onClick={() => router.push("/reservations")} 
                               label="Upcoming Reservations" /> 
                       
                       <MenuItem

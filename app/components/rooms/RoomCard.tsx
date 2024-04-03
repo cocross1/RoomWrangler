@@ -1,6 +1,6 @@
 "use client";
 
-import { SafeUser } from "@/app/types";
+import { SafeUser, SafeReservation } from "@/app/types";
 import { Room, Reservation } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import useReserveModal from "@/app/hooks/useReserveModal";
 
 interface RoomCardProps {
   data: Room;
-  reservation?: Reservation;
+  reservation?: SafeReservation; // changed Reservation to SafeReservation
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
