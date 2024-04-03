@@ -12,6 +12,17 @@ export type SafeUser = Omit<
     emailVerified: string | null;
 }
 
+export type SafeReservation = Omit<
+    Reservation,
+    "createdAt" | "startTime" | "endTime" | "room"
+>&{
+    createdAt: string;
+    startTime: string;
+    endTime: string;
+    room: string; //changed this from SafeRooom
+
+}
+
 // export type SafeReservation = Omit<
 //   Reservation, 
 //   "createdAt"

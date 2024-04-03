@@ -2,7 +2,8 @@ import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
 import ReservationsClient from "./ReservationsClient"; 
 import getCurrentUser from "../actions/getCurrentUser";
-import getReservationsByUserId from "../actions/getReservationsByUserId";
+import getReservations from "../actions/getReservations";
+//import getReservationsByUserId from "../actions/getReservationsByUserId";
 //import getReservationsByRoomId from "../actions/getReservationsByRoomId";
 
 
@@ -23,7 +24,7 @@ const ReservationsPage = async () => {
     }
     // the part before the colon is only because the funciton accepts various
     // parameters
-    const reservations = await getReservationsByUserId({userId: currentUser.id});
+    const reservations = await getReservations({userId: currentUser.id});
 
     if (reservations.length ==0){
         return(
