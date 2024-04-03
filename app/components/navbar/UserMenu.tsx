@@ -113,7 +113,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                               onClick={() => {}}
                               label="Favorite Rooms" />
                         <MenuItem
-            onClick={() =>router.push("\permissions")}                              
+            onClick={() =>router.push("/permissions")}                              
             label="Adjust Permissions" />
                         <hr />
                         <MenuItem
