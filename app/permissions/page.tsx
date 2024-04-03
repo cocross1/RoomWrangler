@@ -30,14 +30,7 @@ const PermissionsPage = async ({params}: {params: IParams}) => {
                 <div >
                     <PermissionsClient currentUser={currentUser} users={users}/>
                 </div>
-                <div>
 
-                {users && users.map((user: any) => {
-              return (
-                <UserCard data={user}/>
-              )
-            })}
-                </div>
             </ClientOnly>
         </div>
     );

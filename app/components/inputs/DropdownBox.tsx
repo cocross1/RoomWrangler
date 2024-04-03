@@ -28,7 +28,7 @@ const DropdownBox: React.FC<DropdownBoxProps> = ({
   return ( 
     <select 
     disabled={disabled}
-    value={startVal}
+    defaultValue={startVal}
     id={id}
     {... register(id, { required })}
     className="bg-gray-50 border 

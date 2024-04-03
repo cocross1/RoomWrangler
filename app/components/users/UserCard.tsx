@@ -4,13 +4,15 @@ import { SafeUser } from "@/app/types";
 import { Room, Reservation, User } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { MouseEvent, useCallback, useMemo, useState } from "react";
 import { format } from "date-fns";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
 import useReserveModal from "@/app/hooks/useReserveModal";
 import DropdownBox from "../inputs/DropdownBox";
 import { RegisterOptions, FieldValues, UseFormRegisterReturn, useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export const roles = [
 'Professor',
@@ -44,9 +46,31 @@ const UserCard: React.FC<UserCardProps> = ({
     }
 });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   let value = watch(data.id);
-  if(value !== data.permissions){
-    console.log("we are out here!")
+
+
+  const handlePermissionsChange = () =>{
+    setIsLoading(true);
+    console.log("HEREE!");
+
+    axios
+      .post("/api/permissions", {userId: data.id, 
+        newPermissions: value})
+      .then(() => {
+        toast.success("Permissions updated!");
+        reset();
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong. Reload and try again.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
   }
 
   return (
@@ -70,7 +94,17 @@ const UserCard: React.FC<UserCardProps> = ({
       </div>
 
     </div>
-          <DropdownBox id={data.id} register={register} onChange={()=>{}} options={roles} startVal={data.permissions? data.permissions : "Student"} />
+          {(!(data.permissions) && value!=="Student" && value !== data.permissions || data.permissions && value !== data.permissions) 
+          && 
+          (
+          
+          <div className="w-1/3">
+          <Button label={"Update User Permissions"} onClick={()=>handlePermissionsChange()}  />
+          </div>
+          
+          
+          )}
+          <DropdownBox id={data.id} register={register}  options={roles} startVal={data.permissions? data.permissions : "Student"} />
   </div>
   
   );

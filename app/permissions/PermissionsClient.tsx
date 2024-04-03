@@ -18,6 +18,7 @@ import useCalendarModal from "@/app/hooks/useCalendar";
 import Heading from "../components/Heading";
 import { FieldValues, useForm } from "react-hook-form";
 import Input from "../components/inputs/Input";
+import UserCard from "../components/users/UserCard";
 
 
 
@@ -28,7 +29,7 @@ interface PermissionsClientProps {
   // reservation? = Reservation[];
 }
 
-const PermissionsClient: React.FC<PermissionsClientProps> = ({  currentUser }) => {
+const PermissionsClient: React.FC<PermissionsClientProps> = ({  currentUser, users }) => {
   // need to update this since we're allowing multiple categories...
   // tried to modify to use .includes but it's complaining. or it was (?)
   const router = useRouter();
@@ -52,6 +53,17 @@ const PermissionsClient: React.FC<PermissionsClientProps> = ({  currentUser }) =
         userEmail:''
     }
 });
+
+const [nameSearch, setNameSearch] = useState('');
+const [emailSearch, setEmailSearch] = useState('');
+let inputName = watch('userName');
+let inputEmail = watch('userEmail');
+
+const handleSearch = () =>{
+  setNameSearch(inputName);
+  setEmailSearch(inputEmail);
+  console.log("here!")
+}
 
   return (
     <div>
@@ -90,11 +102,22 @@ const PermissionsClient: React.FC<PermissionsClientProps> = ({  currentUser }) =
         font-light 
         text-neutral-500
         ">
-            <Button label="Search for User" onClick={()=>{}} />
-            <Button label="Submit Changes" onClick={()=>{}} />
+            <Button label="Search for User" onClick={handleSearch} />
         </div>
         <hr className="mt-5">
         </hr>
+        <div>
+
+        {users && users
+  .filter(user => 
+    user.name.toLowerCase().includes(nameSearch.toLowerCase()) && 
+    user.email.toLowerCase().includes(emailSearch.toLowerCase())
+  )
+  .map(user => (
+    <UserCard key={user.id} data={user} />
+  ))
+}
+    </div>
       </Container>
     </div>
   );
