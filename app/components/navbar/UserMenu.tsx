@@ -9,6 +9,7 @@ import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/app/types';
 import useRentModal from '@/app/hooks/useRentModal';
 import { useRouter } from 'next/navigation'; // Correct import here
+import useSearchRoomsModal from '@/app/hooks/useSearchRoomsModal';
 
 interface UserMenuProps{
     currentUser?: SafeUser | null
@@ -20,7 +21,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
 }) => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
+    const searchRoomsModal = useSearchRoomsModal();
+    const searchRoomsModalButtonLabel = "Search for Available Rooms";
     const rentModal = useRentModal();
+    const uploadRoomModalButtonLabel = "Upload a Room";
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter(); // Use the hook here to get the router instance
 
@@ -28,17 +32,30 @@ const UserMenu: React.FC<UserMenuProps> = ({
         setIsOpen((value)=>!value);
     },[]);
 
-
+    const onSearchRooms = useCallback(() => {
+        searchRoomsModal.onOpen();
+    },[searchRoomsModal]);
 
     const onRent= useCallback(() => {
         rentModal.onOpen();
     },[rentModal]);
+
   return (
     <div className="relative">
         <div className="flex flex-row items-center gap-3">
-            {currentUser && (<div className="text-center text-sm">
-                Welcome, {currentUser.name}!
-            </div>)}
+            <div onClick={onSearchRooms} className ="
+            md:block
+            text-sm
+            font-semibold
+            py-3
+            px-4
+            rounded-full
+            hover: bg-neutral-100
+            transition
+            cursor-pointer
+            text-center">
+                {searchRoomsModalButtonLabel}
+            </div>
             <div onClick={onRent} className ="
             md:block
             text-sm
@@ -50,7 +67,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             transition
             cursor-pointer
             text-center">
-                Upload Room
+                {uploadRoomModalButtonLabel}
             </div>
             <div onClick={toggleOpen}
             className="

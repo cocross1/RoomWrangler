@@ -11,6 +11,7 @@ import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import ReserveModal from "./components/modals/ReserveModal";
 import CalendarModal from "./components/modals/CalendarModal";
+import SearchRoomsModal from "./components/modals/SearchRoomsModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default async function RootLayout({
           <RentModal />
           <ReserveModal currentUser={currentUser} />
           <CalendarModal/>
+          <SearchRoomsModal currentUser={currentUser} />
         <LoginModal currentUser={currentUser}/>
         <RegisterModal  />
         <Navbar currentUser={currentUser} />
