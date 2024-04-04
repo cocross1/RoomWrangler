@@ -52,7 +52,6 @@ model Room {
   id                String @id @default(auto()) @map("_id") @db.ObjectId
   buildingId        String @db.ObjectId
   number            String
-  // prisma doesn't support compound 
   buildingAndNumber String @unique
   floor             Int
   imageSrc          String

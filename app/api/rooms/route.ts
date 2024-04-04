@@ -13,7 +13,6 @@ export async function POST(
     return NextResponse.error();
   }
 
-  // left category here but it's not actually getting pushed to the database since it's no longer in the schema
   const body = await request.json();
   const { 
     buildingName,
@@ -21,7 +20,6 @@ export async function POST(
     buildingAndNumber,
     floor,
     imageSrc,
-    category,
     capacity,
     whiteboards,
     computers,
