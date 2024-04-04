@@ -71,9 +71,10 @@ const Modal: React.FC<ModalProps> = ({
       md:w-4/6
       lg:w-3/6
       xl:w-2/5
+      mt-40
       my-6
       mx-auto
-      max-h-90vh
+      max-h-9vh
       overflow-y-auto
       lg:h-auto
       md:h-auto">

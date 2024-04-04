@@ -53,7 +53,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ currentUser }) => {
             label="Log In with Google"
             icon={FcGoogle}
             onClick={() => {
-              const result = signIn("google", { redirect: false });
+            const result = signIn("google", { redirect: false });
               // or your preferred callback URL
             }}
           />
