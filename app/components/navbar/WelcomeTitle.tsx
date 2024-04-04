@@ -10,7 +10,7 @@ interface WelcomeTitleProps {
 const WelcomeTitle: React.FC<WelcomeTitleProps> = ({ currentUser }) => {
 
   return (
-    <div>
+    <div className="text-center">
       {currentUser && (
         <div
           className="text-lg"
