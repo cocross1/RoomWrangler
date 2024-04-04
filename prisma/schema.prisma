@@ -16,11 +16,12 @@ datasource db {
 // add ability to support different permissions
 model User {
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  name           String?
-  email          String?   @unique
+  name           String
+  email          String   @unique
   emailVerified  DateTime?
-  image          String?
+  image          String
   hashedPassword String?
+  permissions    String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   favoriteIds    String[]  @db.ObjectId
@@ -52,7 +53,6 @@ model Room {
   id                String @id @default(auto()) @map("_id") @db.ObjectId
   buildingId        String @db.ObjectId
   number            String
-  // prisma doesn't support compound 
   buildingAndNumber String @unique
   floor             Int
   imageSrc          String

@@ -13,15 +13,12 @@ export type SafeUser = Omit<
 }
 
 export type SafeReservation = Omit<
-    Reservation,
-    "createdAt" | "startTime" | "endTime" | "room"
->&{
-    createdAt: string;
-    startTime: string;
-    endTime: string;
-    room: Room;
-    //room: string; //changed this from SafeRooom
-
+  Reservation, 
+  "createdAt" | "startTime" | "endTime"
+> & {
+  createdAt: string;
+  startTime: string;
+  endTime: string;
 }
 
 // export type SafeReservation = Omit<
