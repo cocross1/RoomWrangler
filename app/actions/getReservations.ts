@@ -37,7 +37,7 @@ export default async function getReservations(
                 createdAt: reservation.createdAt.toISOString(),
                 startTime: reservation.startTime.toISOString(),
                 endTime: reservation.endTime.toISOString(),
-                room: reservation.room.buildingAndNumber //changed this line
+                room: reservation.room //changed
             })
         );
 

@@ -1,4 +1,4 @@
-import { User, Reservation } from "@prisma/client";
+import { User, Reservation, Room } from "@prisma/client";
 
 // again, note: if we ever include any types other than plain data types
 // in our Room model, we need to make a SafeRoom & use it accordingly!!
@@ -19,7 +19,8 @@ export type SafeReservation = Omit<
     createdAt: string;
     startTime: string;
     endTime: string;
-    room: string; //changed this from SafeRooom
+    room: Room;
+    //room: string; //changed this from SafeRooom
 
 }
 
