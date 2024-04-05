@@ -24,7 +24,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
 
     const onCancel = useCallback((id: string) => {
         setDeletingId(id);
-        axios.delete('api/reservations/${id}') //sending in literally ${id} instead of the id
+        axios.delete(`api/reservations/${id}`) //sending in literally ${id} instead of the id
         .then(() => {
             toast.success('Reservation Cancelled');
             router.refresh();
@@ -38,11 +38,8 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
 
     }, [router]);
     return (
-        <Container>
-            <Heading
-                title = "Reservations"
-                subtitle = "My Upcoming Reservations" //probs don't need
-            />
+        <Container> 
+            {/* should put a header here - skipping for now bc formatting issues */}
             <div
                 className ="
                 mt-10
