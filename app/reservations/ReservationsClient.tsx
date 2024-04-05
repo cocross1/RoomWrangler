@@ -24,7 +24,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
 
     const onCancel = useCallback((id: string) => {
         setDeletingId(id);
-        axios.delete(`api/reservations/${id}`) //sending in literally ${id} instead of the id
+        axios.delete(`api/reservations/${id}`)
         .then(() => {
             toast.success('Reservation Cancelled');
             router.refresh();
@@ -39,7 +39,11 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
     }, [router]);
     return (
         <Container> 
-            {/* should put a header here - skipping for now bc formatting issues */}
+            <div className="max-w-screen-lg mx-auto 
+                flex flex-col gap-6
+                mt-10">
+                    <Heading title="My Reservations"/>
+                </div>
             <div
                 className ="
                 mt-10
@@ -56,7 +60,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
             {reservations.map((reservation)=>(
                 <RoomCard
                     key = {reservation.id}
-                    data = {reservation.room} // need work
+                    data = {reservation.room} 
                     reservation = {reservation}
                     actionId = {reservation.id}
                     onAction = {onCancel}

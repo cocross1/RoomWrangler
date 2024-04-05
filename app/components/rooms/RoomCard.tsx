@@ -79,6 +79,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
           </div> */}
         </div>
         <div className="font-semibold text-lg text-center">{data.buildingAndNumber}</div>
+        <div className= "font-light text-neutral-500">{reservationWindow}</div>
         {onAction && actionLabel && (
             <Button disabled={disabled} small label={actionLabel} onClick={handleCancel}/>
         )}
