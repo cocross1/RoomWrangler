@@ -3,7 +3,6 @@ import prisma from "@/app/libs/prismadb";
 interface IParams {
     roomId?: string;
     userId?: string;
-    //authorId?: string; // probs don't need
 }
 
 export default async function getReservations(
@@ -27,7 +26,7 @@ export default async function getReservations(
                 room: true,
             },
             orderBy: {
-                startTime: 'desc' //changed from createdAt
+                startTime: 'asc' 
             }
         });
 
@@ -37,7 +36,7 @@ export default async function getReservations(
                 createdAt: reservation.createdAt.toISOString(),
                 startTime: reservation.startTime.toISOString(),
                 endTime: reservation.endTime.toISOString(),
-                room: reservation.room //changed
+                room: reservation.room 
             })
         );
 
