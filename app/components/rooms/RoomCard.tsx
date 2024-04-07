@@ -1,6 +1,6 @@
 "use client";
 
-import { SafeUser } from "@/app/types";
+import { SafeUser, SafeReservation } from "@/app/types";
 import { Room, Reservation } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import useReserveModal from "@/app/hooks/useReserveModal";
 
 interface RoomCardProps {
   data: Room;
-  reservation?: Reservation;
+  reservation?: SafeReservation; // changed Reservation to SafeReservation
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
@@ -79,6 +79,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
           </div> */}
         </div>
         <div className="font-semibold text-lg text-center">{data.buildingAndNumber}</div>
+        <div className= "font-light text-neutral-500">{reservationWindow}</div>
         {onAction && actionLabel && (
             <Button disabled={disabled} small label={actionLabel} onClick={handleCancel}/>
         )}
