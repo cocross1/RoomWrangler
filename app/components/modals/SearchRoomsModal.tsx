@@ -24,8 +24,9 @@ interface SearchRoomsModalProps {
 }
 
 enum STEPS {
-  TIME = 0,
-  FEATURES = 1,
+  SPECIFIC = 0,
+  TIME = 1,
+  FEATURES = 2,
 }
 
 const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
@@ -33,7 +34,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   const router = useRouter();
   const params = useSearchParams();
 
-  const [step, setStep] = useState(STEPS.TIME);
+  const [step, setStep] = useState(STEPS.SPECIFIC);
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -46,6 +47,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
     reset,
   } = useForm<FieldValues>({
     defaultValues: {
+      buildingAndNumber: "",
       startTime: "",
       endTime: "",
       userId: currentUser?.id,
@@ -68,17 +70,17 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
       return onNext();
     }
 
-    if (data.startTime === "") {
-      toast.error("Please select a start time.");
-      return () => {};
-    }
+    if (!data.buildingAndNumber) {
+      if (data.startTime === "") {
+        toast.error("Unless you are searching for a specific room, you must select a start and end time.");
+        return () => {};
+      }
+      if (data.endTime === "") {
+        toast.error("Unless you are searching for a specific room, you must select an end time.");
+        return () => {};
+      }
 
-    if (data.endTime === "") {
-      toast.error("Please select an end time.");
-      return () => {};
-    }
-
-    setIsLoading(true);
+      setIsLoading(true);
 
     data.startTime = formatISO(parseISO(data.startTime), {
       representation: "complete",
@@ -86,6 +88,8 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
     data.endTime = formatISO(parseISO(data.endTime), {
       representation: "complete",
     });
+
+    }
 
     // axios.post('/api/rooms', data)
     // .then(() => {
@@ -113,9 +117,10 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
     reset();
     setIsLoading(false);
-    setStep(STEPS.TIME);
+    setStep(STEPS.SPECIFIC);
     searchRoomsModal.onClose();
     router.push(url);
+    toast.success("Search successful!");
   };
 
   const actionLabel = useMemo(() => {
@@ -126,7 +131,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   }, [step]);
 
   const secondaryActionLabel = useMemo(() => {
-    if (step === STEPS.TIME) {
+    if (step === STEPS.SPECIFIC) {
       return undefined;
     }
     return "Back";
@@ -134,27 +139,42 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading title="When do you want to reserve a room?" />
+      <Heading title="Do you have a particular room in mind?" 
+      subtitle="To search for a specific room, enter the room name and skip over the next screens."/>
       <Input
-        id="startTime"
-        label="Reservation Start Time"
-        type="datetime-local"
+        id="buildingAndNumber"
+        label="ex: Building 100"
         disabled={isLoading}
         register={register}
         errors={errors}
-        required
-      />
-      <Input
-        id="endTime"
-        label="Reservation End Time"
-        type="datetime-local"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
       />
     </div>
   );
+
+  if (step === STEPS.TIME) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading title="When do you want to reserve a room?" />
+        <Input
+          id="startTime"
+          label="Reservation Start Time"
+          type="datetime-local"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+        <Input
+          id="endTime"
+          label="Reservation End Time"
+          type="datetime-local"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+      </div>
+    );
+  }
+  
 
   if (step === STEPS.FEATURES) {
     bodyContent = (
@@ -165,7 +185,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
         />
         <Input
           id="whiteboards"
-          type="number"
           label="Whiteboards"
           disabled={isLoading}
           register={register}
@@ -174,7 +193,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
         />
         <Input
           id="computers"
-          type="number"
           label="Computers"
           disabled={isLoading}
           register={register}
@@ -183,7 +201,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
         />
         <Input
           id="projectors"
-          type="number"
           label="Projectors"
           disabled={isLoading}
           register={register}
@@ -201,7 +218,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
-      secondaryAction={step === STEPS.TIME? undefined : onBack}
+      secondaryAction={step === STEPS.SPECIFIC? undefined : onBack}
       title="Find Available Rooms"
       allowClose={true}
       body={bodyContent}

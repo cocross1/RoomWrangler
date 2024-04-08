@@ -21,8 +21,7 @@ interface UserMenuProps{
 const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
-    const router = useRouter(); //new
-    const registerModal = useRegisterModal();
+    const router = useRouter(); 
     const loginModal = useLoginModal();
     const searchRoomsModal = useSearchRoomsModal();
     const searchRoomsModalButtonLabel = "Search for Available Rooms";

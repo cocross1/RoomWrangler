@@ -1,21 +1,41 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import getCurrentUser from "./actions/getCurrentUser";
 import getRooms from "./actions/getRooms";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import RoomCard from "./components/rooms/RoomCard";
-import getAvailableRooms, { IReservationParams } from "./actions/getAvailableRooms";
+import getRoomsByCriteriaOrName, {
+  IReservationParams,
+} from "./actions/getRoomsByCriteriaOrName";
+import Input from "./components/inputs/Input";
+import { FieldValues, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 interface HomeProps {
-  searchParams: IReservationParams
+  searchParams: IReservationParams;
 }
 
-const Home = async({searchParams}: HomeProps) => {
+const Home = async ({ searchParams }: HomeProps) => {
+  // const [currentUser, setCurrentUser] = useState(null);
+  // const [availableRooms, setAvailableRooms] = useState([]);
   const currentUser = await getCurrentUser();
+  let availableRooms = await getRoomsByCriteriaOrName(searchParams);
   console.log("sP ", searchParams);
-  const availableRooms = await getAvailableRooms(searchParams);
 
+  // const handleSpecificRoomSearch = async (buildingAndNumber: string) => {
+  //   try {
+  //     const specificRoom = await getRoomByBuildingAndNumber({buildingAndNumber: buildingAndNumber});
+  //     availableRooms = specificRoom? [specificRoom] : [];
+  //   }
+  //   catch (error) {
+  //     toast.error("Something went wrong");
+  //     console.error("Failed to find room.");
+  //   }
+  // }
+
+
+  
   // const handleSearchSubmit = async (searchCriteria) => {
   //   setSearchSubmitted(true);
   //   try {
@@ -50,10 +70,10 @@ const Home = async({searchParams}: HomeProps) => {
   } else {
     return (
       <ClientOnly>
-        <EmptyState showReset/>
+        <EmptyState showReset />
       </ClientOnly>
     );
   }
-}
+};
 
 export default Home;
