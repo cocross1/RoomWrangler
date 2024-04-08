@@ -48,9 +48,6 @@ export default async function getAvailableRooms(
                 }
             }
     
-            // console.log('proj ', projectors);
-            // console.log('sTR ', startTime, ' eTR ', endTime);
-    
             if (startTime && endTime) {
                 query.NOT = {
                     reservations: {

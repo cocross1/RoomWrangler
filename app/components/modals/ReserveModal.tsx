@@ -1,22 +1,15 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { parseISO, formatISO } from 'date-fns';
 import Modal from "./Modal";
 import useReserveModal from "@/app/hooks/useReserveModal";
 import Heading from "../Heading";
-import { categories, buildings } from "../navbar/Categories";
-import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import BuildingSelect from "../inputs/BuildingSelect";
-import Counter from "../inputs/Counter";
-import ImageUpload from "../inputs/ImageUpload";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useRouter } from "next/router";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
-import { Room } from "@prisma/client";
 
 
 interface ReserveModalProps {
@@ -26,7 +19,7 @@ interface ReserveModalProps {
 const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   const reserveModal = useReserveModal();
   const roomId = reserveModal.roomId;
-  //const router = useRouter();
+
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -45,9 +38,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       displayName: currentUser?.name,
     },
   });
-  let type = watch('type');
-  //const startTime = watch('startTime');
-  const endTime = watch('endTime');
+
   const watchRoomId = watch('roomId');
   if(roomId != watchRoomId){
     setValue('roomId', roomId, {
@@ -56,8 +47,6 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       shouldValidate: true,
     })
   }
-
-
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
 

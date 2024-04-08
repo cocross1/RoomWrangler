@@ -5,18 +5,11 @@ import React, { useCallback, useMemo, useState } from "react";
 import { parseISO, formatISO } from "date-fns";
 import Modal from "./Modal";
 import Heading from "../Heading";
-import { categories, buildings } from "../navbar/Categories";
-import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import BuildingSelect from "../inputs/BuildingSelect";
-import Counter from "../inputs/Counter";
-import ImageUpload from "../inputs/ImageUpload";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
-import { Room } from "@prisma/client";
 import useSearchRoomsModal from "@/app/hooks/useSearchRoomsModal";
 
 interface SearchRoomsModalProps {
@@ -32,7 +25,6 @@ enum STEPS {
 const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   const searchRoomsModal = useSearchRoomsModal();
   const router = useRouter();
-  const params = useSearchParams();
 
   const [step, setStep] = useState(STEPS.SPECIFIC);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,8 +33,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   const {
     register,
     handleSubmit,
-    setValue,
-    watch,
     formState: { errors },
     reset,
   } = useForm<FieldValues>({
@@ -91,29 +81,10 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
     }
 
-    // axios.post('/api/rooms', data)
-    // .then(() => {
-    //   toast.success('Room created!');
-    //   router.refresh();
-    //   reset();
-    //   setStep(STEPS.CATEGORY)
-    //   rentModal.onClose();
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    //   toast.error('Something went wrong.');
-    // })
-    // .finally(() => {
-    //   setIsLoading(false);
-    // })
-
     const url = qs.stringifyUrl({
       url: '/',
       query: data,
     }, { skipNull: true });
-
-    console.log("data.startTime ", data.startTime, " data.endTime ", data.endTime);
-    console.log('url ', url);
 
     reset();
     setIsLoading(false);
