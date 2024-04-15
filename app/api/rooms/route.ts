@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
   const body = await request.json();
   const {
-    buildingName,
+    buildingName: providedBuildingName,
     number,
     buildingAndNumber,
     floor,
@@ -23,14 +23,28 @@ export async function POST(request: Request) {
     projectors,
   } = body;
 
-  Object.keys(body).forEach((value: any) => {
-    if (!body[value]) {
-      NextResponse.error();
+  const isCreation = !providedBuildingName;
+  const requiredFields = isCreation? ['buildingName', 'buildingAndNumber', 'number', 'floor'] : ['buildingAndNumber', 'floor'];
+
+  for (const field of requiredFields) {
+    if(body[field] === undefined) {
+      return NextResponse.error();
     }
-  });
+  }
+
+  let buildingName = providedBuildingName;
+  console.log(buildingName);
+  let buildingId = '';
+
+  // Object.keys(body).forEach((value: any) => {
+  //   if (!body[value]) {
+  //     NextResponse.error();
+  //   }
+  // });
 
   // Upsert building based on buildingName
-  if (buildingName) {
+  
+  if (isCreation) {
     const building = await prisma.building.upsert({
       where: { buildingName: buildingName },
       update: {}, // No update operation required in this context
@@ -38,23 +52,10 @@ export async function POST(request: Request) {
         buildingName: buildingName,
       },
     });
-  
-    const buildingId = building.id;
 
-    // const room = await prisma.room.create({
-    //   buildingId,
-    //   number,
-    //   buildingAndNumber,
-    //   floor,
-    //   imageSrc,
-    //   capacity,
-    //   whiteboards,
-    //   computers,
-    //   projectors,
-    // });
+    buildingId = building.id;
 
   }
-
 
   const room = await prisma.room.upsert({
     where: {
