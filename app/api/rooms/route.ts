@@ -3,10 +3,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
-export async function POST(
-  request: Request, 
-) {
-
+export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -14,7 +11,7 @@ export async function POST(
   }
 
   const body = await request.json();
-  const { 
+  const {
     buildingName,
     number,
     buildingAndNumber,
@@ -24,7 +21,7 @@ export async function POST(
     whiteboards,
     computers,
     projectors,
-   } = body;
+  } = body;
 
   Object.keys(body).forEach((value: any) => {
     if (!body[value]) {
@@ -33,30 +30,56 @@ export async function POST(
   });
 
   // Upsert building based on buildingName
-  const building = await prisma.building.upsert({
-    where: { buildingName: buildingName },
-    update: {}, // No update operation required in this context
+  if (buildingName) {
+    const building = await prisma.building.upsert({
+      where: { buildingName: buildingName },
+      update: {}, // No update operation required in this context
+      create: {
+        buildingName: buildingName,
+      },
+    });
+  
+    const buildingId = building.id;
+
+    // const room = await prisma.room.create({
+    //   buildingId,
+    //   number,
+    //   buildingAndNumber,
+    //   floor,
+    //   imageSrc,
+    //   capacity,
+    //   whiteboards,
+    //   computers,
+    //   projectors,
+    // });
+
+  }
+
+
+  const room = await prisma.room.upsert({
+    where: {
+      buildingAndNumber: buildingAndNumber,
+    },
+    update: {
+      floor,
+      imageSrc,
+      capacity,
+      whiteboards,
+      computers,
+      projectors,
+    },
     create: {
-      buildingName: buildingName,
-    }
+      buildingId,
+      number,
+      buildingAndNumber,
+      floor,
+      imageSrc,
+      capacity,
+      whiteboards,
+      computers,
+      projectors,
+    },
   });
 
-  const buildingId = building.id;
-    
-
-  const room = await prisma.room.create({
-    data: {
-        buildingId,
-        number,
-        buildingAndNumber,
-        floor,
-        imageSrc,
-        capacity,
-        whiteboards,
-        computers,
-        projectors,
-    }
-  });
-
-  return NextResponse.json(building);
+  return NextResponse.json(room);
 }
