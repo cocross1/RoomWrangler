@@ -20,14 +20,17 @@ const ReservationsPage = async () => {
     }
     const reservations = await getReservations({userId: currentUser.id});
 
-    //
-    // for (const booking of reservations){
-    //     const currentDate = new Date();
-    //     const reservationEnd = new Date(booking.endTime);
-    //     if (reservationEnd < currentDate){
-
-    //     }
-    // }
+    // Ensures only future reservations are shown
+    for (let i=0; i<reservations.length; i++){
+        const currentDate = new Date();
+        const reservationEnd = new Date(reservations[i].endTime);
+        if (reservationEnd < currentDate){
+            reservations.splice(i,1);
+            // if (i != reservations.length-1){
+            //     i--;
+            // }
+        }
+    }
 
     if (reservations.length ==0){
         return(

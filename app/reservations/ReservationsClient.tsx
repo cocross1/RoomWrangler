@@ -42,7 +42,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
             <div className="max-w-screen-lg mx-auto 
                 flex flex-col gap-6
                 mt-10">
-                    <Heading title="My Reservations"/>
+                    <Heading title="Upcoming Reservations"/>
                 </div>
             <div
                 className ="
