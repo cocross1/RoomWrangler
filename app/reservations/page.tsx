@@ -20,6 +20,15 @@ const ReservationsPage = async () => {
     }
     const reservations = await getReservations({userId: currentUser.id});
 
+    //
+    for (const booking of reservations){
+        const currentDate = new Date();
+        const reservationEnd = new Date(booking.endTime);
+        if (reservationEnd < currentDate){
+
+        }
+    }
+
     if (reservations.length ==0){
         return(
             <ClientOnly>
