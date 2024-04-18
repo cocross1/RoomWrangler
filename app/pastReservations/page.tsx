@@ -1,11 +1,11 @@
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
-import ReservationsClient from "./ReservationsClient"; 
+import PastReservationsClient from "./PastReservationsClient";
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservations from "../actions/getReservations";
 
 
-const ReservationsPage = async () => {
+const PastReservationsPage = async () => {
     const currentUser = await getCurrentUser();
 
     if (!currentUser){
@@ -20,11 +20,11 @@ const ReservationsPage = async () => {
     }
     const reservations = await getReservations({userId: currentUser.id});
 
-    // Ensures only future reservations are shown
+    // Ensures only past reservations are shown
     const currentDate = new Date();
     const upcomingReservations = reservations.filter((reservation) => {
         const reservationEnd = new Date(reservation.endTime);
-        return (reservationEnd>=currentDate);
+        return (reservationEnd<currentDate);
     });
 
     if (upcomingReservations.length ==0){
@@ -32,7 +32,7 @@ const ReservationsPage = async () => {
             <ClientOnly>
                 <EmptyState
                     title = "No reservations found"
-                    subtitle = "Looks like you don't have any reseravations coming up"
+                    subtitle = "Looks like you don't have any past reservations"
                 />
             </ClientOnly>
         )
@@ -40,7 +40,7 @@ const ReservationsPage = async () => {
 
     return(
         <ClientOnly>
-            <ReservationsClient // changed from TripsClient
+            <PastReservationsClient 
                 reservations = {upcomingReservations}
                 currentUser = {currentUser}
             />
@@ -48,4 +48,4 @@ const ReservationsPage = async () => {
     )
 }
 
-export default ReservationsPage;
+export default PastReservationsPage;
