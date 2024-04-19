@@ -42,7 +42,7 @@ const PastReservationsClient: React.FC<PastReservationsClientProps> = ({
             <div className="max-w-screen-lg mx-auto 
                 flex flex-col gap-6
                 mt-10">
-                    <Heading title="Upcoming Reservations"/>
+                    <Heading title="Past Reservations"/>
                 </div>
             <div
                 className ="
@@ -65,7 +65,6 @@ const PastReservationsClient: React.FC<PastReservationsClientProps> = ({
                     actionId = {reservation.id}
                     onAction = {onCancel}
                     disabled = {deletingId == reservation.id}
-                    actionLabel = "Cancel reservation"
                     currentUser = {currentUser}
                 />
             ))}
