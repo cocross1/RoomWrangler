@@ -20,9 +20,13 @@ async function insertDataFromCSV(filename, collection) {
   const db = await connectToMongoDB();
   const reservationCollection = db.collection("Reservation");
 
+  let totalRows = 0;
+  let parsedRows = 0;
+
   fs.createReadStream(filename)
     .pipe(csv())
     .on("data", async (row) => {
+      totalRows ++;
       const type = row["Type"];
       const requestor = row["Display Name"];
 
@@ -37,7 +41,10 @@ async function insertDataFromCSV(filename, collection) {
 
       //getting IDs from other collections
       const room_id = await getRoomId(row["Room"].split("-")[1]);
-      const user_id = await getUserId("Yumna Ahmed"); //change to admin's name
+
+      //change to admin's name //has to be in User DB
+      // TO DO: validation checks (if time allows)
+      const user_id = await getUserId("Yumna Ahmed"); 
 
       //setting up data to insert in DB
       const input_dict = {
@@ -50,16 +57,36 @@ async function insertDataFromCSV(filename, collection) {
         displayName: requestor,
       };
 
+      console.log(input_dict)
+
       // INSERTING DATA TO COLLECTION
-      //await reservationCollection.insertOne(input_dict);   //UNCOMMENT TO INSERT DATA
+      await reservationCollection.insertOne(input_dict);   //UNCOMMENT TO INSERT DATA
+
+      parsedRows++;
+
+      console.log("Actually inserted: " + parsedRows + new Date());
+
+      //TO DO: validation checks to handle overlapping reservations? [if we have time] 
+      //though given this data is through the registrar, overlaps shouldn't exist in the data in the first place
+      //overlaps handled when user makes request through website
+      //would be a safety measurr
+
     })
     .on("end", () => {
-      console.log("CSV file successfully processed");
+      console.log("CSV file successfully processed at " + new Date());
+      console.log("Total: " + totalRows); // expect 2
+      console.log("Parsed: " + parsedRows);
 
-      // TO DO: figure out closing connection + ending script not prematurely though
+      // TO DO: figure out closing connection 
 
-      // db.client.close();
-      // process.exit(0);
+      // Issue:
+      // script ends prematurely
+
+      //db.client.close();
+      //console.log("Parsed after connection close: " + parsedRows)
+
+      //process.exit(0);
+
     });
 }
 
