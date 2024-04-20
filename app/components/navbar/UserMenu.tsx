@@ -1,4 +1,6 @@
 'use client';
+// added upcoming reservations functionality
+
 import React, { useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
@@ -19,15 +21,14 @@ interface UserMenuProps{
 const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
-    const registerModal = useRegisterModal();
+    const router = useRouter(); 
     const loginModal = useLoginModal();
     const searchRoomsModal = useSearchRoomsModal();
     const searchRoomsModalButtonLabel = "Search for Available Rooms";
     const rentModal = useRentModal();
     const uploadRoomModalButtonLabel = "Upload a Room";
     const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter(); // Use the hook here to get the router instance
-
+    
     const toggleOpen = useCallback(() =>{
         setIsOpen((value)=>!value);
     },[]);
@@ -106,8 +107,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 {currentUser ? (
                                         <>
                           <MenuItem
-                              onClick={() => {}}
-                              label="Upcoming Reservations" />
+                              onClick={() => router.push("/reservations")} 
+                              label="My Reservations" /> 
                       
                       <MenuItem
                               onClick={() => {}}

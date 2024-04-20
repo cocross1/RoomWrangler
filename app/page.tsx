@@ -1,37 +1,27 @@
-import { useCallback, useState } from "react";
 import getCurrentUser from "./actions/getCurrentUser";
-import getRooms from "./actions/getRooms";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import RoomCard from "./components/rooms/RoomCard";
-import getAvailableRooms, { IReservationParams } from "./actions/getAvailableRooms";
+import getRoomsByCriteriaOrName, {
+  IReservationParams,
+} from "./actions/getRoomsByCriteriaOrName";
 
 interface HomeProps {
-  searchParams: IReservationParams
+  searchParams: IReservationParams;
 }
 
-const Home = async({searchParams}: HomeProps) => {
-  const currentUser = await getCurrentUser();
-  console.log("sP ", searchParams);
-  const availableRooms = await getAvailableRooms(searchParams);
+const Home = async ({ searchParams }: HomeProps) => {
 
-  // const handleSearchSubmit = async (searchCriteria) => {
-  //   setSearchSubmitted(true);
-  //   try {
-  //     const availableRooms = await getAvailableRooms(searchCriteria);
-  //     setRooms(availableRooms);
-  //   } catch (error) {
-  //     console.error("Failed to fetch available roms: ", error);
-  //   }
-  // };
+  const currentUser = await getCurrentUser();
+  let availableRooms = await getRoomsByCriteriaOrName(searchParams);
 
   if (availableRooms && availableRooms.length > 0) {
     return (
       <ClientOnly>
         <Container>
           <div
-            className="mt-40 
+            className="mt-10 
           grid grid-cols-1 
           sm:grid-cols-2 
           md:grid-cols-3 
@@ -50,10 +40,10 @@ const Home = async({searchParams}: HomeProps) => {
   } else {
     return (
       <ClientOnly>
-        <EmptyState showReset/>
+        <EmptyState showReset />
       </ClientOnly>
     );
   }
-}
+};
 
 export default Home;

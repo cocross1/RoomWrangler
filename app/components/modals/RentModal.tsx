@@ -57,40 +57,40 @@ const RentModal = () => {
   // let projectors = watch("projectors");
   let imageSrc = watch("imageSrc");
   const setCustomValue = (id: string, value: any) => {
-    if (id === "category") {
-      console.log(value);
-      // Correctly use watch to get the current state of category
-      const currentCategories = watch("category"); // Ensure this is an array
+    // if (id === "category") {
+    //   console.log(value);
+    //   // Correctly use watch to get the current state of category
+    //   const currentCategories = watch("category"); // Ensure this is an array
 
-      const isSelected = currentCategories.includes(value);
-      console.log("here");
+    //   const isSelected = currentCategories.includes(value);
+    //   console.log("here");
 
-      if (isSelected) {
-        // If already selected, remove it from the array
-        setValue(
-          "category",
-          currentCategories.filter((category: String[]) => category !== value),
-          {
-            shouldDirty: true,
-            shouldTouch: true,
-            shouldValidate: true,
-          }
-        );
-      } else {
-        // If not selected, add it to the array
-        setValue("category", [...currentCategories, value], {
-          shouldDirty: true,
-          shouldTouch: true,
-          shouldValidate: true,
-        });
-      }
-    } else {
-      setValue(id, value, {
-        shouldDirty: true,
-        shouldTouch: true,
-        shouldValidate: true,
-      });
-    }
+    //   if (isSelected) {
+    //     // If already selected, remove it from the array
+    //     setValue(
+    //       "category",
+    //       currentCategories.filter((category: String[]) => category !== value),
+    //       {
+    //         shouldDirty: true,
+    //         shouldTouch: true,
+    //         shouldValidate: true,
+    //       }
+    //     );
+    //   } else {
+    //     // If not selected, add it to the array
+    //     setValue("category", [...currentCategories, value], {
+    //       shouldDirty: true,
+    //       shouldTouch: true,
+    //       shouldValidate: true,
+    //     });
+    //   }
+    // } else {
+    console.log("else ", id, " + ", value);
+    setValue(id, value, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
   };
 
   const onBack = () => {
@@ -173,31 +173,31 @@ const RentModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-        <Heading
-          title="What building is the room in?"
-          subtitle="Choose a building"
-        />
-        <div
-          className="
+      <Heading
+        title="What building is the room in?"
+        subtitle="Choose a building"
+      />
+      <div
+        className="
             grid
             grid-cols-1
             md:grid-cols-2
             gap-3
             max-h-[50vh]
             overflow-y-auto"
-        >
-          {buildings.map((item) => (
-            <div key={item.label} className="col-span-1">
-              <CategoryInput
-                onClick={(building) => setCustomValue("building", building)}
-                selected={building === item.label}
-                label={item.label}
-                icon={item.icon}
-              />
-            </div>
-          ))}
-        </div>
+      >
+        {buildings.map((item) => (
+          <div key={item.label} className="col-span-1">
+            <CategoryInput
+              onClick={(building) => setCustomValue("building", building)}
+              selected={building === item.label}
+              label={item.label}
+              icon={item.icon}
+            />
+          </div>
+        ))}
       </div>
+    </div>
   );
   if (step === STEPS.INFO) {
     bodyContent = (
@@ -213,48 +213,38 @@ const RentModal = () => {
         />
         <Input
           id="floor"
-          type="number"
           label="Floor"
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
         />
         <Input
           id="whiteboards"
-          type="number"
           label="Whiteboards"
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
         />
         <Input
           id="computers"
-          type="number"
           label="Computers"
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
         />
         <Input
           id="projectors"
-          type="number"
           label="Projectors"
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
         />
         <Input
           id="capacity"
-          type="number"
           label="Capacity"
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
         />
       </div>
     );
