@@ -33,7 +33,6 @@ export async function POST(request: Request) {
   }
 
   let buildingName = providedBuildingName;
-  console.log(buildingName);
   let buildingId = '';
 
   // Object.keys(body).forEach((value: any) => {
@@ -43,6 +42,8 @@ export async function POST(request: Request) {
   // });
 
   // Upsert building based on buildingName
+
+  console.log('isCreation? ', isCreation);
   
   if (isCreation) {
     const building = await prisma.building.upsert({

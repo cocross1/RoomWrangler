@@ -17,12 +17,6 @@ import useReserveModal from "@/app/hooks/useReserveModal";
 import useCalendarModal from "@/app/hooks/useCalendar";
 import useEditRoomModal from "@/app/hooks/useEditRoomModal";
 
-const initialReservationWindow = {
-  startTime: new Date(),
-  endTime: new Date(),
-  key: "selection",
-};
-
 // might want to add Building here, or find some way to get the building name
 interface RoomClientProps {
   reservations?: Reservation[];
@@ -34,10 +28,6 @@ interface RoomClientProps {
 
 const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations, building }) => {
   const buildingAndNumber = `${room.buildingAndNumber}`;
-  // need to update this since we're allowing multiple categories...
-  // tried to modify to use .includes but it's complaining. or it was (?)
-  const router = useRouter();
-  const loginModal = useLoginModal();
   const reserveModal = useReserveModal();
   const editRoomModal = useEditRoomModal();
   const calendarModal =  useCalendarModal();
@@ -63,12 +53,6 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
   }, [editRoomModal]);
 
 
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [reservationWindow, setReservationWindow] = useState(
-    initialReservationWindow
-  );
-
   const onCalendar = useCallback(() => {
     if(reservations && room){
       calendarModal.onOpen(room.buildingAndNumber, reservations);
@@ -77,39 +61,6 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
       toast.error("Error Processing Reservations, Please Refresh");
   }, [calendarModal]);
 
-  // const onCreateReservation = useCallback(() => {
-  //   if (!currentUser) {
-  //     return loginModal.onOpen();
-  //   }
-  //   setIsLoading(true);
-  //   axios
-  //     .post("/api/reservations", {
-  //       startTime: reservationWindow.startTime,
-  //       endTime: reservationWindow.endTime,
-  //       roomId: room?.id,
-  //     })
-  //     .then(() => {
-  //       toast.success("Room reserved!");
-  //       setReservationWindow(initialReservationWindow);
-  //       router.refresh();
-  //     })
-  //     .catch(() => {
-  //       toast.error("Something went wrong.");
-  //     })
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // }, [
-  //   reservationWindow,
-  //   room?.id,
-  //   router,
-  //   currentUser,
-  //   loginModal,
-  //   reserveModal,
-  // ]);
-  // const categoryList = useMemo(() => {
-  //     return categories.find((item) => room.category.includes(item.label));
-  // }, [room.category]);
   return (
     <div>
       <Container>

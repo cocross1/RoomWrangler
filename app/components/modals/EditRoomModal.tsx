@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -21,6 +21,8 @@ const EditRoomModal = () => {
   const router = useRouter();
   const [step, setStep] = useState(STEPS.INFO);
   const [isLoading, setIsLoading] = useState(false);
+  // const [localRoomId, setLocalRoomId] = useState(editRoomModal.roomId);
+
   const {
     register,
     handleSubmit,
@@ -28,58 +30,18 @@ const EditRoomModal = () => {
     watch,
     formState: { errors },
     reset,
-  } = useForm<FieldValues>({
-    defaultValues: {
-      number: editRoomModal.number,
-      floor: editRoomModal.floor,
-      imageSrc: editRoomModal.imageSrc,
-      capacity: editRoomModal.capacity,
-      whiteboards: editRoomModal.whiteboards,
-      computers: editRoomModal.computers,
-      projectors: editRoomModal.projectors,
-    },
-  });
+  } = useForm<FieldValues>({});
 
-  console.log("test");
-
-  let building = watch("building");
-  // let number = watch("number");
-  // let floor = watch("floor");
-  // let capacity = watch("capacity");
-  // let whiteboards = watch("whiteboards");
-  // let computers = watch("computers");
-  // let projectors = watch("projectors");
   let imageSrc = editRoomModal.imageSrc;
+
+  const handleCancel = () => {
+    // setLocalRoomId(editRoomModal.roomId);
+    reset();
+    setStep(STEPS.INFO);
+    editRoomModal.onClose();
+  };
+
   const setCustomValue = (id: string, value: any) => {
-    // if (id === "category") {
-    //   console.log(value);
-    //   // Correctly use watch to get the current state of category
-    //   const currentCategories = watch("category"); // Ensure this is an array
-
-    //   const isSelected = currentCategories.includes(value);
-    //   console.log("here");
-
-    //   if (isSelected) {
-    //     // If already selected, remove it from the array
-    //     setValue(
-    //       "category",
-    //       currentCategories.filter((category: String[]) => category !== value),
-    //       {
-    //         shouldDirty: true,
-    //         shouldTouch: true,
-    //         shouldValidate: true,
-    //       }
-    //     );
-    //   } else {
-    //     // If not selected, add it to the array
-    //     setValue("category", [...currentCategories, value], {
-    //       shouldDirty: true,
-    //       shouldTouch: true,
-    //       shouldValidate: true,
-    //     });
-    //   }
-    // } else {
-    console.log("else ", id, " + ", value);
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -129,17 +91,29 @@ const EditRoomModal = () => {
       const capacityInt = parseInt(data.capacity, 10);
       data.capacity = capacityInt;
     }
+    console.log("new data ", data);
 
     axios
-      .post("/api/rooms", data)
+      .post(`/api/rooms/${editRoomModal.roomId}`, data)
       .then(() => {
-        console.log("data ", data);
         toast.success("Room updated!");
         router.refresh();
         editRoomModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response) {
+          console.error("Error response:", error.response.data);
+          console.error("Status code:", error.response.status);
+          console.error("Headers", error.response.headers);
+        }
+        else if (error.request) {
+          console.error("Error request:", error.request);
+        }
+        else {
+          console.error("Error:", error.message)
+        }
+        console.error("Config:", error.config);
+        // console.log(error);
         toast.error("Something went wrong.");
       })
       .finally(() => {
@@ -170,12 +144,14 @@ const EditRoomModal = () => {
       <Input
         id="floor"
         label="Floor"
+        value={editRoomModal.floor}
         disabled={isLoading}
         register={register}
         errors={errors}
       />
       <Input
         id="whiteboards"
+        value={editRoomModal.whiteboards}
         label="Whiteboards"
         disabled={isLoading}
         register={register}
@@ -183,6 +159,7 @@ const EditRoomModal = () => {
       />
       <Input
         id="computers"
+        value={editRoomModal.computers}
         label="Computers"
         disabled={isLoading}
         register={register}
@@ -190,6 +167,7 @@ const EditRoomModal = () => {
       />
       <Input
         id="projectors"
+        value={editRoomModal.projectors}
         label="Projectors"
         disabled={isLoading}
         register={register}
@@ -197,19 +175,19 @@ const EditRoomModal = () => {
       />
       <Input
         id="capacity"
+        value={editRoomModal.capacity}
         label="Capacity"
         disabled={isLoading}
         register={register}
         errors={errors}
+        onChange={(value) => setCustomValue("capacity", value)}
       />
     </div>
   );
   if (step === STEPS.IMAGES) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Add a photo of the room."
-        />
+        <Heading title="Add a photo of the room." />
         <ImageUpload
           onChange={(value) => setCustomValue("imageSrc", value)}
           value={imageSrc}
@@ -220,7 +198,7 @@ const EditRoomModal = () => {
   return (
     <Modal
       isOpen={editRoomModal.isOpen}
-      onClose={editRoomModal.onClose}
+      onClose={handleCancel}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}

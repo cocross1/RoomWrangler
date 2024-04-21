@@ -30,7 +30,6 @@ const useEditRoomModal = create<EditRoomModalStore>((set) => ({
   onOpen: (room) => {
     console.log("opening w data: ", room.whiteboards);
     set({
-      isOpen: true,
       roomId: room.id,
       number: room.number,
       floor: room.floor,
@@ -40,6 +39,7 @@ const useEditRoomModal = create<EditRoomModalStore>((set) => ({
       computers: room.computers ? room.computers : 0,
       capacity: room.capacity ? room.capacity : 0,
       imageSrc: room.imageSrc,
+      isOpen: true,
     });
   },
   onClose: () => {
