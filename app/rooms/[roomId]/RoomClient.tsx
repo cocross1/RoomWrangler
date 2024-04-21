@@ -41,10 +41,7 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
   }, [reserveModal]);
 
   const onEdit = useCallback(() => {
-    console.log(room.buildingAndNumber);
-    console.log(currentUser?.permissions);
     if(room && currentUser?.permissions === 'Admin') {
-      console.log("made it");
       editRoomModal.onOpen(room);
     }
     else {
@@ -58,7 +55,7 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
       calendarModal.onOpen(room.buildingAndNumber, reservations);
     }
     else
-      toast.error("Error Processing Reservations, Please Refresh");
+      toast.error("Error processing reservations. Please refresh.");
   }, [calendarModal]);
 
   return (
@@ -78,13 +75,14 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
                 whiteboards={room.whiteboards}
                 capacity={room.capacity}
                 floor={room.floor}
-             //   buildingId={room.buildingId}
               />
             </div>
             <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
               <Button label="Reserve" onClick={onReserve} />
               <Button label="View Calendar" onClick={onCalendar}/>
-              <Button label="Edit Room" onClick={onEdit}/>
+              {currentUser?.permissions === 'Admin' && (
+                <Button label="Edit Room" onClick={onEdit}/>
+              )}
             </div>
             
           </div>
