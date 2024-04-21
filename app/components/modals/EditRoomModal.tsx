@@ -21,7 +21,6 @@ const EditRoomModal = () => {
   const router = useRouter();
   const [step, setStep] = useState(STEPS.INFO);
   const [isLoading, setIsLoading] = useState(false);
-  // const [localRoomId, setLocalRoomId] = useState(editRoomModal.roomId);
 
   const {
     register,
@@ -35,7 +34,6 @@ const EditRoomModal = () => {
   let imageSrc = editRoomModal.imageSrc;
 
   const handleCancel = () => {
-    // setLocalRoomId(editRoomModal.roomId);
     reset();
     setStep(STEPS.INFO);
     editRoomModal.onClose();
@@ -91,7 +89,6 @@ const EditRoomModal = () => {
       const capacityInt = parseInt(data.capacity, 10);
       data.capacity = capacityInt;
     }
-    console.log("new data ", data);
 
     axios
       .post(`/api/rooms/${editRoomModal.roomId}`, data)
@@ -101,19 +98,7 @@ const EditRoomModal = () => {
         editRoomModal.onClose();
       })
       .catch((error) => {
-        if (error.response) {
-          console.error("Error response:", error.response.data);
-          console.error("Status code:", error.response.status);
-          console.error("Headers", error.response.headers);
-        }
-        else if (error.request) {
-          console.error("Error request:", error.request);
-        }
-        else {
-          console.error("Error:", error.message)
-        }
-        console.error("Config:", error.config);
-        // console.log(error);
+        console.log(error);
         toast.error("Something went wrong.");
       })
       .finally(() => {

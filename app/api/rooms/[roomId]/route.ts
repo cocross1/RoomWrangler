@@ -64,7 +64,6 @@ export async function POST(request: Request, { params }: { params: IParams }) {
 
     return NextResponse.json(updatedRoom);
   } catch (error) {
-    console.error("Error processing request:", error);
-    throw new Error("Something went wrong");
+    throw new Error("Failed to update room data.");
   }
 }
