@@ -8,7 +8,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
-import RentModal from "./components/modals/RentModal";
+import RentModal from "./components/modals/UploadRoomModal";
 import ReserveModal from "./components/modals/ReserveModal";
 import CalendarModal from "./components/modals/CalendarModal";
 import SearchRoomsModal from "./components/modals/SearchRoomsModal";

@@ -1,13 +1,13 @@
 "use client";
 
 import qs from "query-string";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { parseISO, formatISO } from "date-fns";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
 import useSearchRoomsModal from "@/app/hooks/useSearchRoomsModal";
@@ -34,7 +34,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm<FieldValues>({
     defaultValues: {
       buildingAndNumber: "",
@@ -46,6 +45,12 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
       projectors: 0,
     },
   });
+
+  const handleCancel = () => {
+    reset();
+    setStep(STEPS.SPECIFIC);
+    searchRoomsModal.onClose();
+  };
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -90,9 +95,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
       { skipNull: true }
     );
 
-    console.log('whiteboards b4 ', data.whiteboards);
     reset();
-    console.log('whiteboards after ', data.whiteboards);
     setIsLoading(false);
     setStep(STEPS.SPECIFIC);
     searchRoomsModal.onClose();
@@ -194,7 +197,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   return (
     <Modal
       isOpen={searchRoomsModal.isOpen}
-      onClose={searchRoomsModal.onClose}
+      onClose={handleCancel}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}

@@ -2,13 +2,11 @@
 
 import React, { useMemo, useState } from "react";
 import Modal from "./Modal";
-import useRentModal from "@/app/hooks/useRentModal";
+import useUploadRoomModal from "@/app/hooks/useUploadRoomModal";
 import Heading from "../Heading";
-import { categories, buildings } from "../navbar/Categories";
+import { buildings } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import BuildingSelect from "../inputs/BuildingSelect";
-import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -21,8 +19,8 @@ enum STEPS {
   IMAGES = 2,
 }
 
-const RentModal = () => {
-  const rentModal = useRentModal();
+const UploadRoomModal = () => {
+  const uploadRoomModal = useUploadRoomModal();
   const router = useRouter();
   const [step, setStep] = useState(STEPS.BUILDING);
   const [isLoading, setIsLoading] = useState(false);
@@ -143,7 +141,7 @@ const RentModal = () => {
       .then(() => {
         toast.success("Room created!");
         router.refresh();
-        rentModal.onClose();
+        uploadRoomModal.onClose();
       })
       .catch((error) => {
         console.log(error);
@@ -265,8 +263,8 @@ const RentModal = () => {
   }
   return (
     <Modal
-      isOpen={rentModal.isOpen}
-      onClose={rentModal.onClose}
+      isOpen={uploadRoomModal.isOpen}
+      onClose={uploadRoomModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
@@ -278,4 +276,4 @@ const RentModal = () => {
   );
 };
 
-export default RentModal;
+export default UploadRoomModal;

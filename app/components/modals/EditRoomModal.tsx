@@ -26,7 +26,6 @@ const EditRoomModal = () => {
     register,
     handleSubmit,
     setValue,
-    watch,
     formState: { errors },
     reset,
   } = useForm<FieldValues>({});

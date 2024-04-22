@@ -1,15 +1,15 @@
 import { create } from 'zustand';
 
-interface RentModalStore{
+interface UploadRoomModalStore{
     isOpen: boolean;
     onOpen: () => void;
     onClose: () => void;
 }
 
-const useRentModal = create<RentModalStore>((set) => ({
+const useUploadRoomModal = create<UploadRoomModalStore>((set) => ({
     isOpen: false,
     onOpen: () => set({isOpen: true}),
     onClose: () => {set({ isOpen: false})},
 }));
 
-export default useRentModal;
+export default useUploadRoomModal;
