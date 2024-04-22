@@ -74,6 +74,7 @@ model Reservation {
   createdAt   DateTime @default(now())
   type        String
   displayName String
+  weekly      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
