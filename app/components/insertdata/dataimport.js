@@ -1,15 +1,37 @@
+/**
+ * Script to read CSV data and insert in MongoDB database.
+ * 
+ *
+ * CHANGE "user" and "password" in mongoDB connection string to.
+ *
+ * CHANGE filename to read from as needed.
+ *
+ * UNCOMMENT collection.insertOne() statement. Commented out to prevent accidental writes.
+ *
+ * CHANGE username to current admin's name, must be in User table though.
+ *
+ * Important info for CSV setup at end of this script.
+ */
+
 const { MongoClient } = require("mongodb");
 const csv = require("csv-parser");
 const fs = require("fs");
 const { DateTime } = require("luxon");
 
+//SET UP FILE NAME TO READ FROM
+const filename = "data/spring2024.csv";
+
+//SET UP COLLECTION TO INSERT DATA TO
+const reservationCollection = "Reservation"; // Collection name in MongoDB
+
+//Invoke insert data function
+insertDataFromCSV(filename, reservationCollection);
+
 // Function to connect to MongoDB
 async function connectToMongoDB() {
+  // PLACE YOUR USERNAME AND PASSWORD!
   const client = new MongoClient(
-    "mongodb+srv://kate:DQY76ySa2dfkF0Nc@mongoverse.oyw8geb.mongodb.net/RoomWrangler",
-    {
-      useUnifiedTopology: true,
-    }
+    "mongodb+srv://<USER>:<PASSWORD>@mongoverse.oyw8geb.mongodb.net/RoomWrangler"
   );
   await client.connect();
   return client.db("RoomWrangler");
@@ -18,6 +40,7 @@ async function connectToMongoDB() {
 // Function to insert data from CSV to MongoDB collection
 async function insertDataFromCSV(filename, collection) {
   const db = await connectToMongoDB();
+  //console.log("Connection to DB established.")  // for debugging
   const reservationCollection = db.collection("Reservation");
 
   let totalRows = 0;
@@ -26,105 +49,108 @@ async function insertDataFromCSV(filename, collection) {
   fs.createReadStream(filename)
     .pipe(csv())
     .on("data", async (row) => {
-      totalRows ++;
-      const type = row["Type"];
-      const eventName = row["Event Name"];
-      const requestor = row["Display Name"];
+      totalRows++;
+      const type = row["Booking Event Type"];
+      const eventName = row["Booking Event Name"];
+      const requestor = row["Requestor"];
 
       //parsing date and time to acceptable format
-      const date = row["Date"];
-      const start = row["Start Time"];
-      const end = row["End Time"];
+      const date = row["Booking Date"];
+      const start = row["Reserved Start"];
+      const end = row["Reserved End"];
 
-      //parse date and time strings from CSV row
       const startTime = parseDateTime(date, start);
       const endTime = parseDateTime(date, end);
 
       //getting IDs from other collections
-      const room_id = await getRoomId(row["Room"].split("-")[1]);
+      const room_id = await getRoomId(db, row["Room Code"].split("-")[1]);
 
-      //change to admin's name //has to be in User DB
-      // TO DO: validation checks (if time allows)
-      const user_id = await getUserId("Yumna Ahmed"); 
+      //CHANGE TO CURRENT ADMIN's NAME  //has to be in User DB
+      const user_id = await getUserId(db, "<ADMIN NAME>");
 
-      //setting up data to insert in DB
-      const input_dict = {
-        userId: user_id,
-        roomId: room_id,
-        startTime: startTime,
-        endTime: endTime,
-        createdAt: new Date(),
-        displayName: eventName,
-        type: type,
-        contactName: requestor,
-      };
+      //Insert data ONLY if user_id is not NULL
+      if (user_id) {
+        //setting up data to insert in DB
+        const input_dict = {
+          userId: user_id,
+          roomId: room_id,
+          startTime: startTime,
+          endTime: endTime,
+          createdAt: new Date(),
+          displayName: eventName,
+          type: type,
+          contactName: requestor,
+        };
 
-      console.log(input_dict)
+        // console.log(input_dict)    //debugging
 
-      // INSERTING DATA TO COLLECTION
-      await reservationCollection.insertOne(input_dict);   //UNCOMMENT TO INSERT DATA
+        // INSERTING DATA TO COLLECTION
+        // await reservationCollection.insertOne(input_dict);   //UNCOMMENT TO INSERT DATA
 
-      parsedRows++;
+        parsedRows++;
 
-      console.log("Actually inserted: " + parsedRows + new Date());
+        //console.log("Actually inserted: " + parsedRows + new Date());  //debugging
 
-      if (parsedRows == totalRows){
-        console.log("CSV processed!")
-        console.log("Total: " + totalRows); // expect 2 w/ test.csv
-        console.log("Parsed: " + parsedRows);
+      } else {
+        //error handling
+        console.log(
+          "user_id is null. Data not inserted and connection closed."
+        );
+
+        //closing connection to DB
+        db.client.close();
+
+        //ending the script
+        process.exit(0);
+      }
+
+      if (parsedRows == totalRows) {
+        console.log("CSV processed!");
+        console.log("Total Rows: " + totalRows); // expect 2 w/ test.csv; 532 w/ spring2024.csv
+        console.log("Rows Parsed: " + parsedRows);
 
         //closing connection to db
         db.client.close();
 
-        console.log("Connection to DB closed.")
+        //console.log("Connection to DB closed.")   //debugging
 
         //ending script with code 0
-        process.exit(0)
-
+        process.exit(0);
       }
 
-      //TO DO: validation checks to handle overlapping reservations? [if we have time] 
+      //TO DO:
+      //validation checks to handle overlapping reservations? [if we have time]
       //though given this data is through the registrar, overlaps shouldn't exist in the data in the first place
       //overlaps handled when user makes request through website
       //would be a safety measurr
+    })
+    .on("error", (error) => {
+      // this handles any errors that occur when reading CSV
 
+      console.log("An error has occurred!");
+      console.log(error);
+
+      //end the script
+      process.exit(1);
     });
-    // .on("end", () => {
-    //   console.log("CSV file successfully processed at " + new Date());
-    //   console.log("Total: " + totalRows); // expect 2
-    //   console.log("Parsed: " + parsedRows);
-
-    //   // TO DO: figure out closing connection 
-
-    //   // Issue:
-    //   // script ends prematurely
-
-    //   //db.client.close();
-    //   //console.log("Parsed after connection close: " + parsedRows)
-
-    //   //process.exit(0);
-
-    // });
 }
 
 // Function to parse date and time from CSV row
 function parseDateTime(dateString, timeString) {
-  // Parse date and time strings from CSV row
-  const [datePart] = dateString.split(' ');
-  const [month, day, year] = datePart.split('/').map(Number);
+  // parsing date and time strings from CSV row
+  const [datePart] = dateString.split(" ");
+  const [month, day, year] = datePart.split("/").map(Number);
   const [hours, minutes] = timeString.split(":").map(Number);
 
   // creating JavaScript Date object
-  const date = new Date(year, month - 1, day, hours, minutes, 0); // Month is zero-based
+  const date = new Date(year, month - 1, day, hours, minutes, 0); // months are zero-based
 
   return date;
 }
 
-
 // Function to get room ID from room number
-async function getRoomId(number) {
-  const db = await connectToMongoDB();
-  const roomCollection = db.collection("Room");
+async function getRoomId(database, number) {
+  const roomCollection = database.collection("Room");
   const room = await roomCollection.findOne({ number: number });
   if (room) {
     return room._id;
@@ -134,20 +160,27 @@ async function getRoomId(number) {
 }
 
 // Function to get user ID
-async function getUserId(username) {
-  const db = await connectToMongoDB();
-  const userCollection = db.collection("User");
+async function getUserId(database, username) {
+  //const db = await connectToMongoDB();
+  const userCollection = database.collection("User");
   const user = await userCollection.findOne({ name: username });
 
   if (user) {
-    // console.log(user._id)
     return user._id;
   } else {
     return null;
   }
 }
 
-// setting up filenames etc. 
-const filename = "data/test.csv";
-const reservationCollection = "Reservation"; // Collection name in MongoDB
-insertDataFromCSV(filename, reservationCollection);
+/**
+ * NOTES FOR CSV:
+ *
+ * 1. If converting from spreadsheet, use normal CSV export settings
+ * UTF-8 encoding can mess up data reading due to byte order mark.
+ *
+ * 2. Convert times to military time using formatting function on spreadsheet
+ *
+ * 3. Ensure columns names in CSV are same to how data is read in input
+ *
+ * 4. as of 04/22/2024: contact Marc Jacobsen to get data from EMS
+ */
