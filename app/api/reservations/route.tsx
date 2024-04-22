@@ -12,14 +12,7 @@ export async function POST(request: Request) {
   }
 
   const body = await request.json();
-  const { 
-    roomId,
-    startTime,
-    endTime,
-    displayName,
-    createdAt,
-    type,
-   } = body;
+  const { roomId, startTime, endTime, displayName, createdAt, type } = body;
 
   // Fetch existing reservations for the room
   const existingReservations = await getReservationsByRoomId(roomId);
@@ -54,15 +47,15 @@ export async function POST(request: Request) {
 
   const reservation = await prisma.reservation.create({
     data: {
-        userId:currentUser.id,
-        roomId,
-        startTime,
-        endTime,
-        displayName,
-        createdAt,
-        type,
-        contactName:currentUser.name,
-    }
+      userId: currentUser.id,
+      roomId,
+      startTime,
+      endTime,
+      displayName,
+      createdAt,
+      type,
+      contactName: currentUser.name,
+    },
   });
 
   return NextResponse.json(reservation);
