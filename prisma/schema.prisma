@@ -72,6 +72,7 @@ model Reservation {
   startTime   DateTime
   endTime     DateTime
   createdAt   DateTime @default(now())
+  contactName   String
   type        String
   displayName String
   weekly      String?

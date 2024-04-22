@@ -36,7 +36,7 @@ const CalendarModal = () => {
     slotMinTime="06:00:00" // Start time of the calendar view
     slotMaxTime="24:00:00" // End time of the calendar view
     events={reservations.map(reservation => ({
-      title: reservation.type,
+      title: reservation.displayName, 
       start: reservation.startTime,
       end: reservation.endTime
     }))}
