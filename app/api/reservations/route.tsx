@@ -22,6 +22,7 @@ export async function POST(
     displayName,
     createdAt,
     type,
+    contactName,
    } = body;
 
   // Fetch existing reservations for the room
@@ -65,6 +66,7 @@ export async function POST(
         displayName,
         createdAt,
         type,
+        contactName,
     }
   });
 

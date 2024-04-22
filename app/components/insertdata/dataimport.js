@@ -28,6 +28,7 @@ async function insertDataFromCSV(filename, collection) {
     .on("data", async (row) => {
       totalRows ++;
       const type = row["Type"];
+      const eventName = row["Event Name"];
       const requestor = row["Display Name"];
 
       //parsing date and time to acceptable format
@@ -53,8 +54,9 @@ async function insertDataFromCSV(filename, collection) {
         startTime: startTime,
         endTime: endTime,
         createdAt: new Date(),
+        displayName: eventName,
         type: type,
-        displayName: requestor,
+        contactName: requestor,
       };
 
       console.log(input_dict)
@@ -66,28 +68,43 @@ async function insertDataFromCSV(filename, collection) {
 
       console.log("Actually inserted: " + parsedRows + new Date());
 
+      if (parsedRows == totalRows){
+        console.log("CSV processed!")
+        console.log("Total: " + totalRows); // expect 2 w/ test.csv
+        console.log("Parsed: " + parsedRows);
+
+        //closing connection to db
+        db.client.close();
+
+        console.log("Connection to DB closed.")
+
+        //ending script with code 0
+        process.exit(0)
+
+      }
+
       //TO DO: validation checks to handle overlapping reservations? [if we have time] 
       //though given this data is through the registrar, overlaps shouldn't exist in the data in the first place
       //overlaps handled when user makes request through website
       //would be a safety measurr
 
-    })
-    .on("end", () => {
-      console.log("CSV file successfully processed at " + new Date());
-      console.log("Total: " + totalRows); // expect 2
-      console.log("Parsed: " + parsedRows);
-
-      // TO DO: figure out closing connection 
-
-      // Issue:
-      // script ends prematurely
-
-      //db.client.close();
-      //console.log("Parsed after connection close: " + parsedRows)
-
-      //process.exit(0);
-
     });
+    // .on("end", () => {
+    //   console.log("CSV file successfully processed at " + new Date());
+    //   console.log("Total: " + totalRows); // expect 2
+    //   console.log("Parsed: " + parsedRows);
+
+    //   // TO DO: figure out closing connection 
+
+    //   // Issue:
+    //   // script ends prematurely
+
+    //   //db.client.close();
+    //   //console.log("Parsed after connection close: " + parsedRows)
+
+    //   //process.exit(0);
+
+    // });
 }
 
 // Function to parse date and time from CSV row
