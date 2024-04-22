@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
 import useSearchRoomsModal from "@/app/hooks/useSearchRoomsModal";
+import Subheader from "../Subheader";
 
 interface SearchRoomsModalProps {
   currentUser?: SafeUser | null;
@@ -124,10 +125,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading
-        title="Do you have a particular room in mind?"
-        subtitle="To search for a specific room, enter the room name and skip over the next screens."
-      />
+      <Subheader text="To search for a specific room, enter the room name and skip over the next screens."/>
       <Input
         id="buildingAndNumber"
         label="ex: Building 100"
@@ -141,7 +139,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   if (step === STEPS.TIME) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading title="When do you want to reserve a room?" />
+        <Subheader text="When do you want to reserve a room?"/>
         <Input
           id="startTime"
           label="Reservation Start Time"
@@ -165,10 +163,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   if (step === STEPS.FEATURES) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Add optional search filters."
-          subtitle="What room features are you looking for?"
-        />
+        <Subheader text="Filter search by desired room features. This step is optional."/>
         <Input
           id="whiteboards"
           label="Whiteboards"

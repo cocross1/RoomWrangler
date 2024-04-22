@@ -12,6 +12,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Input from "../inputs/Input";
+import Subheader from "../Subheader";
 
 enum STEPS {
   BUILDING = 0,
@@ -46,44 +47,8 @@ const UploadRoomModal = () => {
   });
 
   let building = watch("building");
-  // let number = watch("number");
-  let category = watch("category");
-  // let floor = watch("floor");
-  // let capacity = watch("capacity");
-  // let whiteboards = watch("whiteboards");
-  // let computers = watch("computers");
-  // let projectors = watch("projectors");
   let imageSrc = watch("imageSrc");
   const setCustomValue = (id: string, value: any) => {
-    // if (id === "category") {
-    //   console.log(value);
-    //   // Correctly use watch to get the current state of category
-    //   const currentCategories = watch("category"); // Ensure this is an array
-
-    //   const isSelected = currentCategories.includes(value);
-    //   console.log("here");
-
-    //   if (isSelected) {
-    //     // If already selected, remove it from the array
-    //     setValue(
-    //       "category",
-    //       currentCategories.filter((category: String[]) => category !== value),
-    //       {
-    //         shouldDirty: true,
-    //         shouldTouch: true,
-    //         shouldValidate: true,
-    //       }
-    //     );
-    //   } else {
-    //     // If not selected, add it to the array
-    //     setValue("category", [...currentCategories, value], {
-    //       shouldDirty: true,
-    //       shouldTouch: true,
-    //       shouldValidate: true,
-    //     });
-    //   }
-    // } else {
-    console.log("else ", id, " + ", value);
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -105,7 +70,7 @@ const UploadRoomModal = () => {
     }
 
     if (imageSrc === "") {
-      toast.error("Please upload an image!");
+      toast.error("You must upload an image.");
       return () => {};
     }
 
@@ -171,10 +136,7 @@ const UploadRoomModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading
-        title="What building is the room in?"
-        subtitle="Choose a building"
-      />
+      <Subheader text="Enter the building name, room number, and floor. This step is required." />
       <div
         className="
             grid
@@ -195,27 +157,27 @@ const UploadRoomModal = () => {
           </div>
         ))}
       </div>
-    </div>
-  );
-  if (step === STEPS.INFO) {
-    bodyContent = (
-      <div className="flex flex-col gap-8">
-        <Heading title="Enter Room Info" />
-        <Input
-          id="number"
-          label="Room Number"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-          required={true}
-        />
-        <Input
+      <Input
+        id="number"
+        label="Room Number"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required={true}
+      />
+      <Input
           id="floor"
           label="Floor"
           disabled={isLoading}
           register={register}
           errors={errors}
         />
+    </div>
+  );
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Subheader text="Add additional information about the room. This step is optional." />
         <Input
           id="whiteboards"
           label="Whiteboards"
@@ -250,10 +212,7 @@ const UploadRoomModal = () => {
   if (step === STEPS.IMAGES) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Add a photo of the room."
-          subtitle="Show guests what your place looks like!"
-        />
+        <Subheader text="Add a photo of the room. This step is required."/>
         <ImageUpload
           onChange={(value) => setCustomValue("imageSrc", value)}
           value={imageSrc}
@@ -269,7 +228,7 @@ const UploadRoomModal = () => {
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.BUILDING ? undefined : onBack}
-      title="Add a Room!"
+      title="Upload a Room"
       allowClose={true}
       body={bodyContent}
     />
