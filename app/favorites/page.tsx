@@ -5,7 +5,6 @@ import Button from "@/app/components/Button";
 import ClientOnly from "@/app/components/ClientOnly";
 import EmptyState from "@/app/components/EmptyState";
 import getReservationsByRoomId from "@/app/actions/getReservationsByRoomId";
-import FavoritesClient from "./FavoritesClient";
 import Heading from "../components/Heading";
 import Input from "../components/inputs/Input";
 import getUsersBySearch from "../actions/getUsersBySearch";

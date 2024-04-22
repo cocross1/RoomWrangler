@@ -3,13 +3,13 @@ import { useRouter } from "next/navigation";
 import Heading from "./Heading";
 import Button from "./Button";
 
-interface EmptyState {
+interface EmptyStateFavoritesProps {
     title?: string;
     subtitle?: string;
     showReset?: boolean;
 }
 
-const EmptyState: React.FC<EmptyState> = ({
+const EmptyStateFavorites: React.FC<EmptyStateFavoritesProps> = ({
     title = "Looks like you don't have any favorites yet.",
     subtitle = "Try looking for a room that matches your exquisite taste.",
     showReset
@@ -27,4 +27,4 @@ const EmptyState: React.FC<EmptyState> = ({
     );
 }
 
-export default EmptyState;
+export default EmptyStateFavorites;
