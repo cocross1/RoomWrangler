@@ -1,5 +1,15 @@
 # Room Wrangler
-Group 6
+
+## Abstract
+
+## Requirements
+
+### How to Install
+
+### Running the Product
+
+### License (Optional)
+
 ### Group Members:
 - Yumna Ahmed
 - Rachel Massa

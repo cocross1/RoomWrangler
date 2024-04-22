@@ -32,10 +32,11 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
     defaultValues: {
       startTime: "",
       endTime: "",
+      contactName:currentUser?.name,
       type:"",
       userId: currentUser?.id,
       roomId: roomId,
-      displayName: currentUser?.name,
+      displayName: "",
     },
   });
 
@@ -95,8 +96,16 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         required
       />
       <Input 
+        id="name"
+        label="Enter Reservation Name"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required={true}
+      />
+      <Input 
         id="type"
-        label="Enter Reservation Type"
+        label="Enter Reservation Type (eg. 'Academic Class')"
         disabled={isLoading}
         register={register}
         errors={errors}
