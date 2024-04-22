@@ -2,7 +2,7 @@ import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
 import ReservationsClient from "./ReservationsClient"; 
 import getCurrentUser from "../actions/getCurrentUser";
-import getReservations from "../actions/getReservations";
+import getReservationsByUserId from "../actions/getReservationsByUserId";
 
 
 const ReservationsPage = async () => {
@@ -18,9 +18,21 @@ const ReservationsPage = async () => {
             </ClientOnly>
         )
     }
-    const reservations = await getReservations({userId: currentUser.id});
+    const reservations = await getReservationsByUserId({userId: currentUser.id});
+    
+    if (reservations){
+        return(
+            <ClientOnly>
+                <ReservationsClient // changed from TripsClient
+                    reservations = {reservations}
+                    currentUser = {currentUser}
+                />
+            </ClientOnly>
+        )
+    }
 
-    if (reservations.length ==0){
+    
+
         return(
             <ClientOnly>
                 <EmptyState
@@ -29,16 +41,7 @@ const ReservationsPage = async () => {
                 />
             </ClientOnly>
         )
-    }
-
-    return(
-        <ClientOnly>
-            <ReservationsClient // changed from TripsClient
-                reservations = {reservations}
-                currentUser = {currentUser}
-            />
-        </ClientOnly>
-    )
+    
 }
 
 export default ReservationsPage;

@@ -19,7 +19,7 @@ interface ReserveModalProps {
 const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   const reserveModal = useReserveModal();
   const roomId = reserveModal.roomId;
-
+  const [reserveWeekly, setReserveWeekly] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -36,11 +36,14 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       type:"",
       userId: currentUser?.id,
       roomId: roomId,
+
       displayName: "",
+      weekly: false
     },
   });
 
   const watchRoomId = watch('roomId');
+
   if(roomId != watchRoomId){
     setValue('roomId', roomId, {
       shouldDirty: true,
@@ -54,7 +57,8 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
      setIsLoading(true);
      data.startTime = formatISO(parseISO(data.startTime), { representation: 'complete' });
      data.endTime = formatISO(parseISO(data.endTime), { representation: 'complete' });
-
+     data.weekly = reserveWeekly;
+     console.log(data.weekly);
     axios
       .post("/api/reservations", data)
       .then(() => {
@@ -111,6 +115,18 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         errors={errors}
         required={true}
       />
+      {(currentUser&&(currentUser.permissions === "Admin" || 
+      currentUser.permissions === "Elevated Student" || currentUser.permissions === "Professor") )&&
+    (<div className="flex items-center justify-center w-full">
+      <input
+        id="reserveWeekly"
+        type="checkbox"
+        checked={reserveWeekly}
+        onChange={e => setReserveWeekly(e.target.checked)}
+        className="mr-2 transform scale-150"
+      />
+      <label htmlFor="reserveWeekly">Reserve weekly for the rest of the semester</label>
+    </div>)}
 
     </div>
   );

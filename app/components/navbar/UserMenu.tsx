@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation'; // Correct import here
 import useSearchRoomsModal from '@/app/hooks/useSearchRoomsModal';
 
 interface UserMenuProps{
-    currentUser?: SafeUser | null
+    currentUser: SafeUser
 }
 
 
@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             text-center">
                 {searchRoomsModalButtonLabel}
             </div>
-            <div onClick={onRent} className ="
+            {currentUser.permissions==="Admin" && (<div onClick={onRent} className ="
             md:block
             text-sm
             font-semibold
@@ -69,7 +69,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             cursor-pointer
             text-center">
                 {uploadRoomModalButtonLabel}
-            </div>
+            </div>)}
             <div onClick={toggleOpen}
             className="
             bg-gray-100
@@ -113,9 +113,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
                       <MenuItem
                               onClick={() => {}}
                               label="Favorite Rooms" />
-                        <MenuItem
+               {currentUser.permissions==="Admin" &&    ( <MenuItem
             onClick={() =>router.push("/permissions")}                              
-            label="Adjust Permissions" />
+            label="Adjust Permissions" />)}
                         <hr />
                         <MenuItem
                               onClick={() => signOut()}
