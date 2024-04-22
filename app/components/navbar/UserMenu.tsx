@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             text-center">
                 {searchRoomsModalButtonLabel}
             </div>
-            {currentUser.permissions==="Admin" && (<div onClick={onRent} className ="
+            {currentUser && currentUser.permissions==="Admin" && (<div onClick={onRent} className ="
             md:block
             text-sm
             font-semibold
@@ -111,7 +111,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                               label="My Reservations" /> 
                       
                       <MenuItem
-                              onClick={() => {}}
+                              onClick={() =>  router.push("/favorites")}
                               label="Favorite Rooms" />
                {currentUser.permissions==="Admin" &&    ( <MenuItem
             onClick={() =>router.push("/permissions")}                              

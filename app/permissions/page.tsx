@@ -19,6 +19,7 @@ interface IParams {
 const PermissionsPage = async ({params}: {params: IParams}) => {
     const currentUser = await getCurrentUser();
     const users = await getUsersBySearch();
+
     return (
         <div>
             <ClientOnly>
