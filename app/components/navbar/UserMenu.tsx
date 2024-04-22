@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             text-center">
                 {searchRoomsModalButtonLabel}
             </div>
-            {currentUser.permissions==="Admin" && (<div onClick={onRent} className ="
+            {currentUser && currentUser.permissions==="Admin" && (<div onClick={onRent} className ="
             md:block
             text-sm
             font-semibold
