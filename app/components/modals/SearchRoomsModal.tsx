@@ -202,6 +202,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
       title="Find Available Rooms"
       allowClose={true}
       body={bodyContent}
+      disabled={isLoading}
     />
   );
 };

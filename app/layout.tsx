@@ -12,6 +12,7 @@ import RentModal from "./components/modals/RentModal";
 import ReserveModal from "./components/modals/ReserveModal";
 import CalendarModal from "./components/modals/CalendarModal";
 import SearchRoomsModal from "./components/modals/SearchRoomsModal";
+import EditRoomModal from "./components/modals/EditRoomModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <RentModal />
           <ReserveModal currentUser={currentUser} />
+          <EditRoomModal/>
           <CalendarModal/>
           <SearchRoomsModal currentUser={currentUser} />
         <LoginModal currentUser={currentUser}/>

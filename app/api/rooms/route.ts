@@ -58,5 +58,5 @@ export async function POST(
     }
   });
 
-  return NextResponse.json(building);
+  return NextResponse.json(room);
 }
