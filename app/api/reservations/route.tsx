@@ -21,9 +21,11 @@ export async function POST(request: Request) {
     createdAt,
     type,
     contactName,
+    weekly
    } = body;
 
-
+   console.log(weekly);
+   const numberOfWeeks = 16;
   // Fetch existing reservations for the room
   const existingReservations = await getReservationsByRoomId(roomId);
   let hasOverlap = false;
