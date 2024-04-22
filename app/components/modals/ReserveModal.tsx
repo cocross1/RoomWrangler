@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { parseISO, formatISO } from 'date-fns';
+import { parseISO, formatISO } from "date-fns";
 import Modal from "./Modal";
 import useReserveModal from "@/app/hooks/useReserveModal";
 import Heading from "../Heading";
@@ -10,7 +10,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Input from "../inputs/Input";
 import { SafeUser } from "@/app/types";
-
 
 interface ReserveModalProps {
   currentUser?: SafeUser | null;
@@ -32,28 +31,35 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
     defaultValues: {
       startTime: "",
       endTime: "",
-      contactName:currentUser?.name,
-      type:"",
+      contactName: currentUser?.name,
+      type: "",
       userId: currentUser?.id,
       roomId: roomId,
       displayName: "",
     },
   });
 
-  const watchRoomId = watch('roomId');
-  if(roomId != watchRoomId){
-    setValue('roomId', roomId, {
+  const watchRoomId = watch("roomId");
+  if (roomId != watchRoomId) {
+    setValue("roomId", roomId, {
       shouldDirty: true,
       shouldTouch: true,
       shouldValidate: true,
-    })
+    });
   }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setIsLoading(true);
+    data.startTime = formatISO(parseISO(data.startTime), {
+      representation: "complete",
+    });
+    data.endTime = formatISO(parseISO(data.endTime), {
+      representation: "complete",
+    });
+    // if we want to pass contactName to route (like if we want the user to change it as input)
+    // data.contactName = currentUser?.name;
 
-     setIsLoading(true);
-     data.startTime = formatISO(parseISO(data.startTime), { representation: 'complete' });
-     data.endTime = formatISO(parseISO(data.endTime), { representation: 'complete' });
+    console.log("data ", data);
 
     axios
       .post("/api/reservations", data)
@@ -65,15 +71,15 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Something went wrong. Reload and double check the schedule to ensure no overlap has occured.");
+        toast.error(
+          "Something went wrong. Reload and double check the schedule to ensure no overlap has occured."
+        );
       })
       .finally(() => {
         setIsLoading(false);
       });
+  };
 
-  }
-
- 
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading title="Enter details about your reservation." />
@@ -95,15 +101,15 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         errors={errors}
         required
       />
-      <Input 
-        id="name"
+      <Input
+        id="displayName"
         label="Enter Reservation Name"
         disabled={isLoading}
         register={register}
         errors={errors}
         required={true}
       />
-      <Input 
+      <Input
         id="type"
         label="Enter Reservation Type (eg. 'Academic Class')"
         disabled={isLoading}
@@ -111,7 +117,6 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         errors={errors}
         required={true}
       />
-
     </div>
   );
 
@@ -119,8 +124,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
     <Modal
       isOpen={reserveModal.isOpen}
       onClose={reserveModal.onClose}
-      onSubmit={
-        handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
       actionLabel="Reserve"
       title="Reserve This Room"
       allowClose={true}

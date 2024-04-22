@@ -12,7 +12,7 @@ export async function POST(request: Request) {
   }
 
   const body = await request.json();
-  const { roomId, startTime, endTime, displayName, createdAt, type } = body;
+  const { roomId, startTime, endTime, displayName, createdAt, type, contactName } = body;
 
   // Fetch existing reservations for the room
   const existingReservations = await getReservationsByRoomId(roomId);
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       displayName,
       createdAt,
       type,
-      contactName: currentUser.name,
+      contactName,
     },
   });
 

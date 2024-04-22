@@ -31,6 +31,7 @@ const RoomClient: React.FC<RoomClientProps> = ({ room, currentUser, reservations
   const reserveModal = useReserveModal();
   const editRoomModal = useEditRoomModal();
   const calendarModal =  useCalendarModal();
+  
   const onReserve = useCallback(() => {
     if(reservations){
       reserveModal.onOpen(room.id, reservations);
