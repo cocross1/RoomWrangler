@@ -26,50 +26,59 @@ export async function POST(request: Request) {
 
    console.log(weekly);
    const numberOfWeeks = 16;
+   let reservations = [];
   // Fetch existing reservations for the room
   const existingReservations = await getReservationsByRoomId(roomId);
-  let hasOverlap = false;
-  // Check for overlapping reservations
-  if (existingReservations) {
-    hasOverlap = existingReservations.some((reservation) => {
-      return (
-        new Date(startTime) < new Date(reservation.endTime) &&
-        new Date(endTime) > new Date(reservation.startTime) &&
-        roomId == reservation.roomId
-      );
-    });
-  }
-
-  // If overlap exists, return an error response
-  if (
-    hasOverlap ||
-    new Date(startTime) > new Date(endTime) ||
-    new Date(startTime) < new Date()
-  ) {
-    return NextResponse.error();
-  }
-
-  console.log("Formatted startTime:", body.startTime);
-  console.log("Formatted endTime:", body.endTime);
-  Object.keys(body).forEach((value: any) => {
-    if (!body[value]) {
-      NextResponse.error();
+  for (let week = 0; week < (weekly ? numberOfWeeks : 1); week++) {
+    // Calculate new start and end times for each week
+    let newStartTime = new Date(startTime);
+    newStartTime.setDate(newStartTime.getDate() + 7 * week);
+    
+    let newEndTime = new Date(endTime);
+    newEndTime.setDate(newEndTime.getDate() + 7 * week);
+    
+    // Fetch existing reservations for the room
+    const existingReservations = await getReservationsByRoomId(roomId);
+    let hasOverlap = false;
+    
+    // Check for overlapping reservations if existingReservations is not null
+    if (existingReservations && existingReservations.length > 0) {
+      hasOverlap = existingReservations.some((reservation) => {
+        return (
+          newStartTime < new Date(reservation.endTime) &&
+          newEndTime > new Date(reservation.startTime) &&
+          roomId == reservation.roomId
+        );
+      });
     }
-  });
 
-  const reservation = await prisma.reservation.create({
-    data: {
-        userId:currentUser.id,
+    if (
+      hasOverlap ||
+      newStartTime > newEndTime ||
+      newStartTime < new Date()
+    ) {
+      // Handle overlap or invalid time by either stopping the loop or adjusting logic as needed
+      console.log(`Overlap or invalid time for week ${week + 1}`);
+      return NextResponse.error(); // or return NextResponse.error();
+    }
+
+    // Create reservation for this week
+    const reservation = await prisma.reservation.create({
+      data: {
+        userId: currentUser.id,
         roomId,
-        startTime,
-        endTime,
+        startTime: newStartTime,
+        endTime: newEndTime,
         displayName,
         createdAt,
         type,
         contactName,
-    }
+      }
+    });
+    
+    reservations.push(reservation);
+  }
 
-  });
-
-  return NextResponse.json(reservation);
+  // Return all created reservations
+  return NextResponse.json(reservations);
 }
