@@ -96,7 +96,7 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         required
       />
       <Input 
-        id="name"
+        id="displayName"
         label="Enter Reservation Name"
         disabled={isLoading}
         register={register}
