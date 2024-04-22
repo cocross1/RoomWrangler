@@ -111,7 +111,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                               label="My Reservations" /> 
                       
                       <MenuItem
-                              onClick={() => {}}
+                              onClick={() =>  router.push("/favorites")}
                               label="Favorite Rooms" />
                {currentUser.permissions==="Admin" &&    ( <MenuItem
             onClick={() =>router.push("/permissions")}                              
