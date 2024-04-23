@@ -1,0 +1,533 @@
+Booking Date,Booking Event Type,Booking Event Name,Reserved Start,Reserved End,Room Code,Requestor,Requestor Email Address
+04/21/2024 Sun,Academic Class,CHE 115 ET,14:00,16:00,WATSON-119,"Sood, Meghan A",mesood@davidson.edu
+04/21/2024 Sun,Academic Class,CHE 220 ET,19:00,21:00,WATSON-119,"Sharma, Khwahish",khsharma@davidson.edu
+04/21/2024 Sun,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/21/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-109,"Dewberry, Angie B",andewberry@davidson.edu
+04/21/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-119,"Dewberry, Angie B",andewberry@davidson.edu
+04/21/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-140,"Dewberry, Angie B",andewberry@davidson.edu
+04/21/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-147,"Dewberry, Angie B",andewberry@davidson.edu
+04/21/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-157,"Dewberry, Angie B",andewberry@davidson.edu
+04/21/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-310,"Dewberry, Angie B",andewberry@davidson.edu
+04/21/2024 Sun,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/21/2024 Sun,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/22/2024 Mon,Academic Class,CSC 357 ET,10:30,12:00,WATSON-247,"Turk, Umut",umturk@davidson.edu
+04/22/2024 Mon,Academic Class,SPA AT,16:30,17:20,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/22/2024 Mon,Academic Class,CSC 321 ET,16:30,18:30,WATSON-140,"Austell, Liz D",elaustell@davidson.edu
+04/22/2024 Mon,Academic Class,CHE 220 ET,18:00,21:00,WATSON-119,"Sharma, Khwahish",khsharma@davidson.edu
+04/22/2024 Mon,Academic Class,SPA AT,19:00,19:50,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/22/2024 Mon,Academic Class,PBH-309-0 Water and Health,8:05,9:20,WATSON-109,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,BIO-230-0,8:05,9:20,WATSON-140,"Sarafova, Sophia D",sosarafova@davidson.edu
+04/22/2024 Mon,Academic Class,CHE-250-C&D,8:05,9:20,WATSON-157,"Myers, Jeff K",jemyers@davidson.edu
+04/22/2024 Mon,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,Temp room for BIO 240,8:30,10:20,WATSON-247,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/22/2024 Mon,Academic Class,REL-130-0 Intro to the New Testament,9:30,10:20,WATSON-109,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+04/22/2024 Mon,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,ANT 206,10:30,11:20,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/22/2024 Mon,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+04/22/2024 Mon,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,ENV-160-0,12:30,13:20,WATSON-109,"Paradise, Chris J",chparadise@davidson.edu
+04/22/2024 Mon,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,RUS-420-0 War &Peace: Tolstoy(in transl),13:30,16:20,WATSON-147,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/22/2024 Mon,Academic Class,MAT-450-0 Advanced Linear Algebra,14:30,15:45,WATSON-119,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,ECO-323-0,14:30,15:45,WATSON-140,"Foley, Mark C",mafoley@davidson.edu
+04/22/2024 Mon,Academic Class,ECO-226-0 Environ & Nat Resour Economics,14:30,15:45,WATSON-157,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,CSC-362-0 Data Visualization,14:30,15:45,WATSON-247,Registrar (for academic import),
+04/22/2024 Mon,Academic Class,ECO-495-D Beckerian Economics,14:30,15:45,WATSON-310,Registrar (for academic import),
+04/22/2024 Mon,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+04/22/2024 Mon,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+04/22/2024 Mon,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/22/2024 Mon,Meeting - Private,Math & CS Dept. Weekly Meetings,11:30,12:20,WATSON-140,"Victor, Vanessa M",vavictor@davidson.edu
+04/22/2024 Mon,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/22/2024 Mon,Meeting - Private,Math & CS Thesis Defense/ Shahin Ahmadi,15:00,17:00,WATSON-109,"Victor, Vanessa M",vavictor@davidson.edu
+04/22/2024 Mon,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/22/2024 Mon,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/23/2024 Tue,Academic Class,CSC 221 ET,15:00,17:00,WATSON-310,"Tran, Hien M",hitran@davidson.edu
+04/23/2024 Tue,Academic Class,HUMes AT ,16:15,17:15,WATSON-109,"Diggs, Aidan W",aidiggs@davidson.edu
+04/23/2024 Tue,Academic Class,CSC 221 ET,18:00,20:00,WATSON-247,"Nemitz, Catherine E",canemitz@davidson.edu
+04/23/2024 Tue,Academic Class,SPA AT,19:00,20:50,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/23/2024 Tue,Academic Class,CHE 115 ET,19:00,21:00,WATSON-109,"Clayton, Lucy P",luclayton@davidson.edu
+04/23/2024 Tue,Academic Class,PSY-220-0 Health Psychology,8:15,9:30,WATSON-119,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,ENV-203-0 Environmental Humanities,8:15,9:30,WATSON-147,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,BIO-218-A Human Form and Function,8:15,9:30,WATSON-157,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC-221-B Data Structures,8:15,9:30,WATSON-243,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,"PBH-370-0 Nutrition, Bodies, and Health",9:40,10:55,WATSON-109,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,ENG-110-A Graphic Med:Drawing Disability,9:40,10:55,WATSON-140,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,ENV-244-0 South Asian Environ Issues,9:40,10:55,WATSON-157,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC-381-0 Image Processing,9:40,10:55,WATSON-247,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,PSY-364-0 To be determined,9:40,10:55,WATSON-310,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,ENG-376-I Representing Fat Bodies,12:15,13:30,WATSON-109,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,MAT-360-0 Topology,12:15,13:30,WATSON-119,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC-312-0,12:15,13:30,WATSON-140,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/23/2024 Tue,Academic Class,CSC-110-0,12:15,13:30,WATSON-147,"Yerger, Carl R",cayerger@davidson.edu
+04/23/2024 Tue,Academic Class,Hold for a potential 266 move,12:15,13:30,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/23/2024 Tue,Academic Class,CSC-220-A REG FOR MAT 220,13:40,14:55,WATSON-119,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,PBH-110-0,13:40,14:55,WATSON-140,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC-358-0 Real-Time Systems,13:40,14:55,WATSON-147,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,GSS-101-0 Intro to Gender & Sexuality,13:40,14:55,WATSON-157,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC-121-C Programming & Problem Solving,13:40,14:55,WATSON-247,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC-220-B REG FOR MAT 220,15:05,16:20,WATSON-119,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,MAT 110 ,15:05,16:20,WATSON-140,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,"ANT-310-0 Politics, Society and Culture",15:05,16:20,WATSON-147,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,CSC 121 A,15:05,16:20,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/23/2024 Tue,Academic Class,CSC-250-0 Computer Organization,15:05,16:20,WATSON-243,Registrar (for academic import),
+04/23/2024 Tue,Academic Class,ECO-205-C-Lab,15:05,16:20,WATSON-247,"Foley, Mark C",mafoley@davidson.edu
+04/23/2024 Tue,Academic Class,ENG Filmmaking and Documentary,13:30,15:00,WATSON-243,"Benson, Randolph A",rabenson@davidson.edu
+04/23/2024 Tue,Class,AFR/LAS 120,8:15,9:30,WATSON-109,"Samson, Matt M",masamson@davidson.edu
+04/23/2024 Tue,Class,ENG 220 B,8:15,9:30,WATSON-140,"Gill-Sadler, Randi K",ragillsadler@davidson.edu
+04/23/2024 Tue,Meeting - Private,SIL Japanese,10:30,11:45,WATSON-147,"Beschea, Florin I",flbeschea@davidson.edu
+04/23/2024 Tue,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/23/2024 Tue,Meeting - Private,Math & CS Weekly Math Coffee,11:00,12:00,WATSON-119,"Victor, Vanessa M",vavictor@davidson.edu
+04/23/2024 Tue,Meeting - Private,Zambia Program Meeting,11:00,12:05,WATSON-109,"Zweifel, Mel J",mezweifel@davidson.edu
+04/23/2024 Tue,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/23/2024 Tue,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/23/2024 Tue,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/24/2024 Wed,Academic Class,CSC 357 ET,10:30,12:00,WATSON-247,"Turk, Umut",umturk@davidson.edu
+04/24/2024 Wed,Academic Class,HUMes AT ,16:00,17:00,WATSON-157,"Diggs, Aidan W",aidiggs@davidson.edu
+04/24/2024 Wed,Academic Class,SPA AT,16:30,17:20,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/24/2024 Wed,Academic Class,CSC 321 ET,16:30,18:30,WATSON-140,"Austell, Liz D",elaustell@davidson.edu
+04/24/2024 Wed,Academic Class,ET,17:00,19:00,WATSON-109,"Clayton, Lucy P",luclayton@davidson.edu
+04/24/2024 Wed,Academic Class,SPA AT,19:00,19:50,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/24/2024 Wed,Academic Class,ET,20:00,22:00,WATSON-140,"Wang, Kenneth G",kewang@davidson.edu
+04/24/2024 Wed,Academic Class,PBH-309-0 Water and Health,8:05,9:20,WATSON-109,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,BIO-230-0,8:05,9:20,WATSON-140,"Sarafova, Sophia D",sosarafova@davidson.edu
+04/24/2024 Wed,Academic Class,CHE-250-C&D,8:05,9:20,WATSON-157,"Myers, Jeff K",jemyers@davidson.edu
+04/24/2024 Wed,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,Temp room for BIO 240,8:30,10:20,WATSON-247,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/24/2024 Wed,Academic Class,REL-130-0 Intro to the New Testament,9:30,10:20,WATSON-109,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+04/24/2024 Wed,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ANT 206,10:30,11:20,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/24/2024 Wed,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+04/24/2024 Wed,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ENV-160-0,12:30,13:20,WATSON-109,"Paradise, Chris J",chparadise@davidson.edu
+04/24/2024 Wed,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ENV-349-0 Paleoclimatology,13:30,16:20,WATSON-109,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,PBH-373-0 Food and Nutrition Policy,13:30,16:20,WATSON-147,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/24/2024 Wed,Academic Class,MAT-450-0 Advanced Linear Algebra,14:30,15:45,WATSON-119,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ECO-323-0,14:30,15:45,WATSON-140,"Foley, Mark C",mafoley@davidson.edu
+04/24/2024 Wed,Academic Class,ECO-226-0 Environ & Nat Resour Economics,14:30,15:45,WATSON-157,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,CSC-362-0 Data Visualization,14:30,15:45,WATSON-247,Registrar (for academic import),
+04/24/2024 Wed,Academic Class,ECO-495-D Beckerian Economics,14:30,15:45,WATSON-310,Registrar (for academic import),
+04/24/2024 Wed,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+04/24/2024 Wed,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+04/24/2024 Wed,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/24/2024 Wed,Meeting - Private,Math & CS Dept. Weekly Meetings,11:30,12:20,WATSON-140,"Victor, Vanessa M",vavictor@davidson.edu
+04/24/2024 Wed,Meeting - Private,Extended Time for MAT 111,11:30,12:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+04/24/2024 Wed,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/24/2024 Wed,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/24/2024 Wed,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/25/2024 Thu,Academic Class,ET MAT 325,13:40,14:40,WATSON-310,"Blake, Heather C",hsblake@davidson.edu
+04/25/2024 Thu,Academic Class,CSC 221 ET,15:30,17:30,WATSON-310,"Tran, Hien M",hitran@davidson.edu
+04/25/2024 Thu,Academic Class,SPA AT,19:00,20:50,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/25/2024 Thu,Academic Class,CHE 115 ET,19:30,21:30,WATSON-119,"Sood, Meghan A",mesood@davidson.edu
+04/25/2024 Thu,Academic Class,PSY-220-0 Health Psychology,8:15,9:30,WATSON-119,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,ENV-203-0 Environmental Humanities,8:15,9:30,WATSON-147,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,BIO-218-A Human Form and Function,8:15,9:30,WATSON-157,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC-221-B Data Structures,8:15,9:30,WATSON-243,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,"PBH-370-0 Nutrition, Bodies, and Health",9:40,10:55,WATSON-109,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,WRI 101 H,9:40,10:55,WATSON-119,"Wiemers, Alice",alwiemers@davidson.edu
+04/25/2024 Thu,Academic Class,ENG-110-A Graphic Med:Drawing Disability,9:40,10:55,WATSON-140,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,ENV-244-0 South Asian Environ Issues,9:40,10:55,WATSON-157,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC-381-0 Image Processing,9:40,10:55,WATSON-247,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,PSY-364-0 To be determined,9:40,10:55,WATSON-310,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,ENG-376-I Representing Fat Bodies,12:15,13:30,WATSON-109,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,MAT-360-0 Topology,12:15,13:30,WATSON-119,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC-312-0,12:15,13:30,WATSON-140,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/25/2024 Thu,Academic Class,CSC-110-0,12:15,13:30,WATSON-147,"Yerger, Carl R",cayerger@davidson.edu
+04/25/2024 Thu,Academic Class,Hold for a potential 266 move,12:15,13:30,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/25/2024 Thu,Academic Class,ECO-205-B-Lab,12:15,13:30,WATSON-247,"Foley, Mark C",mafoley@davidson.edu
+04/25/2024 Thu,Academic Class,CSC-220-A REG FOR MAT 220,13:40,14:55,WATSON-119,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,PBH-110-0,13:40,14:55,WATSON-140,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC-358-0 Real-Time Systems,13:40,14:55,WATSON-147,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,GSS-101-0 Intro to Gender & Sexuality,13:40,14:55,WATSON-157,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC-121-C Programming & Problem Solving,13:40,14:55,WATSON-247,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,"ENV-320-0 Race, Gender, Nature",13:40,16:20,WATSON-109,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC-220-B REG FOR MAT 220,15:05,16:20,WATSON-119,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,MAT 110 ,15:05,16:20,WATSON-140,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,"ANT-310-0 Politics, Society and Culture",15:05,16:20,WATSON-147,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,CSC 121 A,15:05,16:20,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/25/2024 Thu,Academic Class,CSC-250-0 Computer Organization,15:05,16:20,WATSON-243,Registrar (for academic import),
+04/25/2024 Thu,Academic Class,ENG Filmmaking and Documentary,13:30,15:00,WATSON-243,"Benson, Randolph A",rabenson@davidson.edu
+04/25/2024 Thu,Academic Class,ENG Filmmaking and Documentary,15:00,16:30,WATSON-247,"Benson, Randolph A",rabenson@davidson.edu
+04/25/2024 Thu,Class,AFR/LAS 120,8:15,9:30,WATSON-109,"Samson, Matt M",masamson@davidson.edu
+04/25/2024 Thu,Class,ENG 220 B,8:15,9:30,WATSON-140,"Gill-Sadler, Randi K",ragillsadler@davidson.edu
+04/25/2024 Thu,Meeting - Private,SIL Japanese,10:30,11:45,WATSON-147,"Beschea, Florin I",flbeschea@davidson.edu
+04/25/2024 Thu,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/25/2024 Thu,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/25/2024 Thu,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/25/2024 Thu,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/26/2024 Fri,Academic Class,CHE 115 ET,19:00,21:00,WATSON-109,"Clayton, Lucy P",luclayton@davidson.edu
+04/26/2024 Fri,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,Temp room for BIO 240,8:30,10:20,WATSON-247,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/26/2024 Fri,Academic Class,REL-130-0 Intro to the New Testament,9:30,10:20,WATSON-109,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+04/26/2024 Fri,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,ANT 206,10:30,11:20,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/26/2024 Fri,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+04/26/2024 Fri,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,ENV-160-0,12:30,13:20,WATSON-109,"Paradise, Chris J",chparadise@davidson.edu
+04/26/2024 Fri,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+04/26/2024 Fri,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/26/2024 Fri,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+04/26/2024 Fri,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+04/26/2024 Fri,Information Session,ECU Admissions Dean Meet & Greet with NC Residents,16:00,17:00,WATSON-140,"MacIntyre, Amber P",ammacintyre@davidson.edu
+04/26/2024 Fri,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/26/2024 Fri,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/27/2024 Sat,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/28/2024 Sun,Academic Class,CHE 115 ET,14:00,16:00,WATSON-119,"Sood, Meghan A",mesood@davidson.edu
+04/28/2024 Sun,Academic Class,CHE 220 ET,19:00,21:00,WATSON-119,"Sharma, Khwahish",khsharma@davidson.edu
+04/28/2024 Sun,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/28/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-109,"Dewberry, Angie B",andewberry@davidson.edu
+04/28/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-119,"Dewberry, Angie B",andewberry@davidson.edu
+04/28/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-140,"Dewberry, Angie B",andewberry@davidson.edu
+04/28/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-147,"Dewberry, Angie B",andewberry@davidson.edu
+04/28/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-157,"Dewberry, Angie B",andewberry@davidson.edu
+04/28/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-310,"Dewberry, Angie B",andewberry@davidson.edu
+04/28/2024 Sun,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/28/2024 Sun,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/29/2024 Mon,Academic Class,SPA AT,16:30,17:20,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/29/2024 Mon,Academic Class,CSC 321 ET,16:30,18:30,WATSON-140,"Austell, Liz D",elaustell@davidson.edu
+04/29/2024 Mon,Academic Class,CHE 220 ET,18:00,21:00,WATSON-119,"Sharma, Khwahish",khsharma@davidson.edu
+04/29/2024 Mon,Academic Class,SPA AT,19:00,19:50,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/29/2024 Mon,Academic Class,PBH-309-0 Water and Health,8:05,9:20,WATSON-109,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,BIO-230-0,8:05,9:20,WATSON-140,"Sarafova, Sophia D",sosarafova@davidson.edu
+04/29/2024 Mon,Academic Class,CHE-250-C&D,8:05,9:20,WATSON-157,"Myers, Jeff K",jemyers@davidson.edu
+04/29/2024 Mon,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,Temp room for BIO 240,8:30,10:20,WATSON-247,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/29/2024 Mon,Academic Class,REL-130-0 Intro to the New Testament,9:30,10:20,WATSON-109,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+04/29/2024 Mon,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,ANT 206,10:30,11:20,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/29/2024 Mon,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+04/29/2024 Mon,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,ENV-160-0,12:30,13:20,WATSON-109,"Paradise, Chris J",chparadise@davidson.edu
+04/29/2024 Mon,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,RUS-420-0 War &Peace: Tolstoy(in transl),13:30,16:20,WATSON-147,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/29/2024 Mon,Academic Class,MAT-450-0 Advanced Linear Algebra,14:30,15:45,WATSON-119,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,ECO-323-0,14:30,15:45,WATSON-140,"Foley, Mark C",mafoley@davidson.edu
+04/29/2024 Mon,Academic Class,ECO-226-0 Environ & Nat Resour Economics,14:30,15:45,WATSON-157,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,CSC-362-0 Data Visualization,14:30,15:45,WATSON-247,Registrar (for academic import),
+04/29/2024 Mon,Academic Class,ECO-495-D Beckerian Economics,14:30,15:45,WATSON-310,Registrar (for academic import),
+04/29/2024 Mon,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+04/29/2024 Mon,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+04/29/2024 Mon,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/29/2024 Mon,Meeting - Private,Math & CS Dept. Weekly Meetings,11:30,12:20,WATSON-140,"Victor, Vanessa M",vavictor@davidson.edu
+04/29/2024 Mon,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/29/2024 Mon,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/29/2024 Mon,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+04/30/2024 Tue,Academic Class,HUMes AT ,16:15,17:15,WATSON-109,"Diggs, Aidan W",aidiggs@davidson.edu
+04/30/2024 Tue,Academic Class,SPA AT,19:00,20:50,WATSON-310,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/30/2024 Tue,Academic Class,CHE 115 ET,19:00,21:00,WATSON-109,"Clayton, Lucy P",luclayton@davidson.edu
+04/30/2024 Tue,Academic Class,PSY-220-0 Health Psychology,8:15,9:30,WATSON-119,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,ENV-203-0 Environmental Humanities,8:15,9:30,WATSON-147,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,BIO-218-A Human Form and Function,8:15,9:30,WATSON-157,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC-221-B Data Structures,8:15,9:30,WATSON-243,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,"PBH-370-0 Nutrition, Bodies, and Health",9:40,10:55,WATSON-109,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,ENG-110-A Graphic Med:Drawing Disability,9:40,10:55,WATSON-140,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,ENV-244-0 South Asian Environ Issues,9:40,10:55,WATSON-157,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC-381-0 Image Processing,9:40,10:55,WATSON-247,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,PSY-364-0 To be determined,9:40,10:55,WATSON-310,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,ENG-376-I Representing Fat Bodies,12:15,13:30,WATSON-109,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,MAT-360-0 Topology,12:15,13:30,WATSON-119,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC-312-0,12:15,13:30,WATSON-140,"Ramanujan, Raghu",raramanujan@davidson.edu
+04/30/2024 Tue,Academic Class,CSC-110-0,12:15,13:30,WATSON-147,"Yerger, Carl R",cayerger@davidson.edu
+04/30/2024 Tue,Academic Class,CSC-220-A REG FOR MAT 220,13:40,14:55,WATSON-119,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,PBH-110-0,13:40,14:55,WATSON-140,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC-358-0 Real-Time Systems,13:40,14:55,WATSON-147,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,GSS-101-0 Intro to Gender & Sexuality,13:40,14:55,WATSON-157,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC-121-C Programming & Problem Solving,13:40,14:55,WATSON-247,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC-220-B REG FOR MAT 220,15:05,16:20,WATSON-119,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,MAT 110 ,15:05,16:20,WATSON-140,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,"ANT-310-0 Politics, Society and Culture",15:05,16:20,WATSON-147,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,CSC 121 A,15:05,16:20,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+04/30/2024 Tue,Academic Class,CSC-250-0 Computer Organization,15:05,16:20,WATSON-243,Registrar (for academic import),
+04/30/2024 Tue,Academic Class,ECO-205-C-Lab,15:05,16:20,WATSON-247,"Foley, Mark C",mafoley@davidson.edu
+04/30/2024 Tue,Academic Class,ENG Filmmaking and Documentary,13:30,15:00,WATSON-243,"Benson, Randolph A",rabenson@davidson.edu
+04/30/2024 Tue,Class,AFR/LAS 120,8:15,9:30,WATSON-109,"Samson, Matt M",masamson@davidson.edu
+04/30/2024 Tue,Class,ENG 220 B,8:15,9:30,WATSON-140,"Gill-Sadler, Randi K",ragillsadler@davidson.edu
+04/30/2024 Tue,Meeting - Private,SIL Japanese,10:30,11:45,WATSON-147,"Beschea, Florin I",flbeschea@davidson.edu
+04/30/2024 Tue,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+04/30/2024 Tue,Meeting - Private,Math & CS Weekly Math Coffee,11:00,12:00,WATSON-119,"Victor, Vanessa M",vavictor@davidson.edu
+04/30/2024 Tue,Meeting - Private,Extended Time for MAT 111,11:30,12:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+04/30/2024 Tue,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+04/30/2024 Tue,Meeting - Private,Math & CS Thesis Defense/Keegan Stump,16:30,18:30,WATSON-140,"Victor, Vanessa M",vavictor@davidson.edu
+04/30/2024 Tue,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+04/30/2024 Tue,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+05/01/2024 Wed,Academic Class,BIO-230-0,8:05,9:20,WATSON-140,"Sarafova, Sophia D",sosarafova@davidson.edu
+05/01/2024 Wed,Academic Class,CHE-250-C&D,8:05,9:20,WATSON-157,"Myers, Jeff K",jemyers@davidson.edu
+05/01/2024 Wed,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,Temp room for BIO 240,8:30,10:20,WATSON-247,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/01/2024 Wed,Academic Class,REL-130-0 Intro to the New Testament,9:30,10:20,WATSON-109,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+05/01/2024 Wed,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ANT 206,10:30,11:20,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/01/2024 Wed,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+05/01/2024 Wed,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ENV-160-0,12:30,13:20,WATSON-109,"Paradise, Chris J",chparadise@davidson.edu
+05/01/2024 Wed,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ENV-349-0 Paleoclimatology,13:30,16:20,WATSON-109,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,PBH-373-0 Food and Nutrition Policy,13:30,16:20,WATSON-147,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/01/2024 Wed,Academic Class,MAT-450-0 Advanced Linear Algebra,14:30,15:45,WATSON-119,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ECO-323-0,14:30,15:45,WATSON-140,"Foley, Mark C",mafoley@davidson.edu
+05/01/2024 Wed,Academic Class,ECO-226-0 Environ & Nat Resour Economics,14:30,15:45,WATSON-157,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,CSC-362-0 Data Visualization,14:30,15:45,WATSON-247,Registrar (for academic import),
+05/01/2024 Wed,Academic Class,ECO-495-D Beckerian Economics,14:30,15:45,WATSON-310,Registrar (for academic import),
+05/01/2024 Wed,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+05/01/2024 Wed,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+05/01/2024 Wed,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/01/2024 Wed,Meeting - Private,Math & CS Dept. Weekly Meetings,11:30,12:20,WATSON-140,"Victor, Vanessa M",vavictor@davidson.edu
+05/01/2024 Wed,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+05/01/2024 Wed,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+05/01/2024 Wed,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+05/02/2024 Thu,Academic Class,PSY-220-0 Health Psychology,8:15,9:30,WATSON-119,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,ENV-203-0 Environmental Humanities,8:15,9:30,WATSON-147,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,BIO-218-A Human Form and Function,8:15,9:30,WATSON-157,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC-221-B Data Structures,8:15,9:30,WATSON-243,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,ENV-244-0 South Asian Environ Issues,9:30,10:55,WATSON-157,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,"PBH-370-0 Nutrition, Bodies, and Health",9:40,10:55,WATSON-109,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,ENG-110-A Graphic Med:Drawing Disability,9:40,10:55,WATSON-140,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC-381-0 Image Processing,9:40,10:55,WATSON-247,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,PSY-364-0 To be determined,9:40,10:55,WATSON-310,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,ENG-376-I Representing Fat Bodies,12:15,13:30,WATSON-109,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,MAT-360-0 Topology,12:15,13:30,WATSON-119,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC-312-0,12:15,13:30,WATSON-140,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/02/2024 Thu,Academic Class,CSC-110-0,12:15,13:30,WATSON-147,"Yerger, Carl R",cayerger@davidson.edu
+05/02/2024 Thu,Academic Class,Hold for a potential 266 move,12:15,13:30,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/02/2024 Thu,Academic Class,ECO-205-B-Lab,12:15,13:30,WATSON-247,"Foley, Mark C",mafoley@davidson.edu
+05/02/2024 Thu,Academic Class,CSC-220-A REG FOR MAT 220,13:40,14:55,WATSON-119,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,PBH-110-0,13:40,14:55,WATSON-140,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC-358-0 Real-Time Systems,13:40,14:55,WATSON-147,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,GSS-101-0 Intro to Gender & Sexuality,13:40,14:55,WATSON-157,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC-121-C Programming & Problem Solving,13:40,14:55,WATSON-247,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,"ENV-320-0 Race, Gender, Nature",13:40,16:20,WATSON-109,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC-220-B REG FOR MAT 220,15:05,16:20,WATSON-119,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,MAT 110 ,15:05,16:20,WATSON-140,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,"ANT-310-0 Politics, Society and Culture",15:05,16:20,WATSON-147,Registrar (for academic import),
+05/02/2024 Thu,Academic Class,CSC 121 A,15:05,16:20,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/02/2024 Thu,Academic Class,CSC-250-0 Computer Organization,15:05,16:20,WATSON-243,Registrar (for academic import),
+05/02/2024 Thu,Class,AFR/LAS 120,8:15,9:30,WATSON-109,"Samson, Matt M",masamson@davidson.edu
+05/02/2024 Thu,Class,ENG 220 B,8:15,9:30,WATSON-140,"Gill-Sadler, Randi K",ragillsadler@davidson.edu
+05/02/2024 Thu,Meeting - Private,SIL Japanese,10:30,11:45,WATSON-147,"Beschea, Florin I",flbeschea@davidson.edu
+05/02/2024 Thu,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/02/2024 Thu,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+05/02/2024 Thu,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-147,"Victor, Vanessa M",vavictor@davidson.edu
+05/02/2024 Thu,Meeting - Private,Reservations for Quiz Center/Math & CS Department,18:30,20:30,WATSON-157,"Victor, Vanessa M",vavictor@davidson.edu
+05/03/2024 Fri,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,Temp room for BIO 240,8:30,10:20,WATSON-247,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/03/2024 Fri,Academic Class,"ECO 226, ENV 244 Scheduled exam",9:00,17:00,WATSON-157,"Martin, David W",damartin@davidson.edu
+05/03/2024 Fri,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+05/03/2024 Fri,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+05/03/2024 Fri,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/03/2024 Fri,Academic Class,Final Exam MAT 382,12:25,13:40,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/03/2024 Fri,Academic Class,Final Exam MAT 382,17:00,18:15,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/03/2024 Fri,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+05/03/2024 Fri,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+05/03/2024 Fri,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/03/2024 Fri,Meeting - Private,Reservation for Quiz Center/Math & CS Department,12:00,13:30,WATSON-310,"Victor, Vanessa M",vavictor@davidson.edu
+05/04/2024 Sat,Academic Class,SPA 201 seniors final exams,8:00,13:00,WATSON-140,"Cannon, Brandon T",brcannon@davidson.edu
+05/04/2024 Sat,Academic Class,Final Exam MAT 382,12:25,13:40,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/04/2024 Sat,Academic Class,Final Exam MAT 382,17:00,18:15,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/04/2024 Sat,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/05/2024 Sun,Academic Class,SPA 201 seniors final exams,8:00,13:00,WATSON-140,"Cannon, Brandon T",brcannon@davidson.edu
+05/05/2024 Sun,Academic Class,"CSC 221 A, B, C final exams",8:00,19:00,WATSON-243,"Nemitz, Catherine E",canemitz@davidson.edu
+05/05/2024 Sun,Academic Class,"CSC 221 A, B, C final exams",8:00,19:00,WATSON-247,"Nemitz, Catherine E",canemitz@davidson.edu
+05/05/2024 Sun,Academic Class,Final Exam MAT 382,12:25,13:40,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/05/2024 Sun,Academic Class,Final Exam MAT 382,17:00,18:15,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/05/2024 Sun,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/06/2024 Mon,Academic Class,BIO-230-0,8:05,9:20,WATSON-140,"Sarafova, Sophia D",sosarafova@davidson.edu
+05/06/2024 Mon,Academic Class,CHE-250-C&D,8:05,9:20,WATSON-157,"Myers, Jeff K",jemyers@davidson.edu
+05/06/2024 Mon,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+05/06/2024 Mon,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+05/06/2024 Mon,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,RUS-420-0 War &Peace: Tolstoy(in transl),13:30,16:20,WATSON-147,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,MAT-450-0 Advanced Linear Algebra,14:30,15:45,WATSON-119,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,ECO-323-0,14:30,15:45,WATSON-140,"Foley, Mark C",mafoley@davidson.edu
+05/06/2024 Mon,Academic Class,ECO-226-0 Environ & Nat Resour Economics,14:30,15:45,WATSON-157,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,ECO-495-D Beckerian Economics,14:30,15:45,WATSON-310,Registrar (for academic import),
+05/06/2024 Mon,Academic Class,"CSC 221 A, B, C final exams",8:00,19:00,WATSON-243,"Nemitz, Catherine E",canemitz@davidson.edu
+05/06/2024 Mon,Academic Class,"CSC 221 A, B, C final exams",8:00,19:00,WATSON-247,"Nemitz, Catherine E",canemitz@davidson.edu
+05/06/2024 Mon,Academic Class,Final Exam MAT 382,12:25,13:40,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/06/2024 Mon,Academic Class,Final Exam MAT 382,17:00,18:15,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/06/2024 Mon,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+05/06/2024 Mon,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+05/06/2024 Mon,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/07/2024 Tue,Academic Class,PSY-220-0 Health Psychology,8:15,9:30,WATSON-119,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,ENV-203-0 Environmental Humanities,8:15,9:30,WATSON-147,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,BIO-218-A Human Form and Function,8:15,9:30,WATSON-157,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-221-B Data Structures,8:15,9:30,WATSON-243,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,ENG-110-A Graphic Med:Drawing Disability,9:40,10:55,WATSON-140,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,ENV-244-0 South Asian Environ Issues,9:40,10:55,WATSON-157,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-381-0 Image Processing,9:40,10:55,WATSON-247,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,PSY-364-0 To be determined,9:40,10:55,WATSON-310,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,MAT-360-0 Topology,12:15,13:30,WATSON-119,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-312-0,12:15,13:30,WATSON-140,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/07/2024 Tue,Academic Class,CSC-110-0,12:15,13:30,WATSON-147,"Yerger, Carl R",cayerger@davidson.edu
+05/07/2024 Tue,Academic Class,Hold for a potential 266 move,12:15,13:30,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/07/2024 Tue,Academic Class,CSC-220-A REG FOR MAT 220,13:40,14:55,WATSON-119,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,PBH-110-0,13:40,14:55,WATSON-140,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-358-0 Real-Time Systems,13:40,14:55,WATSON-147,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,GSS-101-0 Intro to Gender & Sexuality,13:40,14:55,WATSON-157,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-121-C Programming & Problem Solving,13:40,14:55,WATSON-247,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-220-B REG FOR MAT 220,15:05,16:20,WATSON-119,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,MAT 110 ,15:05,16:20,WATSON-140,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,"ANT-310-0 Politics, Society and Culture",15:05,16:20,WATSON-147,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,CSC-250-0 Computer Organization,15:05,16:20,WATSON-243,Registrar (for academic import),
+05/07/2024 Tue,Academic Class,ECO-205-C-Lab,15:05,16:20,WATSON-247,"Foley, Mark C",mafoley@davidson.edu
+05/07/2024 Tue,Academic Class,Final Exam MAT 382,10:00,16:00,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/07/2024 Tue,Class,ENG 220 B,8:15,9:30,WATSON-140,"Gill-Sadler, Randi K",ragillsadler@davidson.edu
+05/07/2024 Tue,Meeting - Private,SIL Japanese,10:30,11:45,WATSON-147,"Beschea, Florin I",flbeschea@davidson.edu
+05/07/2024 Tue,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/07/2024 Tue,Meeting - Private,Math & CS Weekly Math Coffee,11:00,12:00,WATSON-119,"Victor, Vanessa M",vavictor@davidson.edu
+05/08/2024 Wed,Academic Class,BIO-230-0,8:05,9:20,WATSON-140,"Sarafova, Sophia D",sosarafova@davidson.edu
+05/08/2024 Wed,Academic Class,CHE-250-C&D,8:05,9:20,WATSON-157,"Myers, Jeff K",jemyers@davidson.edu
+05/08/2024 Wed,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+05/08/2024 Wed,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+05/08/2024 Wed,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,PBH-373-0 Food and Nutrition Policy,13:30,16:20,WATSON-147,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/08/2024 Wed,Academic Class,MAT-450-0 Advanced Linear Algebra,14:30,15:45,WATSON-119,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,ECO-323-0,14:30,15:45,WATSON-140,"Foley, Mark C",mafoley@davidson.edu
+05/08/2024 Wed,Academic Class,ECO-226-0 Environ & Nat Resour Economics,14:30,15:45,WATSON-157,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,CSC-362-0 Data Visualization,14:30,15:45,WATSON-247,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,ECO-495-D Beckerian Economics,14:30,15:45,WATSON-310,Registrar (for academic import),
+05/08/2024 Wed,Academic Class,Final Exam MAT 382,12:25,13:40,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/08/2024 Wed,Academic Class,Final Exam MAT 382,17:00,18:15,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/08/2024 Wed,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+05/08/2024 Wed,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+05/08/2024 Wed,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/09/2024 Thu,Academic Class,PSY-220-0 Health Psychology,8:15,9:30,WATSON-119,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,ENV-203-0 Environmental Humanities,8:15,9:30,WATSON-147,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,BIO-218-A Human Form and Function,8:15,9:30,WATSON-157,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-221-B Data Structures,8:15,9:30,WATSON-243,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,"PBH-370-0 Nutrition, Bodies, and Health",9:40,10:55,WATSON-109,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,ENG-110-A Graphic Med:Drawing Disability,9:40,10:55,WATSON-140,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,ENV-244-0 South Asian Environ Issues,9:40,10:55,WATSON-157,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-381-0 Image Processing,9:40,10:55,WATSON-247,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,PSY-364-0 To be determined,9:40,10:55,WATSON-310,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,ENG-376-I Representing Fat Bodies,12:15,13:30,WATSON-109,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,MAT-360-0 Topology,12:15,13:30,WATSON-119,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-312-0,12:15,13:30,WATSON-140,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/09/2024 Thu,Academic Class,CSC-110-0,12:15,13:30,WATSON-147,"Yerger, Carl R",cayerger@davidson.edu
+05/09/2024 Thu,Academic Class,Hold for a potential 266 move,12:15,13:30,WATSON-157,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/09/2024 Thu,Academic Class,ECO-205-B-Lab,12:15,13:30,WATSON-247,"Foley, Mark C",mafoley@davidson.edu
+05/09/2024 Thu,Academic Class,CSC-220-A REG FOR MAT 220,13:40,14:55,WATSON-119,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,PBH-110-0,13:40,14:55,WATSON-140,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-358-0 Real-Time Systems,13:40,14:55,WATSON-147,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,GSS-101-0 Intro to Gender & Sexuality,13:40,14:55,WATSON-157,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-121-C Programming & Problem Solving,13:40,14:55,WATSON-247,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,"ENV-320-0 Race, Gender, Nature",13:40,16:20,WATSON-109,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-220-B REG FOR MAT 220,15:05,16:20,WATSON-119,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,MAT 110 ,15:05,16:20,WATSON-140,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,"ANT-310-0 Politics, Society and Culture",15:05,16:20,WATSON-147,Registrar (for academic import),
+05/09/2024 Thu,Academic Class,CSC-250-0 Computer Organization,15:05,16:20,WATSON-243,Registrar (for academic import),
+05/09/2024 Thu,Class,AFR/LAS 120,8:15,9:30,WATSON-109,"Samson, Matt M",masamson@davidson.edu
+05/09/2024 Thu,Class,ENG 220 B,8:15,9:30,WATSON-140,"Gill-Sadler, Randi K",ragillsadler@davidson.edu
+05/09/2024 Thu,Meeting - Private,SIL Japanese,10:30,11:45,WATSON-147,"Beschea, Florin I",flbeschea@davidson.edu
+05/09/2024 Thu,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/10/2024 Fri,Academic Class,ANT-283-0 Spec Topics in ANT: Folklore,8:30,9:20,WATSON-119,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,REL-130-0 Intro to the New Testament,9:30,10:20,WATSON-109,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,BIO-393-0,9:30,10:20,WATSON-119,"El Bejjani, Rachid",raelbejjani@davidson.edu
+05/10/2024 Fri,Academic Class,ENG-290-0 World Literatures,9:30,10:20,WATSON-140,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,WRI-101-C Friendship,9:30,10:20,WATSON-147,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,ECO-105-A Stats & Basic Econometrics,9:30,10:20,WATSON-157,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,CSC-357-0 Concurrent&Parallel Computing,9:30,10:20,WATSON-243,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,ANT 206,10:30,11:20,WATSON-109,"Barrow, Rebecca A",rebarrow@davidson.edu
+05/10/2024 Fri,Academic Class,MAT-112-C Calculus I and Modeling,10:30,11:20,WATSON-119,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,PHY-350-0 Electricity & Magnetism,10:30,11:20,WATSON-140,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,DIG-340-0 Gender and Technology,10:30,11:20,WATSON-147,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,MAT-11-0,10:30,11:20,WATSON-157,"Blake, Heather C",hsblake@davidson.edu
+05/10/2024 Fri,Academic Class,ENV-322-0 Local ENV Governance ,11:30,12:20,WATSON-119,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,CSC-221-A Data Structures,12:30,13:20,WATSON-243,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,CSC-315-0 REG FOR MAT 315,13:30,14:20,WATSON-119,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,ENG-291-0 When Whites Write Black,13:30,14:20,WATSON-140,Registrar (for academic import),
+05/10/2024 Fri,Academic Class,CSC-221-C,14:30,15:20,WATSON-243,"Ramanujan, Raghu",raramanujan@davidson.edu
+05/10/2024 Fri,Class,CHE 250 C&D,8:30,9:20,WATSON-147,"Myers, Jeff K",jemyers@davidson.edu
+05/10/2024 Fri,Class,ENG 291,12:30,13:20,WATSON-140,"Flanagan, Brenda A",brflanagan@davidson.edu
+05/10/2024 Fri,Meeting - Private,Hold Until Room Renovated,7:00,6:59,WATSON-132,"Heyer, Laurie J",laheyer@davidson.edu
+05/14/2024 Tue,Meeting - Private,IEC Meeting,14:00,15:00,WATSON-109,"Zweifel, Mel J",mezweifel@davidson.edu
+05/19/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-109,"Dewberry, Angie B",andewberry@davidson.edu
+05/19/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-119,"Dewberry, Angie B",andewberry@davidson.edu
+05/19/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-140,"Dewberry, Angie B",andewberry@davidson.edu
+05/19/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-147,"Dewberry, Angie B",andewberry@davidson.edu
+05/19/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-157,"Dewberry, Angie B",andewberry@davidson.edu
+05/19/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-310,"Dewberry, Angie B",andewberry@davidson.edu
+05/26/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-109,"Dewberry, Angie B",andewberry@davidson.edu
+05/26/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-119,"Dewberry, Angie B",andewberry@davidson.edu
+05/26/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-140,"Dewberry, Angie B",andewberry@davidson.edu
+05/26/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-147,"Dewberry, Angie B",andewberry@davidson.edu
+05/26/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-157,"Dewberry, Angie B",andewberry@davidson.edu
+05/26/2024 Sun,Meeting - Private,DCPC Reservation,8:00,12:15,WATSON-310,"Dewberry, Angie B",andewberry@davidson.edu

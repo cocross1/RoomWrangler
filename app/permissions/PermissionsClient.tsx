@@ -37,6 +37,10 @@ const PermissionsClient: React.FC<PermissionsClientProps> = ({  currentUser, use
   const reserveModal = useReserveModal();
   const calendarModal =  useCalendarModal();
 
+      if(!currentUser || currentUser.permissions !== "Admin"){
+        router.push('/');
+    }
+
   const [isLoading, setIsLoading] = useState(false);
   const{
     register,

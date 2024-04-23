@@ -168,6 +168,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
           id="whiteboards"
           label="Whiteboards"
           disabled={isLoading}
+          value="0"
           register={register}
           errors={errors}
         />
@@ -176,6 +177,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
           label="Computers"
           disabled={isLoading}
           register={register}
+          value="0"
           errors={errors}
         />
         <Input
@@ -183,6 +185,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
           label="Projectors"
           disabled={isLoading}
           register={register}
+          value="0"
           errors={errors}
         />
       </div>

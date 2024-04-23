@@ -15,7 +15,6 @@ const CalendarModal = () => {
   const calendarModal = useCalendarModal();
   const reservations = calendarModal.reservations;
   //const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
   const title = "Calendar For " + calendarModal.buildingAndNumber;
 
   
@@ -41,7 +40,9 @@ const CalendarModal = () => {
       end: reservation.endTime
     }))}
     eventColor="#378006" // Customize event colors as needed
-    allDaySlot={false} // Disable the all-day slot row at the top
+    allDaySlot={false}
+    
+     // Disable the all-day slot row at the top
   />
       </div>
     </div>

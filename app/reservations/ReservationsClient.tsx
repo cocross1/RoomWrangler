@@ -7,11 +7,12 @@ import {useCallback, useState} from "react";
 
 import Container from "../components/Container";
 import Heading from "../components/Heading";
-import { SafeReservation, SafeUser } from "../types";
+import { SafeUser } from "../types";
 import RoomCard from "../components/rooms/RoomCard";
+import { Reservation } from "@prisma/client";
 
 interface ReservationsClientProps {
-    reservations: SafeReservation[];
+    reservations: Reservation[];
     currentUser?: SafeUser | null;
 }
 
@@ -57,7 +58,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
                 gap-8
                 "
             >
-            {reservations.map((reservation)=>(
+            {reservations.map((reservation: Reservation)=>(
                 <RoomCard
                     key = {reservation.id}
                     data = {reservation.room} 
