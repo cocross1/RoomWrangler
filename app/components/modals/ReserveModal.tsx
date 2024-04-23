@@ -37,14 +37,14 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       roomId: roomId,
 
       displayName: "",
-      weekly: false
+      weekly: false,
     },
   });
 
-  const watchRoomId = watch('roomId');
+  const watchRoomId = watch("roomId");
 
-  if(roomId != watchRoomId){
-    setValue('roomId', roomId, {
+  if (roomId != watchRoomId) {
+    setValue("roomId", roomId, {
       shouldDirty: true,
       shouldTouch: true,
       shouldValidate: true,
@@ -52,11 +52,15 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
   }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-     setIsLoading(true);
-     data.startTime = formatISO(parseISO(data.startTime), { representation: 'complete' });
-     data.endTime = formatISO(parseISO(data.endTime), { representation: 'complete' });
-     data.weekly = reserveWeekly;
-     console.log(data.weekly);
+    setIsLoading(true);
+    data.startTime = formatISO(parseISO(data.startTime), {
+      representation: "complete",
+    });
+    data.endTime = formatISO(parseISO(data.endTime), {
+      representation: "complete",
+    });
+    data.weekly = reserveWeekly;
+    console.log(data.weekly);
     axios
       .post("/api/reservations", data)
       .then(() => {
@@ -113,19 +117,23 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
         errors={errors}
         required={true}
       />
-      {(currentUser&&(currentUser.permissions === "Admin" || 
-      currentUser.permissions === "Elevated Student" || currentUser.permissions === "Professor") )&&
-    (<div className="flex items-center justify-center w-full">
-      <input
-        id="reserveWeekly"
-        type="checkbox"
-        checked={reserveWeekly}
-        onChange={e => setReserveWeekly(e.target.checked)}
-        className="mr-2 transform scale-150"
-      />
-      <label htmlFor="reserveWeekly">Reserve weekly for the rest of the semester</label>
-    </div>)}
-
+      {currentUser &&
+        (currentUser.permissions === "Admin" ||
+          currentUser.permissions === "Elevated Student" ||
+          currentUser.permissions === "Professor") && (
+          <div className="flex items-center justify-center w-full">
+            <input
+              id="reserveWeekly"
+              type="checkbox"
+              checked={reserveWeekly}
+              onChange={(e) => setReserveWeekly(e.target.checked)}
+              className="mr-2 transform scale-150"
+            />
+            <label htmlFor="reserveWeekly">
+              Reserve weekly for the rest of the semester
+            </label>
+          </div>
+        )}
     </div>
   );
 
