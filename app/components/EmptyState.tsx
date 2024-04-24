@@ -10,8 +10,8 @@ interface EmptyState {
 }
 
 const EmptyState: React.FC<EmptyState> = ({
-    title = "No exact matches",
-    subtitle = "Try modifying your search criteria.",
+    title = "Nothing here.",
+    subtitle = "",
     showReset
 }) => {
     const router = useRouter();

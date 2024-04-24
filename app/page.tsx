@@ -40,7 +40,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   } else {
     return (
       <ClientOnly>
-        <EmptyState showReset />
+        <EmptyState title="No exact matches." subtitle="Try modifying your search criteria." showReset />
       </ClientOnly>
     );
   }
