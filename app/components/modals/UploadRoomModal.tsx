@@ -3,7 +3,6 @@
 import React, { useMemo, useState } from "react";
 import Modal from "./Modal";
 import useUploadRoomModal from "@/app/hooks/useUploadRoomModal";
-import Heading from "../Heading";
 import { buildings } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -38,7 +37,6 @@ const UploadRoomModal = () => {
       number: "",
       floor: 0,
       imageSrc: "",
-      category: [],
       capacity: 0,
       whiteboards: 0,
       computers: 0,
@@ -46,8 +44,11 @@ const UploadRoomModal = () => {
     },
   });
 
+  // required fields
   let building = watch("building");
+  let number = watch("number");
   let imageSrc = watch("imageSrc");
+
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldDirty: true,
@@ -56,11 +57,23 @@ const UploadRoomModal = () => {
     });
   };
 
+  const handleCancel = () => {
+    reset();
+    setStep(STEPS.BUILDING);
+    uploadRoomModal.onClose();
+  };
+
   const onBack = () => {
     setStep((value) => value - 1);
   };
 
   const onNext = () => {
+    if (step === STEPS.BUILDING) {
+      if (!building || !number) {
+        toast.error("You must complete all fields.");
+        return;
+      }
+    }
     setStep((value) => value + 1);
   };
 
@@ -171,6 +184,7 @@ const UploadRoomModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
+          required={true}
         />
     </div>
   );
@@ -223,7 +237,7 @@ const UploadRoomModal = () => {
   return (
     <Modal
       isOpen={uploadRoomModal.isOpen}
-      onClose={uploadRoomModal.onClose}
+      onClose={handleCancel}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}

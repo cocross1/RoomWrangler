@@ -97,7 +97,7 @@ const Modal: React.FC<ModalProps> = ({
                 flex
                 flex-col
                 w-full
-                bg-blue-200
+                bg-neutral-50
                 outline-none
                 focus:outline-none">
                   {/* HEADER */ }
@@ -118,7 +118,7 @@ const Modal: React.FC<ModalProps> = ({
                         left-9">
                             <IoMdClose size={18}/>
                         </button>)}
-                        <div className="text-lg font-semibold">
+                        <div className="text-2xl font-semibold">
                           {title}
                         </div>
                     </div>

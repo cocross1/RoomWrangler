@@ -72,7 +72,7 @@ const Input: React.FC<InputProps> = ({
         transition 
         disabled:opacity-70 
         disabled:cursor-not-allowed 
-        ${errors[id] ? "border-rose-500" : "border-neutral-300"}
+        ${errors[id] ? "border-rose-500" : "border-neutral-500"}
         ${errors[id] ? "focus:border-rose-500" : "focus:border-black"}`}
       />
       <label
@@ -90,7 +90,7 @@ const Input: React.FC<InputProps> = ({
         peer-placeholder-shown:translate-y-0
         peer-focus:scale-75
         peer-focus:-translate-y-4
-        ${errors[id] ? "text-blue-500" : "text-zinc-400"}`}
+        ${errors[id] ? "text-rose-500" : "text-zinc-400"}`}
       >
         {label}
       </label>

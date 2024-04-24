@@ -52,8 +52,6 @@ export async function POST(request: Request, { params }: { params: IParams }) {
       computers: computers !== room.computers ? computers : room.computers,
     };
 
-    console.log("here?");
-
     const updatedRoom = await prisma.room.update({
       where: {
         id: roomId,

@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useEffect } from "react";
-import axios from "axios";
-import { signIn, useSession, SessionProvider } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import useRegisterModal from "@/app/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import { toast } from "react-hot-toast";
@@ -25,8 +23,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ currentUser }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
-    register,
-    handleSubmit,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -53,8 +49,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ currentUser }) => {
             label="Log In with Google"
             icon={FcGoogle}
             onClick={() => {
-            const result = signIn("google", { redirect: false });
-              // or your preferred callback URL
+              const result = signIn("google", { redirect: false });
             }}
           />
         </div>

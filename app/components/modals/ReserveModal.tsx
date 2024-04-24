@@ -35,7 +35,6 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       type: "",
       userId: currentUser?.id,
       roomId: roomId,
-
       displayName: "",
       weekly: false,
     },
