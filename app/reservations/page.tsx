@@ -3,6 +3,7 @@ import ClientOnly from "../components/ClientOnly";
 import ReservationsClient from "./ReservationsClient"; 
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservationsByUserId from "../actions/getReservationsByUserId";
+import EmptyStateFavorites from "../components/EmptyStateFavorites";
 
 
 const ReservationsPage = async () => {
@@ -18,8 +19,15 @@ const ReservationsPage = async () => {
             </ClientOnly>
         )
     }
+
     const reservations = await getReservationsByUserId({userId: currentUser.id});
-    
+        if(reservations && reservations.length === 0){
+        return (
+            <ClientOnly>
+            <EmptyStateFavorites title="Looks like you haven't made any reservations yet." showReset />
+          </ClientOnly>
+          );
+    }
     if (reservations){
         return(
             <ClientOnly>
