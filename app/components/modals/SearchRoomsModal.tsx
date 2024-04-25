@@ -62,8 +62,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     if (step !== STEPS.FEATURES) {
-      console.log("data ", data);
-      console.log("data.startTime ", data.startTime);
       return onNext();
     }
 
@@ -85,7 +83,6 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
         representation: "complete",
       });
     }
-
 
     const url = qs.stringifyUrl(
       {
@@ -124,7 +121,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Subheader text="To search for a specific room, enter the room name and skip over the next screens."/>
+      <Subheader text="If you're looking for a specific room, enter the room name here. Leave all other fields blank." />
       <Input
         id="buildingAndNumber"
         label="ex: Building 100"
@@ -138,7 +135,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   if (step === STEPS.TIME) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Subheader text="When do you want to reserve a room?"/>
+        <Subheader text="If you don't have a room in mind, you can enter a start and end time to see all rooms available during that window." />
         <Input
           id="startTime"
           label="Reservation Start Time"
@@ -162,7 +159,7 @@ const SearchRoomsModal: React.FC<SearchRoomsModalProps> = ({ currentUser }) => {
   if (step === STEPS.FEATURES) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Subheader text="Filter search by desired room features. This step is optional."/>
+        <Subheader text="Filter search by desired room features. This step is optional." />
         <Input
           id="whiteboards"
           label="Whiteboards"

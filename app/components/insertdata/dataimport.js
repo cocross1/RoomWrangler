@@ -1,6 +1,6 @@
 /**
  * Script to read CSV data and insert in MongoDB database.
- * 
+ *
  *
  * CHANGE "user" and "password" in mongoDB connection string to.
  *
@@ -40,7 +40,6 @@ async function connectToMongoDB() {
 // Function to insert data from CSV to MongoDB collection
 async function insertDataFromCSV(filename, collection) {
   const db = await connectToMongoDB();
-  //console.log("Connection to DB established.")  // for debugging
   const reservationCollection = db.collection("Reservation");
 
   let totalRows = 0;
@@ -82,15 +81,10 @@ async function insertDataFromCSV(filename, collection) {
           contactName: requestor,
         };
 
-        // console.log(input_dict)    //debugging
-
         // INSERTING DATA TO COLLECTION
         // await reservationCollection.insertOne(input_dict);   //UNCOMMENT TO INSERT DATA
 
         parsedRows++;
-
-        //console.log("Actually inserted: " + parsedRows + new Date());  //debugging
-
       } else {
         //error handling
         console.log(
@@ -105,14 +99,8 @@ async function insertDataFromCSV(filename, collection) {
       }
 
       if (parsedRows == totalRows) {
-        console.log("CSV processed!");
-        console.log("Total Rows: " + totalRows); // expect 2 w/ test.csv; 532 w/ spring2024.csv
-        console.log("Rows Parsed: " + parsedRows);
-
         //closing connection to db
         db.client.close();
-
-        //console.log("Connection to DB closed.")   //debugging
 
         //ending script with code 0
         process.exit(0);

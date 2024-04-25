@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
   const body = await request.json();
 
-  const { 
+  const {
     roomId,
     startTime,
     endTime,
@@ -21,26 +21,25 @@ export async function POST(request: Request) {
     createdAt,
     type,
     contactName,
-    weekly
-   } = body;
+    weekly,
+  } = body;
 
-   console.log(weekly);
-   const numberOfWeeks = 16;
-   let reservations = [];
+  const numberOfWeeks = 16;
+  let reservations = [];
   // Fetch existing reservations for the room
   const existingReservations = await getReservationsByRoomId(roomId);
   for (let week = 0; week < (weekly ? numberOfWeeks : 1); week++) {
     // Calculate new start and end times for each week
     let newStartTime = new Date(startTime);
     newStartTime.setDate(newStartTime.getDate() + 7 * week);
-    
+
     let newEndTime = new Date(endTime);
     newEndTime.setDate(newEndTime.getDate() + 7 * week);
-    
+
     // Fetch existing reservations for the room
     const existingReservations = await getReservationsByRoomId(roomId);
     let hasOverlap = false;
-    
+
     // Check for overlapping reservations if existingReservations is not null
     if (existingReservations && existingReservations.length > 0) {
       hasOverlap = existingReservations.some((reservation) => {
@@ -52,14 +51,8 @@ export async function POST(request: Request) {
       });
     }
 
-    if (
-      hasOverlap ||
-      newStartTime > newEndTime ||
-      newStartTime < new Date()
-    ) {
-      // Handle overlap or invalid time by either stopping the loop or adjusting logic as needed
-      console.log(`Overlap or invalid time for week ${week + 1}`);
-      return NextResponse.error(); // or return NextResponse.error();
+    if (hasOverlap || newStartTime > newEndTime || newStartTime < new Date()) {
+      return NextResponse.error();
     }
 
     // Create reservation for this week
@@ -73,9 +66,9 @@ export async function POST(request: Request) {
         createdAt,
         type,
         contactName,
-      }
+      },
     });
-    
+
     reservations.push(reservation);
   }
 

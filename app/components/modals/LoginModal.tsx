@@ -4,10 +4,9 @@ import React, { useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import Modal from "./Modal";
 import Heading from "../Heading";
-import { toast } from "react-hot-toast";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
 import Button from "../Button";
@@ -18,7 +17,6 @@ interface LoginModalProps {
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({ currentUser }) => {
-  const router = useRouter();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 

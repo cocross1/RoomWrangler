@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";

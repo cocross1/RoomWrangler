@@ -28,7 +28,6 @@ const useEditRoomModal = create<EditRoomModalStore>((set) => ({
   imageSrc: "",
   isOpen: false,
   onOpen: (room) => {
-    console.log("opening w data: ", room.whiteboards);
     set({
       roomId: room.id,
       number: room.number,

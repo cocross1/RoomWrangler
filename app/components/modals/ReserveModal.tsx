@@ -59,7 +59,6 @@ const ReserveModal: React.FC<ReserveModalProps> = ({ currentUser }) => {
       representation: "complete",
     });
     data.weekly = reserveWeekly;
-    console.log(data.weekly);
     axios
       .post("/api/reservations", data)
       .then(() => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { SafeUser, SafeReservation } from "@/app/types";
-import { Room, Reservation } from "@prisma/client";
+import { Room } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
@@ -12,7 +12,7 @@ import useReserveModal from "@/app/hooks/useReserveModal";
 
 interface RoomCardProps {
   data: Room;
-  reservation?: SafeReservation; // changed Reservation to SafeReservation
+  reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
@@ -31,10 +31,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
 }) => {
   const router = useRouter();
   const reserveModal = useReserveModal();
-  // something that we won't use, but might be helpful/simialr to something we need in the future:
-  // locationValue is a field stored on the Listing model (in the db)
-  // const { getByValue } = useCountries();
-  // const location = getByValue(data.locationValue);
 
   // breaks fn if room card is disabled
   // calls onAction if the action exists

@@ -2,9 +2,7 @@
 
 import { SafeUser } from "@/app/types";
 import Heading from "../Heading";
-import Button from "../Button";
 import Image from "next/image";
-import useReserveModal from "@/app/hooks/useReserveModal";
 import HeartButton from "../HeartButton";
 
 interface RoomHeadProps {
@@ -17,10 +15,6 @@ interface RoomHeadProps {
 const RoomHead: React.FC<RoomHeadProps> = ({
     title, imageSrc, id, currentUser
 }) => {
-    const reserveModal = useReserveModal();
-
-    // this is very broken i know but it is kinda sorta the rough steps of what we want
-    // ... for now
     
     return (
         <div className="mt-20">

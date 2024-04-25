@@ -1,6 +1,5 @@
 "use client";
 
-import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 
 interface WelcomeTitleProps {

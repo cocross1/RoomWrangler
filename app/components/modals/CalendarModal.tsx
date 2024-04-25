@@ -12,7 +12,7 @@ const CalendarModal = () => {
   const reservations = calendarModal.reservations;
   const title = "Calendar For " + calendarModal.buildingAndNumber;
 
-  //const eventColorMap = {"ET": "#378006", "AT": "#378006", "Academic Class": "#478006"};
+  // NEED TO FIX THIS
   let eventColorMap = new Map<string, string>([
     ["ET", "#378006"],
     ["AT", "#378006"],
@@ -27,7 +27,7 @@ const CalendarModal = () => {
       <div>
         <FullCalendar
           plugins={[timeGridPlugin, dayGridPlugin]}
-          initialView="timeGridWeek" // Or "timeGridDay" for daily view
+          initialView="timeGridWeek"
           headerToolbar={{
             left: "prev,next today",
             center: "title",
@@ -43,8 +43,6 @@ const CalendarModal = () => {
             textColor: "#000000",
           }))}
           allDaySlot={false}
-
-          // Disable the all-day slot row at the top
         />
       </div>
     </div>

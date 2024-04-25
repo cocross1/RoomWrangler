@@ -30,7 +30,7 @@ const ReservationsPage = async () => {
     if (reservations){
         return(
             <ClientOnly>
-                <ReservationsClient // changed from TripsClient
+                <ReservationsClient
                     reservations = {reservations}
                     currentUser = {currentUser}
                 />
