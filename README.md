@@ -6,10 +6,10 @@ A centralized system for reserving classrooms/ study spaces on university campus
 This project is important for Davidson College since Davidson's current system has inconsistencies and requires different communication and approval channels. Room Wrangler attempts to solve these problems and provide instant reservations without the requirment of a middle man (unless absolutely necessary).
 
 ## Requirements
-Node.js
-Mongo DB
-Prisma
-Next.js
+- Node.js
+- Mongo DB
+- Prisma
+- Next.js
 
 ### How to Install
 - Find instructions to install Node JS [here](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs).
