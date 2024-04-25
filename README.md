@@ -23,14 +23,14 @@ Next.js
    - Connection String example: ``` "mongodb+srv://<USER>:<PASSWORD>@mongoverse.oyw8geb.mongodb.net/RoomWrangler" ```
    - Find instructions to set up your connection string [here](https://www.mongodb.com/resources/products/fundamentals/mongodb-connection-string). 
 
-5. Assuming Node JS is already installed, run the following commands in the terminal:
+4. Assuming Node JS is already installed, run the following commands in the terminal:
    - ```npm i next@latest ``` (installs latest Next.js support required for the app)
    - ```npm prisma db push``` (sets and syncs up database using Prisma)
    - ```npm run dev``` (runs the project)
-6. When the last command is executed, the code is compiled and the console looks similar to the following:
-7. ![Image of code execution results in an IDE terminal](img/console.png)
-8. Click on the local host link provided if your browser does not launch automatically. This will open the website in your default browser.
-9. The app can now be used in your browser! 
+5. When the last command is executed, the code is compiled and the console looks similar to the following:
+    ![Image of code execution results in an IDE terminal](img/console.png)
+6. Click on the local host link provided if your browser does not launch automatically. This will open the website in your default browser.
+7. The app can now be used in your browser! 
 
 ### Group Members:
 - Connor Cross '25
