@@ -7,9 +7,9 @@ import MenuItem from "./MenuItem";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
-import useRentModal from "@/app/hooks/useUploadRoomModal";
 import { useRouter } from "next/navigation";
 import useSearchRoomsModal from "@/app/hooks/useSearchRoomsModal";
+import useUploadRoomModal from "@/app/hooks/useUploadRoomModal";
 
 interface UserMenuProps {
   currentUser: SafeUser;
@@ -20,7 +20,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal();
   const searchRoomsModal = useSearchRoomsModal();
   const searchRoomsModalButtonLabel = "Search for Available Rooms";
-  const rentModal = useRentModal();
+  const uploadRoomModal = useUploadRoomModal();
   const uploadRoomModalButtonLabel = "Upload a Room";
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,9 +32,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     searchRoomsModal.onOpen();
   }, [searchRoomsModal]);
 
-  const onRent = useCallback(() => {
-    rentModal.onOpen();
-  }, [rentModal]);
+  const onUploadRoom = useCallback(() => {
+    uploadRoomModal.onOpen();
+  }, [uploadRoomModal]);
 
   return (
     <div className="relative">
@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         </div>
         {currentUser && currentUser.permissions === "Admin" && (
           <div
-            onClick={onRent}
+            onClick={onUploadRoom}
             className="
             md:block
             text-sm
