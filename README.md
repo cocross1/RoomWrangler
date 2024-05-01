@@ -33,8 +33,8 @@ This project is important for Davidson College since Davidson's current system h
 7. The app can now be used in your browser! 
 
 ### Group Members
-- Connor Cross '25
-- Kate Hynes '24 @katehynes
-- Rachel Massa '26
-- Yumna Ahmed '25
+- Connor Cross '25 [@cocross1]( https://github.com/orgs/VideoAmp/teams/team-name/members )
+- Kate Hynes '24 [@katehynes]( https://github.com/orgs/VideoAmp/teams/team-name/members )
+- Rachel Massa '26 [@ramassa8]( https://github.com/orgs/VideoAmp/teams/team-name/members )
+- Yumna Ahmed '25 [@yuahmed]( https://github.com/orgs/VideoAmp/teams/team-name/members )
 
