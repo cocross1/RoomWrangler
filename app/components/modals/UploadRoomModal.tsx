@@ -177,6 +177,7 @@ const UploadRoomModal = () => {
         register={register}
         errors={errors}
         required={true}
+        value={''}
       />
       <Input
           id="floor"
@@ -185,6 +186,7 @@ const UploadRoomModal = () => {
           register={register}
           errors={errors}
           required={true}
+          value={0}
         />
     </div>
   );
@@ -198,6 +200,7 @@ const UploadRoomModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
+          value={0}
         />
         <Input
           id="computers"
@@ -205,6 +208,7 @@ const UploadRoomModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
+          value={0}
         />
         <Input
           id="projectors"
@@ -212,6 +216,7 @@ const UploadRoomModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
+          value={0}
         />
         <Input
           id="capacity"
@@ -219,6 +224,7 @@ const UploadRoomModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
+          value={0}
         />
       </div>
     );

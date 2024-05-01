@@ -39,9 +39,9 @@ const CalendarModal = () => {
             title: reservation.displayName,
             start: reservation.startTime,
             end: reservation.endTime,
-            backgroundColor: eventColorMap.get(reservation.type) ?? "#d3d3d3",
             textColor: "#000000",
           }))}
+          eventColor="rgb(243 232 255)"
           allDaySlot={false}
         />
       </div>
