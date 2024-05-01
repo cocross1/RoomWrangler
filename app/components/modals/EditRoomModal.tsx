@@ -30,7 +30,8 @@ const EditRoomModal = () => {
     reset,
   } = useForm<FieldValues>({});
 
-  let imageSrc = editRoomModal.imageSrc;
+  let defaultImageSrc = editRoomModal.imageSrc;
+  let imageSrc = watch("imageSrc");
 
   const handleCancel = () => {
     reset();
@@ -174,7 +175,7 @@ const EditRoomModal = () => {
         <Heading title="Add a photo of the room." />
         <ImageUpload
           onChange={(value) => setCustomValue("imageSrc", value)}
-          value={imageSrc}
+          value={imageSrc?? defaultImageSrc}
         />
       </div>
     );
