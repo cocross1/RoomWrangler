@@ -32,9 +32,9 @@ This project is important for Davidson College since Davidson's current system h
 6. Click on the local host link provided if your browser does not launch automatically. This will open the website in your default browser.
 7. The app can now be used in your browser! 
 
-### Group Members:
-- Connor Cross '25
-- Kate Hynes '24
-- Rachel Massa '26
-- Yumna Ahmed '25
+### Group Members
+- Connor Cross '25 [@cocross1](https://github.com/cocross1)
+- Kate Hynes '24 [@katehynes](https://github.com/katehynes)
+- Rachel Massa '26 [@ramassa8](https://github.com/ramassa8)
+- Yumna Ahmed '25 [@yuahmed](https://github.com/yuahmed)
 
