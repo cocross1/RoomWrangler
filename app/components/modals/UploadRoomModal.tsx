@@ -149,7 +149,7 @@ const UploadRoomModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Subheader text="Enter the building name, room number, and floor. This step is required." />
+      <Subheader text="Select the building and enter the room number." />
       <div
         className="
             grid
@@ -177,9 +177,15 @@ const UploadRoomModal = () => {
         register={register}
         errors={errors}
         required={true}
-        value={''}
+        value={' '}
       />
-      <Input
+    </div>
+  );
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Subheader text="Add additional information about the room." />
+        <Input
           id="floor"
           label="Floor"
           disabled={isLoading}
@@ -188,12 +194,6 @@ const UploadRoomModal = () => {
           required={true}
           value={0}
         />
-    </div>
-  );
-  if (step === STEPS.INFO) {
-    bodyContent = (
-      <div className="flex flex-col gap-8">
-        <Subheader text="Add additional information about the room. This step is optional." />
         <Input
           id="whiteboards"
           label="Whiteboards"
